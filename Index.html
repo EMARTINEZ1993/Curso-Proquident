@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Curso introductorio sobre herramientas de IA aplicadas al trabajo en Proquident. Aprende ChatGPT e ingeniería de prompts.">
+  <title>Curso IA  · Proquident</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="CSS/styleindex.css">
+  <link rel="stylesheet" href="CSS/style.css">
+ 
+</head>
+
+<body style="background: var(--bg);">
+
+  <div id="progress-bar"></div>
+
+  <!-- NAV -->
+  <nav class="top-nav">
+    <a href="#" class="nav-brand">
+      <div class="nav-brand-dot"></div>
+      IA Tools
+    </a>
+    <ul class="nav-links">
+      <li><a href="#" class="active"><i class="fa-solid fa-house"></i> Inicio</a></li>
+      <li><a href="Modulo1.html"><i class="fa-solid fa-robot"></i> Módulo 1</a></li>
+      <li><a href="pagina2.html"><i class="fa-solid fa-wand-magic-sparkles"></i> Módulo 2</a></li>
+      <li><a href="Modulo1.html" class="nav-cta"><i class="fa-solid fa-play"></i> Comenzar</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-inner">
+      <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Curso · Proquident</div>
+      <h1>Domina las <span>Herramientas</span><br>de Inteligencia Artificial</h1>
+      <p class="hero-desc">
+        Aprende a comunicarte con la IA de forma efectiva. Desde tu primer prompt hasta técnicas avanzadas de
+        ingeniería de instrucciones, aplicadas al contexto empresarial de Proquident.
+      </p>
+      <div class="hero-actions">
+        <a href="Modulo1.html" class="btn-hero-primary">
+          <i class="fa-solid fa-play"></i> Ir al Módulo 1
+        </a>
+        <a href="pagina2.html" class="btn-hero-outline">
+          Ver Módulo 2 <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="index-main">
+
+    <!-- Stats -->
+    <div class="stats-row reveal">
+      <div class="stat-card">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Módulos interactivos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Aplicado al trabajo</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">Posibilidades con IA</div>
+      </div>
+    </div>
+
+    <!-- Course info panel -->
+    <div class="info-panel reveal">
+      <div class="info-panel-header">
+        <div>
+          <span class="section-label">Ruta del curso</span>
+          <h2>Información del curso</h2>
+        </div>
+        <span class="badge-pill">Inicio rápido</span>
+      </div>
+      <p>Curso introductorio sobre herramientas de IA aplicadas al trabajo, con módulos interactivos, ejercicios
+        guiados y escenarios cercanos al contexto empresarial de Proquident.</p>
+    </div>
+
+    <!-- Modules grid -->
+    <span class="section-label reveal" style="margin-bottom: 16px; display: block;">Módulos del curso</span>
+    <div class="modules-grid">
+      <a href="Modulo1.html" class="module-card reveal">
+        <div class="module-card-icon">
+          <i class="fa-solid fa-robot"></i>
+        </div>
+        <div class="module-num">Módulo 1</div>
+        <h3>Uso Estratégico de ChatGPT</h3>
+        <p>Configuración de cuenta, función de memoria, chats temporales y colaboración grupal. Aprende a sacar el
+          máximo partido de ChatGPT en escenarios empresariales reales.</p>
+        <span class="module-card-link">Ver módulo <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+
+      <a href="pagina2.html" class="module-card reveal">
+        <div class="module-card-icon">
+          <i class="fa-solid fa-wand-magic-sparkles"></i>
+        </div>
+        <div class="module-num">Módulo 2</div>
+        <h3>Ingeniería de Prompts</h3>
+        <p>Técnicas avanzadas para estructurar tus instrucciones y obtener respuestas más precisas, creativas y
+          útiles. Domina el lenguaje de la inteligencia artificial.</p>
+        <span class="module-card-link">Ver módulo <i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+
+    <!-- Objective -->
+    <div class="objective-block reveal">
+      <h2>🎯 ¿Qué lograrás al finalizar?</h2>
+      <p>Serás capaz de integrar herramientas de inteligencia artificial en tu flujo de trabajo diario, reducir
+        tiempos de respuesta, mejorar la calidad de tus comunicaciones y aportar mayor valor a Proquident mediante el
+        uso estratégico de la IA.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    © 2025 <strong>Luz Eliana</strong> · Curso complementario de IA &nbsp;—&nbsp; Desarrollado con ♥ para el equipo
+  </footer>
+
+  <script>
+    // Progress bar
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+      document.getElementById('progress-bar').style.width = (scrolled * 100) + '%';
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>

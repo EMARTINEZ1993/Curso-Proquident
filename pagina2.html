@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IA Generativa y Prompts Profesionales | Módulo 2</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div id="progress-bar"></div>
+    <div id="toast"><i class="fa-solid fa-check"></i> <span id="toast-text">Prompt copiado</span></div>
+
+    <!-- HERO -->
+    <header class="hero" id="inicio">
+        <div class="hero-inner">
+            <div class="hero-badge">IA Profesional · Uso Empresarial</div>
+            <h1>IA Generativa y Prompts 🚀</h1>
+            <p>Potenciando la productividad empresarial mediante el uso estratégico de modelos de lenguaje avanzados.
+            </p>
+        </div>
+    </header>
+
+    <!-- NAV MENÚ ORGANIZADO -->
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="showSection('inicio-sec')"><i class="fa-solid fa-house"></i>
+            Inicio</button>
+        <button class="tab-btn" onclick="showSection('ias-sec')"><i class="fa-solid fa-brain"></i> IAs
+            Generativas</button>
+        <button class="tab-btn" onclick="showSection('prompt-sec')"><i class="fa-solid fa-terminal"></i>
+            Prompts</button>
+        <button class="tab-btn" onclick="showSection('deepseek-sec')"><i class="fa-solid fa-robot"></i>
+            DeepSeek</button>
+        <button class="tab-btn" onclick="showSection('actividad-sec')"><i class="fa-solid fa-flask"></i>
+            Actividad</button>
+    </nav>
+
+    <main>
+        <!-- SECCIÓN INICIO -->
+        <section id="inicio-sec" class="section active">
+            <div class="section-header">
+                <p class="section-label">Introducción</p>
+                <h2 class="section-title">¿Qué vamos a aprender en este bloque?</h2>
+                <p class="section-desc">
+                    En esta segunda parte del módulo, exploraremos el ecosistema de la Inteligencia Artificial
+                    Generativa y dominaremos el arte de la comunicación con estas herramientas.
+                </p>
+            </div>
+
+            <div class="deep-features-grid">
+                <div class="deep-feature-card">
+                    <div class="deep-feature-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3>IAs Generativas</h3>
+                    <p>Comprenderemos qué son y cómo se comparan las herramientas líderes del mercado actual.</p>
+                </div>
+                <div class="deep-feature-card">
+                    <div class="deep-feature-icon"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3>Prompt Engineering</h3>
+                    <p>Aprenderemos a diseñar instrucciones precisas para obtener resultados de alta calidad.</p>
+                </div>
+                <div class="deep-feature-card">
+                    <div class="deep-feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <h3>DeepSeek</h3>
+                    <p>Profundizaremos en el uso de esta potente herramienta gratuita y sus capacidades empresariales.
+                    </p>
+                </div>
+                <div class="deep-feature-card">
+                    <div class="deep-feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3>Práctica Real</h3>
+                    <p>Aplicaremos lo aprendido en ejercicios diseñados para entornos profesionales y empresariales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN IAs GENERATIVAS -->
+        <section id="ias-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Conceptos Clave</p>
+                <h2 class="section-title">¿Qué es la IA Generativa?</h2>
+                <p class="section-desc">Es una rama de la inteligencia artificial capaz de crear contenido nuevo (texto,
+                    imágenes, audio, código) a partir de patrones aprendidos en datos existentes.</p>
+            </div>
+
+            <div class="card">
+                <h3>Principales Exponentes</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>IA</th>
+                                <th>Empresa</th>
+                                <th>Licencia</th>
+                                <th>Fortaleza Principal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ChatGPT</strong></td>
+                                <td>OpenAI</td>
+                                <td><span class="badge-free">Freemium</span></td>
+                                <td>Versatilidad y razonamiento</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude</strong></td>
+                                <td>Anthropic</td>
+                                <td><span class="badge-free">Freemium</span></td>
+                                <td>Escritura humana y ética</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gemini</strong></td>
+                                <td>Google</td>
+                                <td><span class="badge-free">Freemium</span></td>
+                                <td>Ecosistema Google y Multimodalidad</td>
+                            </tr>
+                            <tr>
+                                <td><strong>DeepSeek</strong></td>
+                                <td>DeepSeek AI</td>
+                                <td><span class="badge-free">Gratuito</span></td>
+                                <td>Programación y contexto masivo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Perplexity</strong></td>
+                                <td>Perplexity</td>
+                                <td><span class="badge-free">Freemium</span></td>
+                                <td>Búsqueda con fuentes reales</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div
+                    style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; margin-top: 30px; padding: 20px; background: var(--primary-l); border-radius: 20px;">
+                    <a href="https://chat.openai.com" target="_blank" class="ia-link"><i
+                            class="fa-solid fa-comment-dots"></i> ChatGPT</a>
+                    <a href="https://claude.ai" target="_blank" class="ia-link"><i class="fa-solid fa-feather"></i>
+                        Claude</a>
+                    <a href="https://gemini.google.com" target="_blank" class="ia-link"><i class="fa-solid fa-g"></i>
+                        Gemini</a>
+                    <a href="https://chat.deepseek.com" target="_blank" class="ia-link"><i
+                            class="fa-solid fa-robot"></i> DeepSeek</a>
+                    <a href="https://perplexity.ai" target="_blank" class="ia-link"><i class="fa-solid fa-search"></i>
+                        Perplexity</a>
+                </div>
+
+                <h3 style="margin-top: 40px;"><i class="fa-solid fa-chart-bar" style="color: var(--primary);"></i> Top
+                    5: IAs más usadas (Tráfico Global)</h3>
+                <div class="bar-chart-container">
+                    <div class="bar-item">
+                        <div class="bar-label">ChatGPT</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 100%;"></div>
+                        </div>
+                        <div class="bar-value">100%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Gemini</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 45%;"></div>
+                        </div>
+                        <div class="bar-value">45%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Claude</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 35%;"></div>
+                        </div>
+                        <div class="bar-value">35%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">DeepSeek</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 25%;"></div>
+                        </div>
+                        <div class="bar-value">25%</div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label">Perplexity</div>
+                        <div class="bar-track">
+                            <div class="bar-fill" style="width: 15%;"></div>
+                        </div>
+                        <div class="bar-value">15%</div>
+                    </div>
+                </div>
+                <p style="font-size: 0.75rem; color: var(--text-light); margin-top: 10px; text-align: right;">*Datos
+                    aproximados basados en tráfico web global 2024.</p>
+            </div>
+
+            <div class="card">
+                <h3>Crecimiento del Uso de IA Generativa</h3>
+                <p style="margin-bottom: 20px;">Adopción estimada en el entorno empresarial (2023-2026):</p>
+                <div
+                    style="height: 200px; display: flex; align-items: flex-end; gap: 10px; padding: 20px; background: var(--bg-alt); border-radius: 16px;">
+                    <div
+                        style="flex: 1; background: var(--primary-d); height: 30%; border-radius: 8px 8px 0 0; position: relative;">
+                        <span
+                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold;">30%</span>
+                        <div
+                            style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.7rem;">
+                            2023</div>
+                    </div>
+                    <div
+                        style="flex: 1; background: var(--primary); height: 55%; border-radius: 8px 8px 0 0; position: relative;">
+                        <span
+                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold;">55%</span>
+                        <div
+                            style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.7rem;">
+                            2024</div>
+                    </div>
+                    <div
+                        style="flex: 1; background: var(--accent); height: 80%; border-radius: 8px 8px 0 0; position: relative;">
+                        <span
+                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold;">80%</span>
+                        <div
+                            style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.7rem;">
+                            2025</div>
+                    </div>
+                    <div
+                        style="flex: 1; background: var(--success); height: 95%; border-radius: 8px 8px 0 0; position: relative;">
+                        <span
+                            style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold;">95%</span>
+                        <div
+                            style="position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.7rem;">
+                            2026</div>
+                    </div>
+                </div>
+                <p style="margin-top: 40px; font-size: 0.85rem; color: var(--text-light); text-align: center;">La
+                    integración de la IA generativa se ha convertido en una necesidad competitiva.</p>
+            </div>
+        </section>
+
+        <!-- SECCIÓN PROMPT -->
+        <section id="prompt-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Fundamentos</p>
+                <h2 class="section-title">Dominando el Prompt Engineering</h2>
+                <p class="section-desc">El prompt es la instrucción que define la calidad de la respuesta de la IA.</p>
+            </div>
+
+            <div class="card">
+                <p>Un <strong>prompt</strong> es la entrada que condiciona el comportamiento del modelo. En sistemas de
+                    IA generativa, actúa como un <strong>marco semántico</strong> que guía al modelo.</p>
+
+                <div class="tip-box">
+                    <i class="fa-solid fa-language"></i>
+                    <span><strong>Consejo Pro:</strong> Aunque los modelos actuales son excelentes en español,
+                        <strong>los prompts en inglés suelen funcionar mejor</strong>. Esto se debe a que la gran
+                        mayoría de los datos de entrenamiento están en este idioma, permitiendo una mayor precisión en
+                        razonamientos complejos.</span>
+                </div>
+
+                <div class="info-box">
+                    <h4>⚙️ ¿Cómo funciona?</h4>
+                    <ol style="margin-left: 20px;">
+                        <li>Defines el <strong>contexto</strong> (qué necesitas)</li>
+                        <li>Indicas una <strong>tarea</strong> (qué debe hacer la IA)</li>
+                        <li>Estableces <strong>restricciones o formato</strong> (cómo lo quieres)</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>🧩 Estructura de un prompt profesional</h3>
+                <p style="margin-bottom: 20px;">Para obtener resultados de nivel experto, utiliza esta estructura de 6
+                    componentes:</p>
+                <div class="structure-grid">
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Rol: </h4><b>Actúa como experto en..."</b>
+                    </div>
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Tarea: </h4><b>Genera un informe sobre..."</b>
+                    </div>
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Contexto: </h4><b>"Para una empresa de..."</b>
+                    </div>
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Formato: </h4><b>"En una tabla Markdown"</b>
+                    </div>
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Restricciones: </h4><b>"No menciones precios"</b>
+                    </div>
+                    <div class="structure-card">
+                        <h4 style="color: var(--primary-d);">Ejemplos: </h4><b>"Sigue este estilo: [ejemplo]"</b>
+                    </div>
+                </div>
+
+                <h4>📋 Plantilla Maestra</h4>
+                <div class="template-box">
+                    Actúa como <strong style="color: var(--primary-soft);">[rol]</strong>.<br>
+                    Realiza: <strong style="color: var(--primary-soft);">[tarea]</strong>.<br>
+                    Contexto: <strong style="color: var(--primary-soft);">[contexto]</strong>.<br>
+                    Formato: <strong style="color: var(--primary-soft);">[formato]</strong>.<br>
+                    Restricciones: <strong style="color: var(--primary-soft);">[condiciones]</strong>.
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>� Ejemplo Empresarial</h3>
+                <p>Caso: Un empleado de una fábrica dental necesita consultar el manual de seguridad y generar un correo
+                    de notificación.</p>
+                <div class="highlight">
+                    <strong>Prompt Optimizado:</strong><br><br>
+                    "Actúa como <strong>Asistente Administrativo Senior</strong>. <br><br>
+                    <strong>Tarea:</strong> Redacta un correo electrónico formal dirigido al equipo de producción
+                    notificando un cambio en el protocolo de manejo de químicos. <br><br>
+                    <strong>Contexto:</strong> Somos una empresa de fabricación de productos dentales. El cambio se basa
+                    en la nueva normativa de seguridad industrial 2026. <br><br>
+                    <strong>Formato:</strong> Estructura de correo (Asunto, Saludo, Cuerpo, Cierre). <br><br>
+                    <strong>Restricciones:</strong> Usa un tono profesional pero cercano, no excedas las 150 palabras."
+                </div>
+                <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
+                    onclick="copyPrompt(this, 'prompt-ejemplo-empresa')">
+                    <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Prompt de Ejemplo</span>
+                </button>
+                <div id="prompt-ejemplo-empresa" style="display:none;">Actúa como Asistente Administrativo Senior.
+                    Tarea: Redacta un correo electrónico formal dirigido al equipo de producción notificando un cambio
+                    en el protocolo de manejo de químicos. Contexto: Somos una empresa de fabricación de productos
+                    dentales. El cambio se basa en la nueva normativa de seguridad industrial 2026. Formato: Estructura
+                    de correo (Asunto, Saludo, Cuerpo, Cierre). Restricciones: Usa un tono profesional pero cercano, no
+                    excedas las 150 palabras.</div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DEEPSEEK -->
+        <section id="deepseek-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Herramienta Destacada</p>
+                <h2 class="section-title">DeepSeek: La IA sin barreras</h2>
+                <p class="section-desc">DeepSeek es un modelo de lenguaje de última generación que destaca por su
+                    eficiencia y su modelo de acceso gratuito.</p>
+            </div>
+
+            <div class="card">
+                <h3>¿Qué ofrece DeepSeek?</h3>
+                <p>A diferencia de otros modelos que limitan sus funciones más potentes a suscripciones de pago,
+                    DeepSeek ofrece capacidades de nivel "Pro" de forma gratuita.</p>
+
+                <div class="deep-features-grid" style="margin-top: 20px;">
+                    <div class="deep-feature-card">
+                        <div class="deep-feature-icon"><i class="fa-solid fa-unlock"></i></div>
+                        <h3>Licencia Gratuita</h3>
+                        <p>Acceso total a sus modelos más potentes sin cuotas mensuales.</p>
+                    </div>
+                    <div class="deep-feature-card">
+                        <div class="deep-feature-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <h3>Razonamiento</h3>
+                        <p>Excelente en tareas lógicas, matemáticas y programación.</p>
+                    </div>
+                    <div class="deep-feature-card">
+                        <div class="deep-feature-icon"><i class="fa-solid fa-box-open"></i></div>
+                        <h3>Contexto Amplio</h3>
+                        <p>Capacidad para procesar documentos extremadamente largos.</p>
+                    </div>
+                    <div class="deep-feature-card">
+                        <div class="deep-feature-icon"><i class="fa-solid fa-globe"></i></div>
+                        <h3>Código Abierto</h3>
+                        <p>Gran parte de su tecnología es transparente y auditable.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div
+                        style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 20px; border: 1px solid var(--success);">
+                        <h4 style="color: var(--success); margin-bottom: 10px;"><i class="fa-solid fa-check-circle"></i>
+                            Lo que PUEDES hacer</h4>
+                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 20px;">
+                            <li>Analizar archivos PDF y Excel complejos.</li>
+                            <li>Generar código de programación profesional.</li>
+                            <li>Realizar búsquedas en internet en tiempo real.</li>
+                            <li>Planificar estrategias de negocio detalladas.</li>
+                        </ul>
+                    </div>
+                    <div
+                        style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 20px; border: 1px solid var(--error);">
+                        <h4 style="color: var(--error); margin-bottom: 10px;"><i class="fa-solid fa-times-circle"></i>
+                            Lo que NO DEBES hacer</h4>
+                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 20px;">
+                            <li>Subir información confidencial de clientes.</li>
+                            <li>Confiar ciegamente en datos numéricos sin verificar.</li>
+                            <li>Usarlo para generar contenido malicioso o ilegal.</li>
+                            <li>Ignorar que, como toda IA, puede tener "alucinaciones".</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Acceso Rápido</h3>
+                <div style="display: flex; gap: 15px; margin-top: 15px;">
+                    <a href="https://chat.deepseek.com" target="_blank" class="ia-link"
+                        style="flex: 1; justify-content: center;"><i class="fa-solid fa-desktop"></i> Versión Web</a>
+                    <a href="https://apps.apple.com/app/deepseek" target="_blank" class="ia-link"
+                        style="flex: 1; justify-content: center;"><i class="fa-solid fa-mobile-screen"></i> App
+                        Store</a>
+                    <a href="https://play.google.com/store/apps/details?id=com.deepseek.chat" target="_blank"
+                        class="ia-link" style="flex: 1; justify-content: center;"><i class="fa-solid fa-play"></i>
+                        Google Play</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN ACTIVIDAD -->
+        <section id="actividad-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Tarea Práctica</p>
+                <h2 class="section-title">🎯 Actividad: Optimización en la Planta Dental</h2>
+            </div>
+
+            <div class="activity-card light">
+                <div class="activity-title">
+                    <div class="icon-box"><i class="fa-solid fa-tooth"></i></div>
+                    <div>
+                        <strong>Caso: Control de Calidad en Insumos Odontológicos</strong>
+                    </div>
+                </div>
+
+                <div class="practice-steps">
+                    <div class="practice-step">
+                        <div class="practice-num">1</div>
+                        <div>
+                            <strong>Selección de Producto</strong>
+                            <span>Elige un producto dental (ej: Resinas compuestas, Implantes de titanio o Instrumental
+                                quirúrgico) para este ejercicio.</span>
+                        </div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">2</div>
+                        <div>
+                            <strong>Rol: Jefe de Producción</strong>
+                            <span>Usa DeepSeek para generar un <strong>Checklist de Control de Calidad</strong> para el
+                                producto elegido, enfocándote en la eficiencia de fabricación.</span>
+                        </div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">3</div>
+                        <div>
+                            <strong>Rol: Auditor de Calidad ISO</strong>
+                            <span>En el mismo chat, pídele que actúe como un <strong>Auditor Externo</strong> y evalúe
+                                si ese checklist cumple con normativas internacionales de seguridad para
+                                pacientes.</span>
+                        </div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">4</div>
+                        <div>
+                            <strong>Optimización Final</strong>
+                            <span>Solicita a la IA que genere un <strong>Protocolo de Mejora Continua</strong> basado en
+                                las observaciones del auditor.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight">
+                    <i class="fa-solid fa-microscope"></i>
+                    <strong>Reflexión Profesional:</strong> ¿Cómo cambió el nivel de detalle técnico cuando pasaste de
+                    un rol operativo (Producción) a uno normativo (Auditor)? ¿Qué riesgos detectó la IA que no habías
+                    considerado inicialmente?
+                </div>
+            </div>
+
+            <div class="nav-footer">
+                <button class="primary-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <i class="fa-solid fa-arrow-up"></i> Volver arriba
+                </button>
+            </div>
+        </section>
+    </main>
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2025 <strong>Luz Eliana</strong> · Curso complementario de IA &nbsp;—&nbsp; Desarrollado con ♥ para el equipo
+    </footer>
+    <script>
+        // Mostrar/Ocultar secciones
+        function showSection(sectionId) {
+            const sections = ['inicio-sec', 'ias-sec', 'prompt-sec', 'deepseek-sec', 'actividad-sec'];
+
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('active');
+            });
+
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) targetSection.classList.add('active');
+
+            // Actualizar botones activos
+            const buttons = document.querySelectorAll('.tab-btn');
+            const index = sections.indexOf(sectionId);
+            buttons.forEach((btn, i) => {
+                if (i === index) btn.classList.add('active');
+                else btn.classList.remove('active');
+            });
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const sections = ['inicio-sec', 'ias-sec', 'prompt-sec', 'deepseek-sec', 'actividad-sec'];
+            const active = sections.findIndex(id => {
+                const el = document.getElementById(id);
+                return el && el.classList.contains('active');
+            });
+            const pct = (active / (sections.length - 1)) * 100;
+            document.getElementById('progress-bar').style.width = pct + '%';
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-text').innerText = msg;
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2500);
+        }
+
+        function copyPrompt(element, id) {
+            const promptText = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(promptText);
+            showToast('Prompt copiado al portapapeles');
+
+            const hintSpan = element.querySelector('.prompt-copy-hint');
+            if (!hintSpan) return;
+            const originalText = hintSpan.innerHTML;
+            hintSpan.innerHTML = '<i class="fa-solid fa-check"></i> ¡Copiado!';
+            setTimeout(() => hintSpan.innerHTML = originalText, 1500);
+        }
+
+        // Progress bar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const winScroll = document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progress-bar').style.width = scrolled + '%';
+        });
+    </script>
+</body>
+
+</html>

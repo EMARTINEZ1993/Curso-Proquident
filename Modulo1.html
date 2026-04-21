@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Módulo 1: Uso Estratégico de ChatGPT | Tarea Interactiva</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+
+    <div id="toast"><i class="fa-solid fa-check"></i> <span id="toast-text">Copiado al portapapeles</span></div>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Módulo 1 · Inteligencia Artificial</div>
+            <h1>Uso <span>Estratégico</span>de ChatGPT</h1>
+            <p>Configuración, memoria, colaboración y práctica empresarial. </p>
+        </div>
+    </header>
+    <div id="progress-bar"></div>
+    <!-- NAV TABS -->
+    <nav class="tab-nav">
+        <button class="tab-btn active" onclick="showSection('intro', this)"><i class="fa-solid fa-house"></i>
+            Introducción</button>
+        <button class="tab-btn" onclick="showSection('config', this)"><i class="fa-solid fa-gear"></i>
+            Configuración</button>
+        <button class="tab-btn" onclick="showSection('menu', this)"><i class="fa-solid fa-bars"></i> Menú
+            Rápido</button>
+        <button class="tab-btn" onclick="showSection('temporal', this)"><i class="fa-solid fa-clock-rotate-left"></i>
+            Chat Temporal</button>
+        <button class="tab-btn" onclick="showSection('memoria', this)"><i class="fa-solid fa-brain"></i>
+            Memoria</button>
+        <button class="tab-btn" onclick="showSection('grupal', this)"><i class="fa-solid fa-users"></i> Chat
+            Grupal</button>
+        <button class="tab-btn" onclick="showSection('proquident', this)"><i class="fa-solid fa-tooth"></i>
+            Proquident</button>
+    </nav>
+
+    <main>
+        <!-- INTRO -->
+        <section class="section active" id="intro">
+            <div class="section-header">
+                <p class="section-label">Contextualización</p>
+                <h2 class="section-title">¿Qué es ChatGPT?</h2>
+                <p class="section-desc">ChatGPT es una plataforma de inteligencia artificial conversacional, lanzada en
+                    2022 por OpenAI. En Colombia y el mundo se popularizó rápidamente entre finales de 2022 y 2023,
+                    generando gran interés. Hoy permite desde resolver dudas hasta crear imágenes, documentos y
+                    colaborar en tiempo real. Su versión gratuita ofrece funciones básicas, mientras que las versiones
+                    de pago amplían capacidades.</p>
+            </div>
+            <div class="grid-2" style="margin-bottom:24px; align-items:start;">
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">Nov 2022</div>
+                        <div class="tl-text">OpenAI lanza ChatGPT: 1M de usuarios en 5 días.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2022-2023</div>
+                        <div class="tl-text">Adopción masiva en Colombia y Latinoamérica.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2023-2024</div>
+                        <div class="tl-text">Funciones DALL-E, Canvas, voz y navegación web.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">Actualidad</div>
+                        <div class="tl-text">Versiones gratuita y de pago con distintos niveles de acceso.</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="intro-visual"><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/960px-ChatGPT-Logo.svg.png"
+                            alt="logo" onerror="this.style.display='none'">
+                        <p>✔ Resuelve dudas académicas<br>✔ Redacta textos, programa, traduce<br>✔ Automatiza tareas y
+                            genera ideas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="highlight"><strong>🎯 Objetivo del módulo:</strong> Al finalizar, podrás configurar tu cuenta
+                profesionalmente, usar memoria, compartir chats en equipo y resolver desafíos empresariales reales con
+                IA. <strong>¡La tarea final es grupal y deberás presentar los prompts utilizados!</strong></div>
+            <div class="nav-footer">
+                <div></div><button class="primary-nav" onclick="showSectionByIndex(1)">Empezar: Configuración <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- CONFIGURACIÓN -->
+        <section class="section" id="config">
+            <div class="section-header">
+                <p class="section-label">Bloque 1 · Tarea previa</p>
+                <h2 class="section-title">Configuración Inicial</h2>
+                <p class="section-desc">Antes de usar ChatGPT de manera profesional, es fundamental revisar y ajustar la
+                    configuración de la cuenta para adaptarla al perfil del usuario y mejorar la calidad de las
+                    respuestas.</p>
+            </div>
+
+            <div class="card" style="margin-bottom:20px;">
+                <h3 style="font-weight:700; margin-bottom:16px;"><i class="fa-solid fa-list-check"
+                        style="color:var(--green); margin-right:8px;"></i> Configuraciones principales disponibles</h3>
+                <ul class="step-list">
+                    <li>
+                        <div class="step-num">1</div>
+                        <div class="step-text"><strong>Personalización</strong>
+                            <p>Permite definir tono de respuesta, estilo, contexto profesional e instrucciones
+                                personalizadas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">2</div>
+                        <div class="step-text"><strong>Controles de datos</strong>
+                            <p>Gestiona el uso del historial de conversaciones y la mejora del modelo.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">3</div>
+                        <div class="step-text"><strong>Seguridad</strong>
+                            <p>Incluye opciones como verificación en dos pasos y administración de sesiones activas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">4</div>
+                        <div class="step-text"><strong>Ajustes del chat</strong>
+                            <p>Configuración de idioma, tema visual e instrucciones generales del sistema.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="card" style="margin-bottom:20px;">
+                <h3 style="font-weight:700; margin-bottom:16px;"><i class="fa-solid fa-gears"
+                        style="color:var(--green); margin-right:8px;"></i> Pasos de configuración</h3>
+                <ul class="step-list">
+                    <li>
+                        <div class="step-num">1</div>
+                        <div class="step-text"><strong>Accede al ícono de configuración ⚙️</strong>
+                            <p>Ubicado en la esquina inferior izquierda de ChatGPT.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">2</div>
+                        <div class="step-text"><strong>Ingresa a personalización</strong>
+                            <p>Ajusta estilo, tono y contexto del asistente.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">3</div>
+                        <div class="step-text"><strong>Configura controles de datos</strong>
+                            <p>Define el uso del historial según tus preferencias.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">4</div>
+                        <div class="step-text"><strong>Revisa seguridad</strong>
+                            <p>Activa verificación en dos pasos y revisa sesiones activas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">5</div>
+                        <div class="step-text"><strong>Define ajustes generales</strong>
+                            <p>Idioma, apariencia e instrucciones del sistema.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tip-box"><i class="fa-solid fa-lightbulb"></i><span><strong>Recomendación:</strong> Configurar
+                    las instrucciones personalizadas desde el inicio permite que ChatGPT adapte sus respuestas al rol,
+                    necesidades y estilo de trabajo del usuario.</span></div>
+
+            <div class="nav-footer">
+                <button onclick="showSectionByIndex(0)"><i class="fa-solid fa-arrow-left"></i> Anterior</button>
+                <button class="primary-nav" onclick="showSectionByIndex(2)">Menú de Acciones <i
+                        class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </section>
+
+        <!-- MENÚ RÁPIDO -->
+        <section class="section" id="menu">
+            <div class="section-header">
+                <p class="section-label">Bloque 2 · Exploración</p>
+                <h2 class="section-title">Menú de Acciones Rápidas</h2>
+                <p class="section-desc">Conoce las principales herramientas: Nueva conversación, Búsqueda web, Generar
+                    imagen y Canvas. Es importante que identifiques cuándo usar cada una.</p>
+            </div>
+            <div class="grid-2" style="margin-bottom:24px;">
+                <div class="feature-badge">
+                    <div class="fb-icon"><i class="fa-solid fa-plus"></i></div>
+                    <div class="fb-text"><strong>Nueva conversación</strong><span>Inicia un chat limpio sin contexto
+                            previo.</span></div>
+                </div>
+                <div class="feature-badge">
+                    <div class="fb-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div class="fb-text"><strong>Búsqueda Web</strong><span>Información actualizada en tiempo
+                            real.</span></div>
+                </div>
+                <div class="feature-badge">
+                    <div class="fb-icon"><i class="fa-solid fa-image"></i></div>
+                    <div class="fb-text"><strong>Generar imagen</strong><span>Crea gráficos con DALL·E 3 para
+                            presentaciones.</span></div>
+                </div>
+                <div class="feature-badge">
+                    <div class="fb-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                    <div class="fb-text"><strong>Canvas</strong><span>Lienzo interactivo para editar y crear
+                            documentos.</span></div>
+                </div>
+            </div>
+
+            <div class="card" style="background: linear-gradient(135deg, #ecfdf5, #fff);">
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
+                    <div class="icon-box" style="background:var(--green); margin-bottom:0;"><i class="fa-solid fa-pen"
+                            style="color:#fff;"></i></div>
+                    <div><strong>Actividad individual:</strong>
+                        <p style="font-size:.78rem;">Selecciona 3 opciones y escribe un posible uso profesional para
+                            cada una.</p>
+                    </div>
+                </div>
+                <div id="menu-options" class="grid-2" style="margin-bottom:16px;">
+                    <label class="feature-badge" style="cursor:pointer;"><input type="checkbox" style="display:none;"
+                            class="menu-check" value="Nueva conversación">
+                        <div class="fb-icon"><i class="fa-solid fa-plus"></i></div>
+                        <div class="fb-text"><strong>Nueva conversación</strong></div><i
+                            class="fa-solid fa-square check-icon" style="color:#ddd; margin-left:auto;"></i>
+                    </label>
+                    <label class="feature-badge" style="cursor:pointer;"><input type="checkbox" style="display:none;"
+                            class="menu-check" value="Búsqueda web">
+                        <div class="fb-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <div class="fb-text"><strong>Búsqueda web</strong></div><i class="fa-solid fa-square check-icon"
+                            style="color:#ddd; margin-left:auto;"></i>
+                    </label>
+                    <label class="feature-badge" style="cursor:pointer;"><input type="checkbox" style="display:none;"
+                            class="menu-check" value="Generar imagen">
+                        <div class="fb-icon"><i class="fa-solid fa-image"></i></div>
+                        <div class="fb-text"><strong>Generar imagen</strong></div><i
+                            class="fa-solid fa-square check-icon" style="color:#ddd; margin-left:auto;"></i>
+                    </label>
+                    <label class="feature-badge" style="cursor:pointer;"><input type="checkbox" style="display:none;"
+                            class="menu-check" value="Canvas">
+                        <div class="fb-icon"><i class="fa-solid fa-pen-ruler"></i></div>
+                        <div class="fb-text"><strong>Canvas</strong></div><i class="fa-solid fa-square check-icon"
+                            style="color:#ddd; margin-left:auto;"></i>
+                    </label>
+                </div>
+                <div id="selected-options" style="display:none;">
+                    <p style="font-size:.8rem; font-weight:600;">✅ Opciones seleccionadas. Describe un uso:</p>
+                    <div id="use-inputs"></div>
+                </div>
+            </div>
+            <div class="nav-footer"><button onclick="showSectionByIndex(1)"><i class="fa-solid fa-arrow-left"></i>
+                    Anterior</button><button class="primary-nav" onclick="showSectionByIndex(3)">Chat Temporal <i
+                        class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- CHAT TEMPORAL -->
+        <section class="section" id="temporal">
+            <div class="section-header">
+                <p class="section-label">Bloque 3 · Privacidad</p>
+                <h2 class="section-title">Chat Temporal</h2>
+                <p class="section-desc">Conversaciones efímeras sin historial ni memoria. Útil para pruebas o cuando
+                    trabajas en equipo en equipos compartidos.</p>
+            </div>
+            <div class="grid-2">
+                <div>
+                    <div class="card">
+                        <h3 style="font-weight:700;"><i class="fa-solid fa-ghost"></i> ¿Qué es?</h3>
+                        <p>No se guarda en el historial y ChatGPT no actualiza la memoria. Al cerrar desaparece todo. Es
+                            modo "incógnito".</p>
+                    </div>
+                    <div class="accordion">
+                        <div class="acc-item"><button class="acc-trigger" onclick="toggleAcc(this)"><span>¿Cuándo
+                                    usarlo?</span><i class="fa-solid fa-chevron-down chevron"></i></button>
+                            <div class="acc-body">Pruebas de prompts, computadores compartidos, temas sensibles.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card demo-chat-card">
+                    <div class="chat-topbar">
+                        <div class="chat-dot"></div><span style="font-size:.8rem; font-weight:500;">Modo temporal
+                            activado · Sin guardar historial</span>
+                    </div>
+                    <div class="chat-messages">
+                        <div class="msg ai">
+                            <div class="msg-avatar">IA</div>
+                            <div class="msg-bubble">Esta conversación no quedará guardada. ¿En qué puedo ayudarte hoy?
+                            </div>
+                        </div>
+                        <div class="msg user">
+                            <div class="msg-avatar">Tú</div>
+                            <div class="msg-bubble">Quiero probar Canvas para escribir un informe.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="margin-top:16px;">
+                <h3><i class="fa-solid fa-flask"></i> Actividad práctica (tarea)</h3>
+                <p>Crea un chat temporal en ChatGPT y prueba <strong>Canvas</strong>, <strong>Búsqueda web</strong> y
+                    pídele un <strong>cuestionario</strong>. Anota tus observaciones: ¿notas diferencias con un chat
+                    normal?</p>
+            </div>
+            <div class="nav-footer"><button onclick="showSectionByIndex(2)"><i class="fa-solid fa-arrow-left"></i>
+                    Anterior</button><button class="primary-nav" onclick="showSectionByIndex(4)">Función de Memoria <i
+                        class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- MEMORIA -->
+        <section class="section" id="memoria">
+            <div class="section-header">
+                <p class="section-label">Bloque 4 · Personalización IA</p>
+                <h2 class="section-title">Función de Memoria ✨</h2>
+                <p class="section-desc">ChatGPT puede recordar información sobre ti para ofrecerte respuestas más
+                    personalizadas y relevantes. Aprende a gestionar esta poderosa función.</p>
+            </div>
+
+            <div class="memory-stats">
+                <div class="stat-card">
+                    <div class="stat-number">~4000</div>
+                    <div class="stat-label">tokens de contexto (versión gratuita)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">información que puede recordar</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">Manual</div>
+                    <div class="stat-label">tú controlas qué recuerda</div>
+                </div>
+            </div>
+
+            <div class="memory-explanation">
+                <h3 style="font-family:'Poppins',sans-serif; margin-bottom:12px;">🧠 ¿Qué es la memoria de ChatGPT?</h3>
+                <p style="margin-bottom:16px; line-height:1.7;">La memoria permite a ChatGPT almacenar información
+                    relevante de tus conversaciones para usarla en interacciones futuras. Esto significa que no tendrás
+                    que repetir tu contexto cada vez que inicias un nuevo chat.</p>
+                <div class="memory-features">
+                    <span class="memory-badge"><i class="fa-solid fa-check-circle"></i> Aprende de tus
+                        preferencias</span>
+                    <span class="memory-badge"><i class="fa-solid fa-check-circle"></i> Se adapta a tu estilo</span>
+                    <span class="memory-badge"><i class="fa-solid fa-check-circle"></i> Mejora con cada
+                        interacción</span>
+                    <span class="memory-badge"><i class="fa-solid fa-shield-alt"></i> Tú tienes control total</span>
+                </div>
+                <div class="tip-box" style="margin-top:16px;"><i
+                        class="fa-solid fa-chart-line"></i><span><strong>Capacidad de memoria (versión
+                            gratuita):</strong> ChatGPT puede procesar y recordar aproximadamente 4000 tokens por
+                        conversación (unas 3000 palabras). La información que guarda en memoria persistente no tiene un
+                        límite estricto, pero se recomienda ser específico con los datos importantes para obtener
+                        mejores respuestas.</span></div>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3 style="font-family:'Poppins',sans-serif; font-weight:700; margin-bottom:16px;"><i
+                        class="fa-solid fa-comments" style="color:var(--green); margin-right:8px;"></i> Preguntas para
+                    explorar tu memoria</h3>
+                <p style="font-size:.85rem; color:var(--muted); margin-bottom:16px;">Copia y pega estas preguntas en
+                    ChatGPT para descubrir qué información tiene sobre ti y cómo la utiliza:</p>
+                <div class="question-grid">
+                    <div class="question-item" onclick="copyText(this, '¿Qué sabes de mí en este momento?')">
+                        <div class="question-icon"><i class="fa-solid fa-user"></i></div>
+                        <div class="question-text">¿Qué sabes de mí en este momento?</div>
+                    </div>
+                    <div class="question-item" onclick="copyText(this, '¿De dónde obtuviste esa información?')">
+                        <div class="question-icon"><i class="fa-solid fa-database"></i></div>
+                        <div class="question-text">¿De dónde obtuviste esa información?</div>
+                    </div>
+                    <div class="question-item" onclick="copyText(this, '¿Cómo usas esa información para responderme?')">
+                        <div class="question-icon"><i class="fa-solid fa-brain"></i></div>
+                        <div class="question-text">¿Cómo usas esa información para responderme?</div>
+                    </div>
+                    <div class="question-item" onclick="copyText(this, '¿Puedes recordar conversaciones anteriores?')">
+                        <div class="question-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <div class="question-text">¿Puedes recordar conversaciones anteriores?</div>
+                    </div>
+                    <div class="question-item"
+                        onclick="copyText(this, '¿Qué tipo de información puedes guardar y cuál no?')">
+                        <div class="question-icon"><i class="fa-solid fa-shield"></i></div>
+                        <div class="question-text">¿Qué tipo de información puedes guardar y cuál no?</div>
+                    </div>
+                    <div class="question-item" onclick="copyText(this, '¿Qué tan precisa es esa información?')">
+                        <div class="question-icon"><i class="fa-solid fa-chart-simple"></i></div>
+                        <div class="question-text">¿Qué tan precisa es esa información?</div>
+                    </div>
+                    <div class="question-item"
+                        onclick="copyText(this, '¿Cómo puedo modificar o eliminar lo que sabes de mí?')">
+                        <div class="question-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="question-text">¿Cómo puedo modificar o eliminar lo que sabes de mí?</div>
+                    </div>
+                    <div class="question-item" onclick="copyText(this, '¿Qué pasa si desactivo la memoria?')">
+                        <div class="question-icon"><i class="fa-solid fa-power-off"></i></div>
+                        <div class="question-text">¿Qué pasa si desactivo la memoria?</div>
+                    </div>
+                </div>
+                <div class="highlight" style="margin-top:16px;"><i class="fa-solid fa-clipboard-list"
+                        style="margin-right:8px;"></i><strong>Instrucción importante:</strong> Después de obtener las
+                    respuestas, léelas de manera muy detallada. Verifica qué información tiene ChatGPT de ti y qué
+                    quieres actualizar. <strong>No es necesario brindar datos personales</strong> como correo, teléfono
+                    o número de identificación. Solo datos contextuales importantes (apodo, profesión, edad, área
+                    laboral).</div>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3 style="font-family:'Poppins',sans-serif; font-weight:700; margin-bottom:16px;"><i
+                        class="fa-solid fa-arrow-up" style="color:var(--green); margin-right:8px;"></i> Actualizando mi
+                    perfil en ChatGPT</h3>
+                <div class="instruction-steps">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <div class="step-title">Revisa qué información tiene actualmente</div>
+                            <p>Usa las preguntas anteriores para identificar qué datos ha guardado ChatGPT sobre ti.</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <div class="step-title">Define qué información quieres actualizar</div>
+                            <p>Selecciona los datos relevantes que ayudarán a ChatGPT a darte mejores respuestas (sin
+                                incluir información sensible).</p>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <div class="step-title">Pídele que actualice su memoria</div>
+                            <p>Usa el generador de abajo para crear el mensaje perfecto, o copia uno de estos ejemplos:
+                            </p>
+                            <div class="example-box">👉 “Quiero que recuerdes la siguiente información sobre mí para
+                                futuras conversaciones:<br>Mi apodo es <span style="color:var(--green);">___</span>, soy
+                                <span style="color:var(--green);">___</span> (profesión u ocupación), tengo <span
+                                    style="color:var(--green);">___</span> años y mi área de interés o trabajo es <span
+                                    style="color:var(--green);">___</span>. Me gustaría que adaptes tus respuestas a
+                                este perfil.”
+                            </div>
+                            <div class="example-box">👉 “A partir de ahora, ten en cuenta que soy <span
+                                    style="color:var(--green);">___</span> y trabajo en <span
+                                    style="color:var(--green);">___</span>. Prefiero explicaciones <span
+                                    style="color:var(--green);">___</span> (simples, técnicas, con ejemplos, etc.).”
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <div class="step-title">Verifica que la memoria se haya actualizado</div>
+                            <p>Pregúntale: <strong>"Con base en eso, hazme preguntas que consideres importantes para
+                                    conocerte mejor y así darme respuestas más personalizadas en el futuro."</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="border-color:var(--green);">
+                <h3 style="font-family:'Poppins',sans-serif; font-weight:700; font-size:1.05rem; margin-bottom:6px;"><i
+                        class="fa-solid fa-wand-magic-sparkles" style="color:var(--green); margin-right:8px;"></i>
+                    Generador de mensaje para actualizar memoria</h3>
+                <p style="font-size:.82rem; color:var(--muted); margin-bottom:20px;">Completa tus datos y la IA generará
+                    el texto perfecto para actualizar tu memoria en ChatGPT.</p>
+                <div class="tip-box" style="margin-bottom:20px;"><i
+                        class="fa-solid fa-shield-halved"></i><span><strong>Privacidad:</strong> No es necesario
+                        ingresar correo, teléfono ni número de identificación. Solo datos de contexto: apodo, profesión,
+                        edad, área laboral.</span></div>
+                <div class="grid-2" style="margin-top:16px;">
+                    <div class="form-group"><label class="form-label">Apodo o nombre preferido</label><input
+                            id="mem-name" class="form-input" type="text" placeholder="Ej: Caro, Juancho, Ana..."></div>
+                    <div class="form-group"><label class="form-label">Profesión u ocupación</label><input id="mem-prof"
+                            class="form-input" type="text" placeholder="Ej: Diseñador gráfico, Estudiante..."></div>
+                    <div class="form-group"><label class="form-label">Edad aproximada</label><input id="mem-age"
+                            class="form-input" type="text" placeholder="Ej: 25 años"></div>
+                    <div class="form-group"><label class="form-label">Área de interés o trabajo</label><input
+                            id="mem-area" class="form-input" type="text"
+                            placeholder="Ej: Marketing digital, Salud, Educación..."></div>
+                </div>
+                <div class="form-group"><label class="form-label">¿Cómo prefieres que te expliquen las
+                        cosas?</label><input id="mem-style" class="form-input" type="text"
+                        placeholder="Ej: Con ejemplos prácticos, de forma simple, técnica, con analogías..."></div>
+                <button class="btn btn-primary btn-full" id="mem-btn" onclick="generateMemoria()"><i
+                        class="fa-solid fa-sparkles"></i> Generar mensaje para ChatGPT</button>
+                <div id="mem-result" style="display:none; margin-top:20px;">
+                    <div class="ai-result">
+                        <div class="ai-result-label">📋 Copia este mensaje y pégalo en ChatGPT</div><button
+                            class="copy-btn" onclick="copyResult('mem-text')">Copiar</button>
+                        <p id="mem-text" style="white-space: pre-wrap; font-family: monospace; font-size: 0.85rem;"></p>
+                    </div>
+                    <div class="tip-box" style="margin-top:12px;"><i class="fa-solid fa-lightbulb"></i><span>Después de
+                            pegar el mensaje, ChatGPT actualizará su memoria. Luego pregúntale: <strong>"Con base en
+                                eso, hazme preguntas que consideres importantes para conocerte mejor"</strong> para
+                            verificar que funcionó.</span></div>
+                </div>
+            </div>
+
+            <div class="nav-footer"><button onclick="showSectionByIndex(3)"><i class="fa-solid fa-arrow-left"></i>
+                    Anterior</button><button class="primary-nav" onclick="showSectionByIndex(5)">Chat Grupal <i
+                        class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- CHAT GRUPAL -->
+        <section class="section" id="grupal">
+            <div class="section-header">
+                <p class="section-label">Bloque 5 · Colaboración en Equipo</p>
+                <h2 class="section-title">Chat Grupal en ChatGPT 📌✨🧠</h2>
+                <p class="section-desc">Un chat grupal es un <strong>entorno de trabajo compartido</strong> donde varias
+                    personas participan en una misma conversación, discuten ideas, resuelven problemas y generan
+                    contenido en conjunto. La inteligencia artificial actúa como apoyo para todos los integrantes,
+                    convirtiéndose en una herramienta útil para el trabajo en equipo, el aprendizaje colaborativo y la
+                    resolución de situaciones reales.</p>
+            </div>
+
+            <div class="grupal-header" style="margin-bottom:24px;">
+                <h3 style="font-family:'Poppins',sans-serif; font-size:1.3rem; margin-bottom:12px;">Ventajas chat grupal
+                </h3>
+                <div class="concept-grid" style="margin-top:20px;">
+                    <div class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-people-arrows"></i></div>
+                        <div class="concept-title">Participación múltiple</div>
+                        <div class="concept-desc">Varias personas pueden ver e interactuar con la misma conversación
+                        </div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                        <div class="concept-title">Construcción colectiva</div>
+                        <div class="concept-desc">Ideas y soluciones se desarrollan en equipo</div>
+                    </div>
+                    <div class="concept-card">
+                        <div class="concept-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="concept-title">IA como facilitador</div>
+                        <div class="concept-desc">La inteligencia artificial apoya a todo el grupo por igual</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3 style="font-family:'Poppins',sans-serif; font-weight:700; margin-bottom:16px;"><i
+                        class="fa-solid fa-rocket" style="color:var(--green); margin-right:8px;"></i> ¿Cómo se crea un
+                    chat grupal?</h3>
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number-circle">1</div>
+                        <div class="step-card-title">Iniciar conversación</div>
+                        <div class="step-card-desc">Crea un nuevo chat o abre una conversación existente</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number-circle">2</div>
+                        <div class="step-card-title">Compartir chat</div>
+                        <div class="step-card-desc">Ubica el ícono de compartir (⬆️) en la esquina superior derecha
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number-circle">3</div>
+                        <div class="step-card-title">Generar enlace</div>
+                        <div class="step-card-desc">Haz clic en "Crear enlace" para obtener una URL pública</div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number-circle">4</div>
+                        <div class="step-card-title">Compartir acceso</div>
+                        <div class="step-card-desc">Envía el enlace a los integrantes de tu equipo</div>
+                    </div>
+                </div>
+                <div class="tip-box"><i class="fa-solid fa-link"></i><span><strong>Consejo:</strong> El enlace generado
+                        permite que cualquier persona con acceso pueda ver la conversación. Úsalo con
+                        responsabilidad.</span></div>
+            </div>
+
+            <div class="grupal-two-columns">
+                <div class="grupal-left">
+                    <div class="card" style="height:100%;">
+                        <h3 style="font-family:'Poppins',sans-serif; font-weight:700; margin-bottom:16px;"><i
+                                class="fa-solid fa-briefcase" style="color:var(--green); margin-right:8px;"></i> ¿En qué
+                            contextos se puede utilizar?</h3>
+                        <p style="font-size:0.8rem; color:var(--muted); margin-bottom:16px;">Haz clic en cada tarjeta
+                            para ver más detalles</p>
+                        <div class="context-clickable-grid"
+                            style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+                            <div class="context-clickable card" style="padding:16px; cursor:pointer;"
+                                onclick="openModal('educativo')">
+                                <div class="concept-icon" style="margin:0 auto 8px;"><i
+                                        class="fa-solid fa-graduation-cap"></i></div>
+                                <div style="text-align:center;"><strong>Educativo</strong>
+                                    <p style="font-size:0.7rem; color:var(--muted);">Talleres, proyectos, tutorías</p>
+                                </div>
+                            </div>
+                            <div class="context-clickable card" style="padding:16px; cursor:pointer;"
+                                onclick="openModal('laboral')">
+                                <div class="concept-icon" style="margin:0 auto 8px;"><i
+                                        class="fa-solid fa-building"></i></div>
+                                <div style="text-align:center;"><strong>Laboral</strong>
+                                    <p style="font-size:0.7rem; color:var(--muted);">Informes, reuniones, planeación</p>
+                                </div>
+                            </div>
+                            <div class="context-clickable card" style="padding:16px; cursor:pointer;"
+                                onclick="openModal('creativo')">
+                                <div class="concept-icon" style="margin:0 auto 8px;"><i class="fa-solid fa-palette"></i>
+                                </div>
+                                <div style="text-align:center;"><strong>Creativo</strong>
+                                    <p style="font-size:0.7rem; color:var(--muted);">Lluvia de ideas, contenido</p>
+                                </div>
+                            </div>
+                            <div class="context-clickable card" style="padding:16px; cursor:pointer;"
+                                onclick="openModal('tecnologico')">
+                                <div class="concept-icon" style="margin:0 auto 8px;"><i class="fa-solid fa-code"></i>
+                                </div>
+                                <div style="text-align:center;"><strong>Tecnológico</strong>
+                                    <p style="font-size:0.7rem; color:var(--muted);">Desarrollo, debugging</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grupal-right">
+                    <div class="chat-large">
+                        <div class="chat-header"><i
+                                class="fa-solid fa-link"></i><span>chat.openai.com/share/abc123...</span></div>
+                        <div class="chat-messages-large">
+                            <div class="message-row ai">
+                                <div class="message-avatar">IA</div>
+                                <div class="message-bubble">Técnicas de creación de equipos, todos pueden ver las
+                                    respuestas y contribuir en tiempo real.</div>
+                            </div>
+                            <div class="message-row user">
+                                <div class="message-bubble">Conocimiento y experiencia de varios desde tres perspectivas
+                                    diferentes.</div>
+                                <div class="message-avatar">Eq</div>
+                            </div>
+                            <div class="message-row ai">
+                                <div class="message-avatar">IA</div>
+                                <div class="message-bubble">Trabajando en el desarrollo de proyectos para una solución
+                                    integral y colaborativa.</div>
+                            </div>
+                            <div class="message-row user">
+                                <div class="message-bubble">¿Podemos agregar un análisis de mercado también?</div>
+                                <div class="message-avatar">Eq</div>
+                            </div>
+                            <div class="message-row ai">
+                                <div class="message-avatar">IA</div>
+                                <div class="message-bubble">¡Excelente idea! El análisis de mercado ayudará a validar
+                                    las estrategias propuestas.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity-card" style="margin-top:24px;">
+                <div class="activity-title">
+                    <div class="icon-box" style="background:var(--green); margin-bottom:0;"><i class="fa-solid fa-flask"
+                            style="color:#fff;"></i></div>
+                    <div><strong style="font-family:'Poppins',sans-serif; font-size:1.1rem;">Actividad práctica (tarea
+                            grupal)</strong>
+                        <p style="font-size:.78rem; color:var(--muted);">Pon en práctica el chat grupal con tu equipo
+                        </p>
+                    </div>
+                </div>
+                <div class="practice-steps">
+                    <div class="practice-step">
+                        <div class="practice-num">1</div>
+                        <div><strong>Formen equipos de 3-5 personas</strong><br><span
+                                style="font-size:0.8rem; color:var(--muted);">Designen quién será el responsable de
+                                crear y compartir el enlace</span></div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">2</div>
+                        <div><strong>Un integrante crea un chat grupal</strong><br><span
+                                style="font-size:0.8rem; color:var(--muted);">Sigue los pasos anteriores para generar el
+                                enlace</span></div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">3</div>
+                        <div><strong>Compartan el enlace con todo el equipo</strong><br><span
+                                style="font-size:0.8rem; color:var(--muted);">Usen WhatsApp, correo o el canal que
+                                prefieran</span></div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">4</div>
+                        <div><strong>Realicen una lluvia de ideas sobre un tema de interés común</strong><br><span
+                                style="font-size:0.8rem; color:var(--muted);">Cada integrante debe aportar al menos una
+                                idea o pregunta</span></div>
+                    </div>
+                    <div class="practice-step">
+                        <div class="practice-num">5</div>
+                        <div><strong>Documenten la experiencia</strong><br><span
+                                style="font-size:0.8rem; color:var(--muted);">Anoten qué funcionó bien, qué dificultades
+                                tuvieron y cómo la IA ayudó al equipo</span></div>
+                    </div>
+                </div>
+                <div class="highlight" style="margin-top:20px;"><i
+                        class="fa-solid fa-clipboard-question"></i><strong>Preguntas para reflexionar después de la
+                        actividad:</strong><br>¿Fue fácil para todos acceder al chat? ¿Cómo se sintió trabajar con la IA
+                    en equipo? ¿Qué tipo de prompts funcionaron mejor para la colaboración grupal?</div>
+            </div>
+
+            <div class="nav-footer"><button onclick="showSectionByIndex(4)"><i class="fa-solid fa-arrow-left"></i>
+                    Anterior</button><button class="primary-nav" onclick="showSectionByIndex(6)">Actividad Proquident <i
+                        class="fa-solid fa-arrow-right"></i></button></div>
+        </section>
+
+        <!-- PROQUIDENT -->
+        <section class="section" id="proquident">
+            <div class="section-header">
+                <p class="section-label">Bloque 6 · Desafío Final</p>
+                <h2 class="section-title">Desafío Proquident 🦷</h2>
+                <p class="section-desc">Como empleados de <strong>Proquident</strong> (fabricación y distribución de
+                    productos odontológicos), deben resolver un caso real usando ChatGPT en equipo y documentar cada
+                    prompt.</p>
+            </div>
+            <div class="task-badge"><i class="fa-regular fa-clock"></i> ENTREGABLE OBLIGATORIO · SOCIALIZACIÓN EN CLASE
+            </div>
+            <div class="card">
+                <h3>Instrucciones del taller grupal (5 integrantes)</h3>
+                <ul class="step-list">
+                    <li>
+                        <div class="step-num">1</div>
+                        <div><strong>Organizar roles:</strong> Líder, Investigador IA, Secretario, Comunicador,
+                            Verificador de Calidad.</div>
+                    </li>
+                    <li>
+                        <div class="step-num">2</div>
+                        <div><strong>Crear chat grupal</strong> y generar enlace.</div>
+                    </li>
+                    <li>
+                        <div class="step-num">3</div>
+                        <div><strong>Generar caso aleatorio</strong> con el botón de abajo.</div>
+                    </li>
+                    <li>
+                        <div class="step-num">4</div>
+                        <div><strong>Usar ChatGPT para resolverlo</strong>: el grupo debe plantear prompts, evaluar
+                            respuestas y llegar a una solución.</div>
+                    </li>
+                    <li>
+                        <div class="step-num">5</div>
+                        <div><strong>Registrar TODOS los prompts utilizados</strong> y las respuestas más relevantes.
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">6</div>
+                        <div><strong>Socializar:</strong> cada grupo presenta caso, prompts clave y solución final.
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="roles-grid">
+                <div class="role-card"><strong>🧑‍💼 Líder</strong><span>Coordina y presenta.</span></div>
+                <div class="role-card"><strong>🔍 Investigador IA</strong><span>Formula prompts principales.</span>
+                </div>
+                <div class="role-card"><strong>📋 Secretario/a</strong><span>Registra prompts y respuestas.</span></div>
+                <div class="role-card"><strong>🎨 Comunicador/a</strong><span>Prepara presentación visual.</span></div>
+                <div class="role-card"><strong>✅ Verificador</strong><span>Valida coherencia y ética.</span></div>
+            </div>
+
+            <div class="case-card" id="case-wrapper">
+                <div class="case-tag">Generador de Caso Empresarial · IA</div>
+                <div style="display:flex; justify-content:space-between; flex-wrap:wrap;">
+                    <div>
+                        <div class="case-title">Desafío aleatorio para tu equipo</div>
+                        <p>Presiona el botón y resuelvan con IA.</p>
+                    </div><button class="btn" id="case-btn" onclick="generateCase()"
+                        style="background:var(--green); color:#fff;"><i class="fa-solid fa-dice"></i> Generar
+                        caso</button>
+                </div>
+                <div id="case-display" style="display:none; margin-top:20px;">
+                    <div style="background:var(--light-mint); border-radius:14px; padding:20px;"><strong id="case-title"
+                            style="font-size:1.15rem;"></strong>
+                        <p id="case-desc" style="margin:10px 0;"></p>
+                        <div class="case-task"><span style="color:var(--green); font-weight:700;">✅ TAREA DEL
+                                GRUPO:</span><br><span id="case-task"></span></div>
+                    </div><button class="btn" onclick="copyCase()"
+                        style="margin-top:12px; background:var(--soft-gray); border:1px solid var(--border);">Copiar
+                        caso</button>
+                </div>
+            </div>
+            <div class="tip-box"><i class="fa-solid fa-lightbulb"></i><span><strong>Recuerda:</strong> La calidad del
+                    prompt determina la calidad de la respuesta. Documenta cada pregunta que hagan a ChatGPT, porque eso
+                    hace parte de la nota del taller.</span></div>
+            <div class="nav-footer"><button onclick="showSectionByIndex(5)"><i class="fa-solid fa-arrow-left"></i>
+                    Anterior</button><button class="primary-nav" onclick="showSectionByIndex(0)"><i
+                        class="fa-solid fa-house"></i> Volver al inicio</button></div>
+        </section>
+    </main>
+
+    <!-- MODAL -->
+    <div id="modal" class="modal" onclick="closeModalOnOutside(event)">
+        <div class="modal-content"><span class="modal-close" onclick="closeModal()">&times;</span>
+            <div id="modal-icon" class="modal-icon"></div>
+            <h2 id="modal-title" class="modal-title"></h2>
+            <ul id="modal-list" class="modal-list"></ul>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        © 2025 <strong>Eliana</strong> · Curso complementario de IA &nbsp;—&nbsp; Desarrollado con ♥ para el equipo
+    </footer>
+
+    <script src="JS/script.JS"></script>
+</body>
+
+</html>
