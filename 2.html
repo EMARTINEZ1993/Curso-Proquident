@@ -658,11 +658,9 @@
             </div>
 
             <!-- Objetivo General -->
-            <div class="card" style="background: linear-gradient(135deg, var(--primary-l), var(--bg-alt)); border: 2px solid var(--primary);">
-                <div style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-                    <div style="background: var(--primary); width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <i class="fa-solid fa-bullseye" style="color: white; font-size: 1.5rem;"></i>
-                    </div>
+            <div class="card" >
+                <div >
+   
                     <div>
                         <h3 style="margin: 0; color: var(--primary);">Objetivo del Proyecto</h3>
                         <p style="margin: 5px 0 0 0;">Crear una <strong>campaña publicitaria completa</strong> para el <strong>Día de las Madres</strong> 🏵️ promocionando un producto de <strong>Proquident</strong>, utilizando ChatGPT/Gemini como cerebro creativo, Canva para el diseño visual y Gamma para la presentación final.</p>
@@ -671,7 +669,7 @@
             </div>
 
             <!-- Formación de Grupos y Roles -->
-            <div class="card">
+            <div class="">
                 <h3><i class="fa-solid fa-people-group" style="color: var(--primary);"></i> Formación de Grupos y Roles</h3>
                 
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px;">
@@ -716,7 +714,7 @@
             </div>
 
             <!-- Flujo de Trabajo Visual -->
-            <div class="card" style="background: var(--primary-l);">
+            <div class="" style="background: var(--primary-l);">
                 <h3>🔄 Flujo de Trabajo de la Actividad</h3>
                 <p style="margin-bottom: 20px; text-align: center;">Así se conectan las herramientas en este proyecto:</p>
 
@@ -758,7 +756,7 @@
             </div>
 
             <!-- Desarrollo de la Actividad -->
-            <div class="card">
+            <div class="">
                 <h3>📋 Desarrollo de la Actividad (4 Fases)</h3>
                 
                 <div class="practice-steps">
@@ -893,99 +891,8 @@
                 <div id="prompt-canva-contenido" style="display:none;">Actúa como diseñador gráfico y copywriter. Voy a crear un poster en Canva para el Día de las Madres promocionando [producto] de Proquident. Dame: 1. Tres opciones de título (máx. 8 palabras c/u) 2. Descripción del producto (30 palabras) 3. Paleta de 4 colores HEX (profesional + maternal) 4. Llamada a la acción persuasiva 5. Sugerencia de fuentes de Canva</div>
             </div>
 
-            <!-- Rúbrica de Evaluación -->
-            <div class="card">
-                <h3>📊 Rúbrica de Evaluación</h3>
-                <div class="table-responsive">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Criterio</th>
-                                <th>Excelente (5 pts)</th>
-                                <th>Bueno (3 pts)</th>
-                                <th>Por Mejorar (1 pt)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Uso de IA para Prompts</strong></td>
-                                <td>Prompt refinado con IA, estructura completa de 6 componentes</td>
-                                <td>Buen prompt pero falta refinamiento o algún componente</td>
-                                <td>Prompt simple sin usar IA para mejorarlo</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Imagen Generada</strong></td>
-                                <td>Alta calidad, temática clara (Día de las Madres + Proquident), producto visible</td>
-                                <td>Buena calidad pero algunos elementos temáticos ausentes</td>
-                                <td>Baja calidad o no relacionada con el tema</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Diseño en Canva</strong></td>
-                                <td>Poster profesional, textos de IA bien integrados, paleta de colores coherente</td>
-                                <td>Buen diseño pero falta integración de elementos</td>
-                                <td>Diseño incompleto o textos no integrados</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Audio Publicitario</strong></td>
-                                <td>Guión completo creado con IA, audio claro, tono emotivo adecuado, 30 seg</td>
-                                <td>Buen guión pero audio con fallas o duración incorrecta</td>
-                                <td>Guión incompleto o sin audio generado</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Presentación en Gamma</strong></td>
-                                <td>6 slides, muestra todo el proceso, conclusiones claras</td>
-                                <td>Buen contenido pero faltan slides o conclusiones</td>
-                                <td>Presentación incompleta o desordenada</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Trabajo en Equipo</strong></td>
-                                <td>Todos los roles activos, colaboración visible, flujo de trabajo integrado</td>
-                                <td>Mayoría participó pero falta coordinación</td>
-                                <td>Poca colaboración grupal</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
 
-            <!-- Checklist de Entregables -->
-            <div class="card" style="background: var(--primary-l);">
-                <h3>✅ Checklist de Entregables del Grupo</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-top: 15px;">
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk1" style="width: 18px; height: 18px;">
-                        <label for="chk1" style="font-size: 0.85rem;">✅ Prompt refinado (creado con ChatGPT/Gemini)</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk2" style="width: 18px; height: 18px;">
-                        <label for="chk2" style="font-size: 0.85rem;">✅ Textos publicitarios generados por IA</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk3" style="width: 18px; height: 18px;">
-                        <label for="chk3" style="font-size: 0.85rem;">✅ Imagen generada (Gemini/Leonardo)</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk4" style="width: 18px; height: 18px;">
-                        <label for="chk4" style="font-size: 0.85rem;">✅ Poster/Infografía en Canva</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk5" style="width: 18px; height: 18px;">
-                        <label for="chk5" style="font-size: 0.85rem;">✅ Guión de audio + archivo de audio</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk6" style="width: 18px; height: 18px;">
-                        <label for="chk6" style="font-size: 0.85rem;">✅ Presentación en Gamma (6 slides)</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk7" style="width: 18px; height: 18px;">
-                        <label for="chk7" style="font-size: 0.85rem;">✅ Roles definidos y trabajo en equipo</label>
-                    </div>
-                    <div style="display: flex; align-items: center; gap: 10px; padding: 12px; background: white; border-radius: 10px;">
-                        <input type="checkbox" id="chk8" style="width: 18px; height: 18px;">
-                        <label for="chk8" style="font-size: 0.85rem;">✅ Listos para presentar (5 min)</label>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="nav-footer">
                 <button class="primary-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})">
