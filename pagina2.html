@@ -673,8 +673,93 @@
     </footer>
 
     <!-- ============================================ -->
-    <!-- SCRIPTS                                      -->
+    <!-- conectar menu                                   -->
     <!-- ============================================ -->
+<script>
+// ============================================
+// NAVEGACIÓN ENTRE SECCIONES (MENÚ)
+// ============================================
+function showSection(sectionId) {
+
+    // Ocultar todas las secciones
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.remove('active');
+    });
+
+    // Mostrar la sección seleccionada
+    const activeSection = document.getElementById(sectionId);
+    if (activeSection) {
+        activeSection.classList.add('active');
+    }
+
+    // Quitar estado activo a todos los botones
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+        btn.classList.remove('active');
+    });
+
+    // Activar el botón clickeado
+    const clickedBtn = event.currentTarget;
+    if (clickedBtn) {
+        clickedBtn.classList.add('active');
+    }
+
+    // Scroll suave al inicio
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+// ============================================
+// COPIAR PROMPTS
+// ============================================
+function copyPrompt(elementId) {
+    const text = document.getElementById(elementId).innerText;
+
+    navigator.clipboard.writeText(text).then(() => {
+        showToast("Prompt copiado");
+    });
+}
+
+
+// ============================================
+// TOAST NOTIFICACIÓN
+// ============================================
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+
+    toastText.innerText = message;
+    toast.classList.add('show');
+
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 2500);
+}
+
+
+// ============================================
+// BARRA DE PROGRESO DE SCROLL
+// ============================================
+window.addEventListener('scroll', () => {
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = (scrollTop / scrollHeight) * 100;
+
+    document.getElementById('progress-bar').style.width = progress + '%';
+});
+
+
+// ============================================
+// OPCIONAL: ACTIVAR PRIMER BOTÓN AL CARGAR
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    showSection('inicio-sec');
+});
+</script>
 
 </body>
 
