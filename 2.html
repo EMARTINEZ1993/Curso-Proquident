@@ -1,943 +1,476 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IA Generativa: Prompts Expertos y Generación de Imágenes | Módulo 2</title>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/style1.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Clase práctica: Agentes nativos de Microsoft Copilot (Word, Excel, PowerPoint, Teams, Outlook) para Proquident. Incluye archivo Excel real para el Ejercicio 2." />
+  <title>Proquident | Agentes de Word, Excel, PowerPoint, Teams, Outlook</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Modulo3.css" />
 </head>
-
 <body>
 
-    <div id="progress-bar"></div>
-    <div id="toast"><i class="fa-solid fa-check"></i> <span id="toast-text">Prompt copiado</span></div>
-
-    <!-- HERO -->
-    <header class="hero" id="inicio">
-        <div class="hero-inner">
-            <div class="hero-badge">IA Generativa · Uso Empresarial y Creativo</div>
-            <h1>Prompts Expertos y Generación de Imágenes 🎨</h1>
-            <p>Aprende a dominar el arte de los prompts y descubre las mejores herramientas para crear imágenes con
-                inteligencia artificial.
-            </p>
-        </div>
-    </header>
-
-    <!-- NAV MENÚ ORGANIZADO -->
-
-    <!-- NAV MENÚ ORGANIZADO -->
-    <nav class="tab-nav">
-        <button class="tab-btn active" onclick="showSection('inicio-sec')"><i class="fa-solid fa-house"></i>
-            Inicio</button>
-        <button class="tab-btn" onclick="showSection('prompt-sec')"><i class="fa-solid fa-terminal"></i>
-            Prompts Expertos</button>
-        <button class="tab-btn" onclick="showSection('imagenes-sec')"><i class="fa-solid fa-image"></i> Generación de
-            Imágenes</button>
-        <button class="tab-btn" onclick="showSection('apps-sec')"><i class="fa-solid fa-grid-2"></i>
-            Aplicaciones</button>
-        <button class="tab-btn" onclick="showSection('actividad-sec')"><i class="fa-solid fa-flask"></i>
-            Actividad Final</button>
-    </nav>
-    <main>
-        <!-- SECCIÓN INICIO -->
-        <section id="inicio-sec" class="section active">
-            <div class="section-header">
-                <p class="section-label">Bienvenida</p>
-                <h2 class="section-title">¿Qué aprenderemos hoy?</h2>
-                <p class="section-desc">
-                    En esta sesión nos enfocaremos en dos habilidades fundamentales: la creación de prompts de nivel
-                    experto para obtener resultados precisos de la IA, y la exploración de las principales herramientas
-                    de generación de imágenes para uso profesional.
-                </p>
-            </div>
-
-            <div class="deep-features-grid">
-                <div class="deep-feature-card">
-                    <div class="deep-feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
-                    <h3>Prompts Expertos</h3>
-                    <p>Domina la estructura, técnicas y secretos para crear instrucciones que realmente funcionen.</p>
-                </div>
-                <div class="deep-feature-card">
-                    <div class="deep-feature-icon"><i class="fa-solid fa-image"></i></div>
-                    <h3>Generación de Imágenes</h3>
-                    <p>Conoce los modelos más potentes, compáralos y aprende a sacarles el máximo provecho.</p>
-                </div>
-                <div class="deep-feature-card">
-                    <div class="deep-feature-icon"><i class="fa-solid fa-paintbrush"></i></div>
-                    <h3>Actividad Creativa</h3>
-                    <p>Pondremos a prueba dos modelos generando un banner profesional para Proquident.</p>
-                </div>
-                <div class="deep-feature-card">
-                    <div class="deep-feature-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3>Aplicaciones Prácticas</h3>
-                    <p>Descubre cómo integrar estas herramientas en ChatGPT, Gemini, Canva y Gamma.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 1: PROMPTS EXPERTOS -->
-        <section id="prompt-sec" class="section">
-            <div class="section-header">
-                <p class="section-label">Parte 1</p>
-                <h2 class="section-title">Prompts Expertos: Cómo Hablarle a la IA</h2>
-                <p class="section-desc">Un buen prompt es la diferencia entre un resultado mediocre y uno extraordinario.
-                </p>
-            </div>
-
-            <div class="card">
-                <h3>🧩 ¿Cómo se crea un prompt efectivo?</h3>
-                <p>Crear un prompt es como darle instrucciones a un asistente muy inteligente pero extremadamente literal.
-                    La clave está en ser <strong>claro, específico y estructurado</strong>. Estos son los elementos
-                    esenciales:</p>
-
-                <div class="structure-grid">
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">1. Rol</h4><b>"Eres un experto en..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Define quién quieres que sea la IA.</p>
-                    </div>
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">2. Contexto</h4><b>"Estamos trabajando en..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Describe la situación o el entorno.</p>
-                    </div>
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">3. Tarea Específica</h4><b>"Necesito que generes..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Explica exactamente qué quieres obtener.</p>
-                    </div>
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">4. Formato</h4><b>"Entrégalo en una tabla..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Indica cómo debe presentarse la respuesta.</p>
-                    </div>
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">5. Restricciones</h4><b>"No uses tecnicismos..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Establece límites o lo que NO debe hacer.</p>
-                    </div>
-                    <div class="structure-card">
-                        <h4 style="color: var(--primary-d);">6. Ejemplo</h4><b>"Algo como esto: [modelo]..."</b>
-                        <p style="font-size: 0.8rem; margin-top: 5px;">Proporciona una muestra del resultado deseado.</p>
-                    </div>
-                </div>
-
-                <div class="tip-box">
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <span><strong>Regla de oro:</strong> Si tu prompt cabe en una sola línea, probablemente le falta
-                        información. Los buenos prompts suelen tener entre 5 y 15 líneas de instrucciones detalladas.</span>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>🔄 Pidiéndole a la IA que mejore tu propio prompt</h3>
-                <p>Una de las técnicas más poderosas es usar la IA como tu <strong>asistente de prompt
-                        engineering</strong>. Puedes pedirle que optimice tus propias instrucciones para obtener mejores
-                    resultados.</p>
-
-                <h4 style="margin-top: 20px;">📋 Plantilla para mejorar prompts:</h4>
-                <div class="template-box">
-                    "Tengo el siguiente prompt: <strong style="color: var(--primary-soft);">[pega tu prompt aquí]</strong>.
-                    <br><br>
-                    Por favor, actúa como un <strong style="color: var(--primary-soft);">experto en ingeniería de
-                        prompts</strong> y:
-                    <br>
-                    1. Identifica qué le falta o qué se puede mejorar.<br>
-                    2. Reescríbelo de forma más efectiva y detallada.<br>
-                    3. Explica por qué tu versión funciona mejor.<br>
-                    4. Dame 3 variaciones para diferentes contextos."
-                </div>
-
-                <div class="info-box">
-                    <h4>💡 ¿Por qué funciona esto?</h4>
-                    <p>Los modelos de IA entienden su propio funcionamiento mejor que nosotros. Al pedirles que
-                        "traduzcan" nuestras intenciones a su "idioma interno", obtenemos instrucciones optimizadas para
-                        el sistema.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <h3>👶 Ejercicio: Explicar tu trabajo a un niño</h3>
-                <p><strong>Objetivo:</strong> Practicar la simplificación de conceptos complejos, una habilidad clave para
-                    crear prompts claros. Usaremos la IA como herramienta de traducción de complejidad.</p>
-
-                <div class="activity-card light">
-                    <div class="activity-title">
-                        <div class="icon-box"><i class="fa-solid fa-child"></i></div>
-                        <div>
-                            <strong>Prompt de Ejercicio:</strong>
-                        </div>
-                    </div>
-                    <div class="highlight">
-                        "Actúa como un <strong style="color: var(--primary-soft);">maestro de primaria muy creativo</strong>.
-                        <br><br>
-                        <strong style="color: var(--primary-soft);">Contexto:</strong> Debes explicarle a un niño de 8 años
-                        en qué consiste mi trabajo.
-                        <br><br>
-                        <strong style="color: var(--primary-soft);">Mi trabajo es:</strong> [describe aquí tu profesión
-                        real: por ejemplo, 'Soy analista de calidad en una fábrica de productos dentales. Reviso que las
-                        resinas y los implantes salgan perfectos para que los dentistas puedan usarlos sin
-                        problemas.']<br><br>
-                        <strong style="color: var(--primary-soft);">Requisitos:</strong><br>
-                        1. Usa analogías con cosas que un niño conoce (juguetes, escuela, superhéroes, cocina).<br>
-                        2. Hazlo en forma de un cuento corto de máximo 200 palabras.<br>
-                        3. Incluye al menos 2 comparaciones divertidas.<br>
-                        4. Termina con una moraleja bonita sobre por qué mi trabajo es importante.<br><br>
-                        <strong style="color: var(--primary-soft);">Formato:</strong> Título llamativo + Cuento +
-                        Moraleja."
-                    </div>
-                    <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
-                        onclick="copyPrompt(this, 'prompt-nino')">
-                        <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Prompt del
-                            Ejercicio</span>
-                    </button>
-                    <div id="prompt-nino" style="display:none;">Actúa como un maestro de primaria muy creativo. Contexto:
-                        Debes explicarle a un niño de 8 años en qué consiste mi trabajo. Mi trabajo es: [describe aquí tu
-                        profesión real]. Requisitos: 1. Usa analogías con cosas que un niño conoce (juguetes, escuela,
-                        superhéroes, cocina). 2. Hazlo en forma de un cuento corto de máximo 200 palabras. 3. Incluye al
-                        menos 2 comparaciones divertidas. 4. Termina con una moraleja bonita sobre por qué mi trabajo es
-                        importante. Formato: Título llamativo + Cuento + Moraleja.</div>
-                </div>
-
-                <p style="margin-top: 15px;"><strong>🎯 Reflexión:</strong> Este ejercicio te enseña a descomponer ideas
-                    complejas en conceptos simples. Esa misma habilidad es la que necesitas para crear prompts efectivos:
-                    <strong>claridad, estructura y propósito definido.</strong></p>
-            </div>
-        </section>
-
-        <!-- SECCIÓN 2: GENERACIÓN DE IMÁGENES -->
-        <section id="imagenes-sec" class="section">
-            <div class="section-header">
-                <p class="section-label">Parte 2</p>
-                <h2 class="section-title">Generación de Imágenes con IA</h2>
-                <p class="section-desc">Explora el panorama actual de los modelos de generación de imágenes y descubre
-                    cuál se adapta mejor a tus necesidades.</p>
-            </div>
-
-            <div class="card">
-                <h3>📊 Tabla Comparativa de Modelos de Generación de Imágenes</h3>
-                <p style="margin-bottom: 20px;">Análisis actualizado de las principales herramientas disponibles en el
-                    mercado (Febrero 2026):</p>
-                <div class="table-responsive">
-                    <table class="comparison-table">
-                        <thead>
-                            <tr>
-                                <th>Modelo</th>
-                                <th>Empresa</th>
-                                <th>¿Es Gratis?</th>
-                                <th>Imágenes Gratuitas</th>
-                                <th>Ranking ⭐</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Nano Banana (Gemini Imagen 3)</strong></td>
-                                <td>Google DeepMind</td>
-                                <td><span class="badge-free">Gratuito</span></td>
-                                <td>Ilimitadas (con cuenta Google)</td>
-                                <td>⭐⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>DALL-E 3</strong></td>
-                                <td>OpenAI (vía ChatGPT)</td>
-                                <td><span class="badge-free">Parcial</span></td>
-                                <td>2 por día en plan gratuito</td>
-                                <td>⭐⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Leonardo AI</strong></td>
-                                <td>Leonardo Interactive</td>
-                                <td><span class="badge-free">Freemium</span></td>
-                                <td>150 tokens diarios (≈30 imágenes)</td>
-                                <td>⭐⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Adobe Firefly</strong></td>
-                                <td>Adobe</td>
-                                <td><span class="badge-free">Freemium</span></td>
-                                <td>25 créditos mensuales</td>
-                                <td>⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Bing Image Creator</strong></td>
-                                <td>Microsoft (DALL-E)</td>
-                                <td><span class="badge-free">Gratuito</span></td>
-                                <td>100 por día (rápido), luego lento</td>
-                                <td>⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Midjourney</strong></td>
-                                <td>Midjourney Inc.</td>
-                                <td><span style="background: #ef4444; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem;">Pago</span></td>
-                                <td>0 (plan desde $10/mes)</td>
-                                <td>⭐⭐⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Stable Diffusion</strong></td>
-                                <td>Stability AI</td>
-                                <td><span class="badge-free">Gratuito (Open Source)</span></td>
-                                <td>Ilimitadas (local o vía web)</td>
-                                <td>⭐⭐⭐</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Canva AI</strong></td>
-                                <td>Canva</td>
-                                <td><span class="badge-free">Freemium</span></td>
-                                <td>50 por mes en plan gratuito</td>
-                                <td>⭐⭐⭐⭐</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                
-
-                <div class="tip-box" style="margin-top: 20px;">
-                    <i class="fa-solid fa-trophy"></i>
-                    <span><strong>🌟 Recomendación para esta actividad:</strong> Usaremos <strong>Nano Banana de Gemini
-                            y Leonardo AI</strong> por ser opciones muy generosas en capa gratuita y ofrecer excelente
-                        calidad. Gemini Imagen 3 está integrado directamente en <strong>gemini.google.com</strong> sin
-                        necesidad de instalar nada.</span>
-                </div>
-
-                                <div style="margin-top: 30px; background: var(--bg-alt); padding: 25px; border-radius: 20px;">
-                    <h3 style="margin-bottom: 20px; text-align: center;">
-                        <i class="fa-solid fa-key" style="color: var(--primary);"></i> 
-                        Tipos de Licencia en Herramientas de IA
-                    </h3>
-                    
-                    <div style="display: flex; ">
-                        
-                        <!-- Gratuito -->
-                        <div style="background: rgba(16, 185, 129, 0.1); padding: 20px; border-radius: 16px; border-left: 4px solid #10b981;">
-                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
-                                <span style="background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">GRATUITO</span>
-                                <span style="font-size: 0.85rem; color: var(--text-light);">Free</span>
-                            </div>
-                            <p style="font-size: 0.9rem; line-height: 1.2; margin-bottom: 0;">
-                                <strong>Acceso totalmente libre sin costo.</strong> No requiere tarjeta de crédito ni suscripción. 
-                                Puede tener límites de uso diario, pero nunca te cobrará. 
-                                <br><br>
-                                <em>Ejemplos: Gemini (Nano Banana), DeepSeek, Bing Image Creator.</em>
-                            </p>
-                        </div>
-
-                        <!-- Freemium -->
-                        <div style="background: rgba(59, 130, 246, 0.1); padding: 20px; border-radius: 16px; border-left: 4px solid #3b82f6;">
-                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
-                                <span style="background: #3b82f6; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">FREEMIUM</span>
-                                <span style="font-size: 0.85rem; color: var(--text-light);">Free + Premium</span>
-                            </div>
-                            <p style="font-size: 0.9rem; line-height: 1.2; margin-bottom: 0;">
-                                <strong>Mezcla de "gratis" y "premium".</strong> Tiene una versión gratuita con funciones 
-                                limitadas y una versión de pago con todas las capacidades desbloqueadas. 
-                                Ideal para probar antes de comprar.
-                                <br><br>
-                                <em>Ejemplos: ChatGPT, Leonardo AI, Canva AI, Adobe Firefly.</em>
-                            </p>
-                        </div>
-
-                        <!-- Pago / Suscripción -->
-                        <div style="background: rgba(239, 68, 68, 0.1); padding: 20px; border-radius: 16px; border-left: 4px solid #ef4444;">
-                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
-                                <span style="background: #ef4444; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">PAGO</span>
-                                <span style="font-size: 0.85rem; color: var(--text-light);">Suscripción</span>
-                            </div>
-                            <p style="font-size: 0.9rem; line-height: 1.2; margin-bottom: 0;">
-                                <strong>Requiere suscripción desde el primer día.</strong> No tiene versión gratuita 
-                                (o solo ofrece una prueba muy corta). Suelen ser herramientas profesionales 
-                                con la más alta calidad del mercado.
-                                <br><br>
-                                <em>Ejemplos: Midjourney (desde $10/mes).</em>
-                            </p>
-                        </div>
-
-                        <!-- Open Source -->
-                        <div style="background: rgba(139, 92, 246, 0.1); padding: 20px; border-radius: 16px; border-left: 4px solid #8b5cf6;">
-                            <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 10px;">
-                                <span style="background: #8b5cf6; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: bold;">OPEN SOURCE</span>
-                                <span style="font-size: 0.85rem; color: var(--text-light);">Código Abierto</span>
-                            </div>
-                            <p style="font-size: 0.9rem; line-height: 1.2; margin-bottom: 0;">
-                                <strong>Completamente gratis y transparente.</strong> El código es público y cualquiera 
-                                puede usarlo, modificarlo o instalarlo en su propio computador. 
-                                No depende de servidores externos.
-                                <br><br>
-                                <em>Ejemplos: Stable Diffusion, algunos modelos de DeepSeek.</em>
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <h3 style="margin-top: 40px;"><i class="fa-solid fa-ranking-star" style="color: var(--primary);"></i>
-                    Ranking de Calidad (Uso Profesional)</h3>
-                    <br><br>
-                <div class="bar-chart-container">
-                    <div class="bar-item">
-                        <div class="bar-label">Midjourney</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 98%;"></div>
-                        </div>
-                        <div class="bar-value">98%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Gemini Imagen 3</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 96%;"></div>
-                        </div>
-                        <div class="bar-value">96%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">DALL-E 3</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 95%;"></div>
-                        </div>
-                        <div class="bar-value">95%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Leonardo AI</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 92%;"></div>
-                        </div>
-                        <div class="bar-value">92%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Adobe Firefly</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 90%;"></div>
-                        </div>
-                        <div class="bar-value">90%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Bing Creator</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 88%;"></div>
-                        </div>
-                        <div class="bar-value">88%</div>
-                    </div>
-                    <div class="bar-item">
-                        <div class="bar-label">Canva AI</div>
-                        <div class="bar-track">
-                            <div class="bar-fill" style="width: 80%;"></div>
-                        </div>
-                        <div class="bar-value">80%</div>
-                    </div>
-                </div>
-                <p style="font-size: 0.75rem; color: var(--text-light); margin-top: 10px; text-align: right;">*Ranking
-                    basado en calidad de renderizado, realismo, seguimiento de instrucciones y versatilidad artística
-                    (2026).</p>
-            </div>
-
-            
-        </section>
-
-        <!-- SECCIÓN APLICACIONES QUE SE CONECTAN -->
-        <section id="apps-sec" class="section">
-            <div class="section-header">
-                <p class="section-label">Conexiones Inteligentes</p>
-                <h2 class="section-title">Aplicaciones que se Conectan con ChatGPT y Gemini</h2>
-                <p class="section-desc">Potencia tus asistentes de IA conectándolos con herramientas profesionales de diseño y presentaciones.</p>
-            </div>
-
-            <!-- Diagrama de Conexión -->
-            <div class="card">
-                <h3>🔗 ¿Cómo se Integran?</h3>
-                <p style="margin-bottom: 25px;">ChatGPT y Gemini son el <strong>cerebro</strong>. Canva y Gamma son las <strong>manos</strong> que ejecutan. Así se conectan:</p>
-
-                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 20px; padding: 25px; background: var(--bg-alt); border-radius: 20px; text-align: center;">
-                    
-                    <!-- Cerebro: IA -->
-                    <div style="flex: 1; min-width: 200px;">
-                        <div style="background: linear-gradient(135deg, var(--primary), var(--primary-d)); padding: 25px; border-radius: 20px; color: white;">
-                            <i class="fa-solid fa-brain" style="font-size: 2.5rem; margin-bottom: 10px;"></i>
-                            <h4 style="margin: 5px 0; color: white;">CEREBRO CREATIVO</h4>
-                            <p style="font-size: 0.8rem; opacity: 0.9; margin: 0;">ChatGPT o Gemini</p>
-                            <p style="font-size: 0.75rem; opacity: 0.8; margin: 5px 0 0 0;">Genera ideas, textos, prompts, guiones</p>
-                        </div>
-                    </div>
-
-                    <div style="font-size: 2rem; color: var(--primary);">
-                        <i class="fa-solid fa-arrows-left-right"></i>
-                    </div>
-
-                    <!-- Manos: Apps -->
-                    <div style="flex: 2; min-width: 300px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        
-                        <!-- Canva -->
-                        <div style="background: linear-gradient(135deg, #8b5cf615, #6366f110); padding: 20px; border-radius: 16px; border: 2px solid #8b5cf640;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                <div style="background: linear-gradient(135deg, #8b5cf6, #6366f1); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fa-solid fa-paintbrush" style="color: white;"></i>
-                                </div>
-                                <h4 style="margin: 0; color: #8b5cf6;">Canva</h4>
-                            </div>
-                            <p style="font-size: 0.8rem; line-height: 1.5; margin: 0;">
-                                <strong>Recibe de la IA:</strong> ideas de diseño, paletas de colores, textos publicitarios, estructura del poster.
-                            </p>
-                        </div>
-
-                        <!-- Gamma -->
-                        <div style="background: linear-gradient(135deg, #f59e0b15, #d9770610); padding: 20px; border-radius: 16px; border: 2px solid #f59e0b40;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
-                                <div style="background: linear-gradient(135deg, #f59e0b, #d97706); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                                    <i class="fa-solid fa-file-powerpoint" style="color: white;"></i>
-                                </div>
-                                <h4 style="margin: 0; color: #f59e0b;">Gamma</h4>
-                            </div>
-                            <p style="font-size: 0.8rem; line-height: 1.5; margin: 0;">
-                                <strong>Recibe de la IA:</strong> estructura de presentación, contenido por diapositivas, discurso de ventas, storytelling.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <!-- Canva + ChatGPT/Gemini -->
-            <div class="card">
-                <h3><i class="fa-solid fa-paintbrush" style="color: #8b5cf6;"></i> Canva + ChatGPT / Gemini</h3>
-                <p style="margin-bottom: 20px;"><strong>Canva</strong> es la herramienta de diseño visual más popular del mundo. Al conectarla con IA, multiplicas su poder:</p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <!-- Con ChatGPT -->
-                    <div style="background: linear-gradient(135deg, #10a37f10, #10a37f05); padding: 20px; border-radius: 16px; border: 1px solid #10a37f30;">
-                        <h4 style="color: #10a37f; margin-top: 0;">🤖 Con ChatGPT</h4>
-                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 15px;">
-                            <li>Pide a ChatGPT: <em>"Dame 5 ideas de diseño para un poster del Día de las Madres para una empresa dental"</em></li>
-                            <li>Solicita: <em>"Escríbeme el texto publicitario para un banner de 1200x400 px"</em></li>
-                            <li>Pide: <em>"Sugiéreme una paleta de colores cálidos para el Día de las Madres en formato HEX"</em></li>
-                            <li>Usa ChatGPT para generar la estructura de tu diseño antes de abrir Canva</li>
-                        </ul>
-                        <div class="tip-box" style="margin-top: 10px;">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span><strong>Tip:</strong> ChatGPT puede darte los textos exactos y la estructura visual. Luego solo los copias y pegas en Canva.</span>
-                        </div>
-                    </div>
-
-                    <!-- Con Gemini -->
-                    <div style="background: linear-gradient(135deg, #4285f410, #34a85305); padding: 20px; border-radius: 16px; border: 1px solid #4285f430;">
-                        <h4 style="color: #4285f4; margin-top: 0;">🌟 Con Gemini</h4>
-                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 15px;">
-                            <li>Gemini puede <strong>generar la imagen</strong> con Nano Banana y luego tú la importas a Canva</li>
-                            <li>Pide a Gemini: <em>"Analiza esta imagen y dime qué elementos visuales debería agregar en Canva"</em></li>
-                            <li>Solicita: <em>"Crea un guión de 30 segundos para un video promocional que subiré a Canva"</em></li>
-                            <li>Gemini entiende contexto en español latinoamericano perfectamente</li>
-                        </ul>
-                        <div class="tip-box" style="margin-top: 10px;">
-                            <i class="fa-solid fa-lightbulb"></i>
-                            <span><strong>Tip:</strong> Genera la imagen en Gemini → Descárgala → Ábrela en Canva → Agrega textos y elementos. ¡Flujo perfecto!</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ejemplo Canva -->
-                <div style="margin-top: 25px; padding: 20px; background: var(--bg-alt); border-radius: 16px;">
-                    <h4 style="margin-top: 0;">📋 Ejemplo de Prompt para ChatGPT/Canva:</h4>
-                    <div class="highlight" style="margin-top: 10px;">
-                        "Actúa como un <strong style="color: var(--primary-soft);">diseñador gráfico profesional</strong>. 
-                        Voy a crear un poster en Canva para el Día de las Madres promocionando productos dentales de Proquident.
-                        <br><br>
-                        <strong style="color: var(--primary-soft);">Dame:</strong><br>
-                        1. Tres opciones de título llamativo (máximo 8 palabras cada uno)<br>
-                        2. Un texto descriptivo de 30 palabras para el cuerpo del poster<br>
-                        3. Una paleta de 4 colores (códigos HEX) que combinen: profesional + maternal<br>
-                        4. Tres sugerencias de fuentes disponibles en Canva<br>
-                        5. Una llamada a la acción (CTA) breve y persuasiva"
-                    </div>
-                    <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
-                        onclick="copyPrompt(this, 'prompt-canva')">
-                        <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Prompt para Canva</span>
-                    </button>
-                    <div id="prompt-canva" style="display:none;">Actúa como un diseñador gráfico profesional. Voy a crear un poster en Canva para el Día de las Madres promocionando productos dentales de Proquident. Dame: 1. Tres opciones de título llamativo (máximo 8 palabras cada uno) 2. Un texto descriptivo de 30 palabras para el cuerpo del poster 3. Una paleta de 4 colores (códigos HEX) que combinen: profesional + maternal 4. Tres sugerencias de fuentes disponibles en Canva 5. Una llamada a la acción (CTA) breve y persuasiva</div>
-                </div>
-            </div>
-
-            <!-- Gamma + ChatGPT/Gemini -->
-            <div class="card">
-                <h3><i class="fa-solid fa-file-powerpoint" style="color: #f59e0b;"></i> Gamma + ChatGPT / Gemini</h3>
-                <p style="margin-bottom: 20px;"><strong>Gamma</strong> es una herramienta revolucionaria que crea presentaciones completas con IA. Al conectarla con ChatGPT o Gemini, obtienes presentaciones profesionales en minutos:</p>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px;">
-                    <!-- Con ChatGPT -->
-                    <div style="background: linear-gradient(135deg, #10a37f10, #10a37f05); padding: 20px; border-radius: 16px; border: 1px solid #10a37f30;">
-                        <h4 style="color: #10a37f; margin-top: 0;">🤖 Con ChatGPT</h4>
-                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 15px;">
-                            <li>Pide a ChatGPT: <em>"Crea el contenido para 5 diapositivas sobre los beneficios de los implantes dentales"</em></li>
-                            <li>Solicita: <em>"Estructura una presentación de ventas para productos odontológicos"</em></li>
-                            <li>Usa ChatGPT para escribir el <strong>discurso de cada diapositiva</strong></li>
-                            <li>Luego pega ese contenido en Gamma para que lo formatee automáticamente</li>
-                        </ul>
-                    </div>
-
-                    <!-- Con Gemini -->
-                    <div style="background: linear-gradient(135deg, #4285f410, #34a85305); padding: 20px; border-radius: 16px; border: 1px solid #4285f430;">
-                        <h4 style="color: #4285f4; margin-top: 0;">🌟 Con Gemini</h4>
-                        <ul style="font-size: 0.85rem; line-height: 1.8; margin-left: 15px;">
-                            <li>Gemini puede crear la <strong>imagen de portada</strong> para tu presentación de Gamma</li>
-                            <li>Pide a Gemini: <em>"Genera una estructura de pitch comercial para Proquident en 8 slides"</em></li>
-                            <li>Solicita imágenes para cada diapositiva y luego súbelas a Gamma</li>
-                            <li>Gemini + Gamma = presentación visual impactante en minutos</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Ejemplo Gamma -->
-                <div style="margin-top: 25px; padding: 20px; background: var(--bg-alt); border-radius: 16px;">
-                    <h4 style="margin-top: 0;">📋 Ejemplo de Prompt para ChatGPT/Gamma:</h4>
-                    <div class="highlight" style="margin-top: 10px;">
-                        "Actúa como un <strong style="color: var(--primary-soft);">experto en presentaciones comerciales</strong>. 
-                        Necesito crear una presentación en Gamma para promocionar productos dentales de Proquident para el Día de las Madres.
-                        <br><br>
-                        <strong style="color: var(--primary-soft);">Crea:</strong><br>
-                        1. Un título impactante para la presentación<br>
-                        2. Contenido para 6 diapositivas con:<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 1: Portada<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 2: ¿Por qué regalar salud dental?<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 3: Producto destacado y beneficios<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 4: Testimonios o casos de éxito<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 5: Promoción especial Día de las Madres<br>
-                        &nbsp;&nbsp;&nbsp;- Slide 6: Contacto y CTA<br>
-                        3. Un párrafo de máximo 40 palabras para cada slide"
-                    </div>
-                    <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
-                        onclick="copyPrompt(this, 'prompt-gamma')">
-                        <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Prompt para Gamma</span>
-                    </button>
-                    <div id="prompt-gamma" style="display:none;">Actúa como un experto en presentaciones comerciales. Necesito crear una presentación en Gamma para promocionar productos dentales de Proquident para el Día de las Madres. Crea: 1. Un título impactante para la presentación 2. Contenido para 6 diapositivas con: Slide 1: Portada, Slide 2: ¿Por qué regalar salud dental?, Slide 3: Producto destacado y beneficios, Slide 4: Testimonios o casos de éxito, Slide 5: Promoción especial Día de las Madres, Slide 6: Contacto y CTA. 3. Un párrafo de máximo 40 palabras para cada slide.</div>
-                </div>
-            </div>
-
-            <!-- Flujo de trabajo resumen -->
-            <div class="card" style="margin-top: 25px; background: var(--primary-l);">
-                <h3>🔄 Flujo de Trabajo Completo</h3>
-                <p style="margin-bottom: 20px;">Así integras todo en un proyecto real:</p>
-
-                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px; padding: 20px; text-align: center;">
-                    <div style="padding: 12px; background: white; border-radius: 12px; min-width: 100px;">
-                        <i class="fa-solid fa-brain" style="color: var(--primary); font-size: 1.5rem;"></i>
-                        <p style="font-size: 0.75rem; font-weight: 600; margin: 5px 0;">ChatGPT</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Crear textos y prompts</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary);"></i>
-                    <div style="padding: 12px; background: white; border-radius: 12px; min-width: 100px;">
-                        <i class="fa-solid fa-star" style="color: #4285f4; font-size: 1.5rem;"></i>
-                        <p style="font-size: 0.75rem; font-weight: 600; margin: 5px 0;">Gemini</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Generar imagen + audio</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary);"></i>
-                    <div style="padding: 12px; background: white; border-radius: 12px; min-width: 100px;">
-                        <i class="fa-solid fa-paintbrush" style="color: #8b5cf6; font-size: 1.5rem;"></i>
-                        <p style="font-size: 0.75rem; font-weight: 600; margin: 5px 0;">Canva</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Diseñar poster final</p>
-                    </div>
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary);"></i>
-                    <div style="padding: 12px; background: white; border-radius: 12px; min-width: 100px;">
-                        <i class="fa-solid fa-file-powerpoint" style="color: #f59e0b; font-size: 1.5rem;"></i>
-                        <p style="font-size: 0.75rem; font-weight: 600; margin: 5px 0;">Gamma</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Presentación profesional</p>
-                    </div>
-                </div>
-                
-                <div class="info-box" style="margin-top: 20px;">
-                    <h4>💡 Regla de Oro:</h4>
-                    <p style="margin: 0;"><strong>ChatGPT/Gemini piensan y crean el contenido.</strong> Luego tú llevas ese contenido a <strong>Canva</strong> (para diseño visual) y a <strong>Gamma</strong> (para presentaciones). La IA es tu asistente creativo, no reemplaza las herramientas profesionales, ¡las potencia!</p>
-                </div>
-            </div>
-        </section>
-
-
-         <!-- SECCIÓN ACTIVIDAD FINAL INTEGRADORA -->
-        <section id="actividad-sec" class="section">
-            <div class="section-header">
-                <p class="section-label">Actividad Final Integradora</p>
-                <h2 class="section-title">🎯 Proyecto Grupal: Campaña Día de las Madres - Proquident</h2>
-                <p class="section-desc">Trabajo en equipo que integra todas las habilidades: prompts expertos, generación de imágenes, diseño en Canva, presentación en Gamma y audio publicitario con Gemini.</p>
-            </div>
-
-            <!-- Objetivo General -->
-            <div class="card" >
-                <div >
+  <!-- ========== SIDEBAR NAV (SOLO OPCIONES EXISTENTES) ========== -->
+  <nav class="sidebar-nav">
+    <a href="#inicio" class="nav-item" onclick="scrollToSection('inicio')">📌 Inicio</a>
+    <a href="#agentes" class="nav-item" onclick="scrollToSection('agentes')">🤖 Agentes nativos</a>
+    <a href="#estructura-prompt" class="nav-item" onclick="scrollToSection('estructura-prompt')">✍️ Prompt</a>
+    
+      <a href="#ejercicios" class="nav-item" onclick class="nav-item " onclick="toggleDropdown('ejercicios-dropdown')">🧪 Ejercicios prácticos ▾</a>
+     
+        <a href="#ejercicio1" class="nav-item" onclick="scrollToSection('ejercicio1')">📄 Ejercicio 1</a>
+        <a href="#ejercicio2" class="nav-item" onclick="scrollToSection('ejercicio2')">📊 Ejercicio 2</a>
+        <a href="#ejercicio3" class="nav-item" onclick="scrollToSection('ejercicio3')">📽️ Ejercicio 3</a>
    
-                    <div>
-                        <h3 style="margin: 0; color: var(--primary);">Objetivo del Proyecto</h3>
-                        <p style="margin: 5px 0 0 0;">Crear una <strong>campaña publicitaria completa</strong> para el <strong>Día de las Madres</strong> 🏵️ promocionando un producto de <strong>Proquident</strong>, utilizando ChatGPT/Gemini como cerebro creativo, Canva para el diseño visual y Gamma para la presentación final.</p>
-                    </div>
-                </div>
+    <a href="#promptbook" class="nav-item" onclick="scrollToSection('promptbook')">📚 Promptbook por área</a>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <header class="hero-bg">
+    <div class="text-center">
+      <h1 class="text-6xl md:text-7xl font-bold leading-tight mb-6 text-slate-900">
+        Tu productividad,<br>
+        <span class="gradient-text">impulsada por IA</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-600 mb-10 max-w-2xl mx-auto">
+        El asistente inteligente que aprende contigo, integra tus herramientas y multiplica tu capacidad de crear.
+      </p>
+    </div>
+  </header>
+
+  <!-- ========== MAIN CONTENT ========== -->
+  <main class="content">
+
+    <!-- SECCIÓN INICIO (Historia de Copilot) -->
+    <section id="inicio">
+      <h2>📌 Historia de Copilot</h2>
+      <p>
+        Microsoft Copilot nació como respuesta a una transformación profunda en la manera en que las personas trabajan con software. Su historia no comienza con un anuncio, sino con años de investigación en inteligencia artificial, grandes modelos de lenguaje y la integración progresiva de esas capacidades en las herramientas de productividad más usadas del mundo.
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:1.5rem;">
+        <!-- 2021 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;"></div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">2021</div>
+            <div style="font-weight:700;">GitHub Copilot — el primer paso</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Microsoft y OpenAI lanzan GitHub Copilot, un asistente de escritura de código entrenado sobre millones de repositorios públicos.</p>
+          </div>
+        </div>
+        <!-- Feb 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;"></div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">Febrero 2023</div>
+            <div style="font-weight:700;">Bing Chat y Edge — la IA llega al navegador</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Microsoft integra GPT-4 en Bing y Edge, presentándolo como el primer "copiloto de navegación".</p>
+          </div>
+        </div>
+        <!-- Mar 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;"></div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">Marzo 2023</div>
+            <div style="font-weight:700;">Microsoft 365 Copilot — el salto empresarial</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Microsoft anuncia la integración de IA directamente en Word, Excel, PowerPoint, Outlook y Teams.</p>
+          </div>
+        </div>
+        <!-- Nov 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;"></div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">Noviembre 2023</div>
+            <div style="font-weight:700;">Disponibilidad general para empresas</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Microsoft 365 Copilot se liberó para clientes empresariales.</p>
+          </div>
+        </div>
+        <!-- 2024 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;"></div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">2024</div>
+            <div style="font-weight:700;">Copilot en Windows y ecosistema de agentes</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Copilot se integró directamente en Windows 11 y se presentaron los Copilot agents.</p>
+          </div>
+        </div>
+        <!-- 2025 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #1e6df2;background:white;margin-top:4px;"></div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;">2025 en adelante</div>
+            <div style="font-weight:700;">Agentes autónomos y razonamiento avanzado</div>
+            <p style="color:var(--text-muted);font-size:.875rem;">Con modelos de razonamiento más potentes, Copilot comenzó a operar con mayor autonomía.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN AGENTES NATIVOS -->
+    <section id="agentes">
+      <h2>🤖 1. ¿Qué son los Agentes nativos de Copilot?</h2>
+      <p>
+        Microsoft Copilot no es una sola herramienta, sino un conjunto de <strong>agentes inteligentes integrados directamente</strong> en las aplicaciones que ya usas a diario. Cada agente vive <strong>dentro de su propia aplicación</strong>, accesible desde la cinta superior o el panel lateral con el ícono de Copilot.
+      </p>
+
+      <div class="agent-grid">
+        <div class="agent-card">
+          <h4>📄 Word</h4>
+          <p>Redacta, resume, reescribe y mejora documentos completos. Ideal para comunicados, políticas y reportes.</p>
+        </div>
+        <div class="agent-card">
+          <h4>📊 Excel</h4>
+          <p>Analiza datos, detecta tendencias, genera insights y sugiere visualizaciones a partir de tu hoja de cálculo.</p>
+        </div>
+        <div class="agent-card">
+          <h4>📽️ PowerPoint</h4>
+          <p>Crea presentaciones completas a partir de un documento Word, un resumen o instrucciones de texto libre.</p>
+        </div>
+        <div class="agent-card">
+          <h4>🎙️ Teams</h4>
+          <p>Genera notas de reunión automáticas, extrae tareas con responsables y produce resúmenes ejecutivos.</p>
+        </div>
+        <div class="agent-card">
+          <h4>📧 Outlook</h4>
+          <p>Redacta borradores, resume hilos largos y sugiere respuestas con el tono adecuado según el contexto.</p>
+        </div>
+      </div>
+
+      <div class="callout">
+        <span>🎯</span>
+        <span><strong>Cómo empezar ahora mismo:</strong> Abre Word, busca el ícono de Copilot en la cinta superior o el panel lateral, y escribe tu primer prompt. No necesitas configuración previa.</span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN ESTRUCTURA DEL PROMPT -->
+    <section id="estructura-prompt">
+      <h2>✍️ 2. La estructura del prompt profesional en Proquident</h2>
+      <p>Un prompt bien estructurado es la clave para obtener resultados útiles. Completa cada campo y genera tu prompt listo para copiar directamente en el agente correspondiente.</p>
+
+      <div class="prompt-builder">
+        <div class="pb-fields">
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">ROL</span><span class="pb-hint">Cargo y área en Proquident</span></div>
+            <input class="pb-input" id="pb-rol" type="text" placeholder="ej. Analista de Bienestar del área de RR.HH." oninput="pbUpdate()">
+          </div>
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">CONTEXTO</span><span class="pb-hint">Situación actual real</span></div>
+            <input class="pb-input" id="pb-contexto" type="text" placeholder="ej. Estamos lanzando un nuevo beneficio para empleados" oninput="pbUpdate()">
+          </div>
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">TAREA</span><span class="pb-hint">Acción concreta a realizar</span></div>
+            <input class="pb-input" id="pb-tarea" type="text" placeholder="ej. Redacta un memorando interno dirigido a todo el personal" oninput="pbUpdate()">
+          </div>
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">DATOS</span><span class="pb-hint">Info o archivo adjunto</span></div>
+            <textarea class="pb-input" id="pb-datos" rows="2" placeholder="ej. [ver datos adjuntos] o pega aquí la información clave" oninput="pbUpdate()"></textarea>
+          </div>
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">FORMATO</span><span class="pb-hint">Cómo presentar la respuesta</span></div>
+            <input class="pb-input" id="pb-formato" type="text" placeholder="ej. Tabla con 4 columnas + párrafo de cierre" oninput="pbUpdate()">
+          </div>
+          <div class="pb-row">
+            <div class="pb-label"><span class="pb-key">RESTRICCIONES</span><span class="pb-hint">Extensión, tono, idioma</span></div>
+            <input class="pb-input" id="pb-restricciones" type="text" placeholder="ej. Máx. 300 palabras, tono profesional pero cercano" oninput="pbUpdate()">
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem;">
+          <div class="pb-track"><div class="pb-fill" id="pb-fill" style="width:0%"></div></div>
+          <span class="pb-prog-label" id="pb-prog">0 / 6 campos</span>
+        </div>
+
+        <div class="pb-output">
+          <div class="pb-out-header">
+            <span class="pb-out-title">📋 Prompt generado — listo para copiar en Copilot</span>
+            <div>
+              <button class="btn-outline-primary" onclick="pbClear()" style="margin-right:0.5rem;">Limpiar</button>
+              <button class="btn-copy" id="pb-copy-btn" onclick="pbCopy()">📋 Copiar</button>
             </div>
+          </div>
+          <div class="pb-out-text" id="pb-output">Completa los campos para generar tu prompt...</div>
+        </div>
+      </div>
+    </section>
 
-            <!-- Formación de Grupos y Roles -->
-            <div class="">
-                <h3><i class="fa-solid fa-people-group" style="color: var(--primary);"></i> Formación de Grupos y Roles</h3>
-                
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-top: 15px;">
-                    <div style="background: #f0f9ff; padding: 20px; border-radius: 16px; text-align: center;">
-                        <i class="fa-solid fa-user-group" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                        <h4 style="margin: 0;">Grupos de 3-4 personas</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-light);">Cada miembro asume un rol</p>
-                    </div>
-                    <div style="background: #f0f9ff; padding: 20px; border-radius: 16px; text-align: center;">
-                        <i class="fa-solid fa-clock" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                        <h4 style="margin: 0;">Tiempo: 45-60 minutos</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-light);">Distribuido en 4 fases</p>
-                    </div>
-                    <div style="background: #f0f9ff; padding: 20px; border-radius: 16px; text-align: center;">
-                        <i class="fa-solid fa-podium" style="font-size: 2rem; color: var(--primary); margin-bottom: 10px;"></i>
-                        <h4 style="margin: 0;">Presentación Final</h4>
-                        <p style="font-size: 0.85rem; color: var(--text-light);">5 minutos por grupo</p>
-                    </div>
-                </div>
+    <!-- EJERCICIO 1: WORD -->
+    <section id="ejercicio1">
+      <div class="ejercicio-box">
+        <div class="ejercicio-titulo">📄 Ejercicio 1 · Agente Word · RR.HH. · Comunicado de nuevo beneficio</div>
+        
+        <div style="border-left:4px solid var(--primary);padding:.7rem 1rem;background:var(--primary-light);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+          <p style="font-size:.85rem;margin:0;">En Proquident, la comunicación interna clara es clave para que los beneficios lleguen a todos los colaboradores. Con Copilot en Word puedes redactar el comunicado completo en segundos.</p>
+        </div>
 
-                <div class="info-box" style="margin-top: 15px;">
-                    <h4>👥 Roles Sugeridos por Grupo:</h4>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 10px;">
-                        <div style="background: rgba(16, 163, 127, 0.1); padding: 12px; border-radius: 10px;">
-                            <strong style="color: #10a37f;">🤖 Ingeniero de Prompts</strong>
-                            <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Usa ChatGPT o Gemini para crear y refinar todos los prompts y textos publicitarios</p>
-                        </div>
-                        <div style="background: rgba(66, 133, 244, 0.1); padding: 12px; border-radius: 10px;">
-                            <strong style="color: #4285f4;">🎨 Diseñador Visual</strong>
-                            <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Toma el contenido de la IA y crea el poster/infografía en Canva</p>
-                        </div>
-                        <div style="background: rgba(139, 92, 246, 0.1); padding: 12px; border-radius: 10px;">
-                            <strong style="color: #8b5cf6;">🎙️ Productor de Audio</strong>
-                            <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Crea el guión con IA y genera el audio publicitario en Gemini</p>
-                        </div>
-                        <div style="background: rgba(245, 158, 11, 0.1); padding: 12px; border-radius: 10px;">
-                            <strong style="color: #f59e0b;">📊 Presentador</strong>
-                            <p style="font-size: 0.8rem; margin: 5px 0 0 0;">Arma la presentación final en Gamma y expone los resultados</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="code-block" id="datosWord">PROQUIDENT - PROGRAMA "CUIDADO DE TU COMPAÑERO"
+Vigencia: Abril 2025 - Diciembre 2025
+Beneficio: Reembolso hasta $150.000 anual (consulta, vacunación, antiparasitarios)
+Requisitos: Contrato indefinido + 3 meses antigüedad + registrar mascota
+Procedimiento: Enviar boleta y formulario a RR.HH. antes del día 30 de cada mes</div>
+        
+        <div class="btn-row"><button class="btn-copy" data-copy="datosWord">📋 Copiar datos</button></div>
 
-            <!-- Flujo de Trabajo Visual -->
-            <div class="" style="background: var(--primary-l);">
-                <h3>🔄 Flujo de Trabajo de la Actividad</h3>
-                <p style="margin-bottom: 20px; text-align: center;">Así se conectan las herramientas en este proyecto:</p>
+        <div class="prompt-profesional">
+          <div class="prompt-header">
+            <span>📋 Prompt profesional · Agente Word</span>
+            <button class="btn-outline-primary btn-copy" data-copy="promptWord">📋 Copiar prompt</button>
+          </div>
+          <div class="prompt-text" id="promptWord">Actúa como Analista de Bienestar del departamento de Recursos Humanos de Proquident, empresa del rubro veterinario con más de 200 colaboradores.
 
-                <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px; padding: 20px; text-align: center;">
-                    
-                    <div style="padding: 15px; background: white; border-radius: 16px; min-width: 110px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                        <div style="font-size: 2rem; margin-bottom: 5px;">🧠</div>
-                        <p style="font-size: 0.75rem; font-weight: 700; margin: 5px 0; color: #10a37f;">ChatGPT</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Crear prompts<br>+ textos</p>
-                    </div>
-                    
-                    <i class="fa-solid fa-plus" style="color: var(--primary); font-size: 1.2rem;"></i>
-                    
-                    <div style="padding: 15px; background: white; border-radius: 16px; min-width: 110px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-                        <div style="font-size: 2rem; margin-bottom: 5px;">🌟</div>
-                        <p style="font-size: 0.75rem; font-weight: 700; margin: 5px 0; color: #4285f4;">Gemini</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Generar imagen<br>+ audio</p>
-                    </div>
-                    
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary); font-size: 1.5rem;"></i>
-                    
-                    <div style="padding: 15px; background: white; border-radius: 16px; min-width: 110px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 2px solid #8b5cf6;">
-                        <div style="font-size: 2rem; margin-bottom: 5px;">🎨</div>
-                        <p style="font-size: 0.75rem; font-weight: 700; margin: 5px 0; color: #8b5cf6;">Canva</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Diseñar poster<br>o infografía</p>
-                    </div>
-                    
-                    <i class="fa-solid fa-arrow-right" style="color: var(--primary); font-size: 1.5rem;"></i>
-                    
-                    <div style="padding: 15px; background: white; border-radius: 16px; min-width: 110px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border: 2px solid #f59e0b;">
-                        <div style="font-size: 2rem; margin-bottom: 5px;">📊</div>
-                        <p style="font-size: 0.75rem; font-weight: 700; margin: 5px 0; color: #f59e0b;">Gamma</p>
-                        <p style="font-size: 0.65rem; color: var(--text-light); margin: 0;">Presentación<br>final</p>
-                    </div>
-                </div>
-                <p style="text-align: center; font-size: 0.8rem; color: var(--text-light); margin-top: 10px;">
-                    <strong>ChatGPT y Gemini</strong> son el cerebro que crea el contenido → <strong>Canva y Gamma</strong> son las herramientas que lo convierten en diseños profesionales
-                </p>
-            </div>
+Contexto: La gerencia acaba de aprobar un nuevo beneficio para empleados con mascotas, llamado "Programa Cuidado de tu Compañero". Necesito redactar un comunicado interno oficial.
 
-            <!-- Desarrollo de la Actividad -->
-            <div class="">
-                <h3>📋 Desarrollo de la Actividad (4 Fases)</h3>
-                
-                <div class="practice-steps">
-                    
-                    <!-- Fase 1 -->
-                    <div class="practice-step">
-                        <div class="practice-num">1</div>
-                        <div>
-                            <strong>FASE 1: Crear el Contenido con ChatGPT o Gemini (15 min)</strong>
-                            <span>
-                                <br>🔹 <strong>Elijan UN producto de Proquident</strong> para promocionar (ej: Resinas compuestas, Implantes dentales, Kits de blanqueamiento, Instrumental quirúrgico).
-                                <br>🔹 <strong>Temática:</strong> Día de las Madres 🏵️ (10 de mayo en Colombia).
-                                <br>🔹 <strong>Usen ChatGPT o Gemini</strong> para generar:
-                                <br>&nbsp;&nbsp;&nbsp;✅ Prompt refinado para la imagen publicitaria (usando la estructura de 6 componentes)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Texto publicitario (título, descripción del producto, CTA)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Paleta de colores sugerida (códigos HEX)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Guión para audio publicitario de 30 segundos
-                                <br>🔹 <strong>Tip:</strong> Primero escriban un prompt básico, luego pídanle a la IA que lo mejore.
-                                <br>🔹 <strong>Entregable:</strong> Documento con todos los textos generados por IA.
-                            </span>
-                        </div>
-                    </div>
+Tarea: Con los datos adjuntos, redacta un memorando dirigido a "Todo el personal de Proquident" que incluya:
+1. Encabezado con fecha actual y asunto llamativo.
+2. Explicación del beneficio (qué cubre, monto máximo).
+3. Requisitos y procedimiento para solicitarlo (pasos claros).
+4. Fecha de inicio y vigencia.
+5. Un párrafo de cierre con tono motivador y agradecimiento.
 
-                    <!-- Fase 2 -->
-                    <div class="practice-step">
-                        <div class="practice-num">2</div>
-                        <div>
-                            <strong>FASE 2: Generar Imagen con Gemini y Audio (15 min)</strong>
-                            <span>
-                                <br>🔹 <strong>IMAGEN:</strong> Usen el prompt refinado en <strong>Gemini (Nano Banana)</strong> para generar la imagen publicitaria.
-                                <br>&nbsp;&nbsp;&nbsp;• También pueden probar en <strong>Leonardo AI</strong> y comparar resultados.
-                                <br>&nbsp;&nbsp;&nbsp;• La imagen debe reflejar: producto + Día de las Madres + profesionalismo dental.
-                                <br>🔹 <strong>AUDIO:</strong> En <strong>Gemini</strong>, usen el guión creado en la Fase 1 para generar el audio publicitario de 30 segundos.
-                                <br>&nbsp;&nbsp;&nbsp;• Tono: cálido, emotivo, profesional.
-                                <br>&nbsp;&nbsp;&nbsp;• Incluir: producto + beneficio emocional + CTA + datos de Proquident.
-                                <br>🔹 <strong>Entregables:</strong> Imagen en alta calidad + archivo de audio + guión escrito.
-                            </span>
-                        </div>
-                    </div>
+Restricciones: Extensión máxima una página, usar viñetas, tono profesional pero cercano.
 
-                    <!-- Fase 3 -->
-                    <div class="practice-step">
-                        <div class="practice-num">3</div>
-                        <div>
-                            <strong>FASE 3: Diseñar en Canva el Poster o Infografía (10 min)</strong>
-                            <span>
-                                <br>🔹 <strong>Abran Canva</strong> y creen un diseño en blanco (tamaño poster: 1080x1350 px para Instagram o A4 para impresión).
-                                <br>🔹 <strong>Suban la imagen</strong> generada por Gemini/Leonardo como elemento principal.
-                                <br>🔹 <strong>Agreguen los textos</strong> que ChatGPT/Gemini crearon en la Fase 1:
-                                <br>&nbsp;&nbsp;&nbsp;✅ Título llamativo
-                                <br>&nbsp;&nbsp;&nbsp;✅ Descripción del producto
-                                <br>&nbsp;&nbsp;&nbsp;✅ Beneficio para mamá
-                                <br>&nbsp;&nbsp;&nbsp;✅ Precio o promoción especial (si aplica)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Datos de contacto de Proquident
-                                <br>🔹 <strong>Apliquen la paleta de colores</strong> sugerida por la IA.
-                                <br>🔹 <strong>Entregable:</strong> Poster o infografía final en formato PNG/JPG.
-                            </span>
-                        </div>
-                    </div>
+Datos: [pegar aquí los datos del programa]</div>
+        </div>
+      </div>
+    </section>
 
-                    <!-- Fase 4 -->
-                    <div class="practice-step">
-                        <div class="practice-num">4</div>
-                        <div>
-                            <strong>FASE 4: Presentación Final en Gamma (10 min)</strong>
-                            <span>
-                                <br>🔹 <strong>Abran Gamma</strong> y creen una presentación de 5-6 diapositivas que incluya:
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 1: Portada con el nombre del producto y "Campaña Día de las Madres"
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 2: El prompt utilizado (mostrar cómo lo refinaron)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 3: La imagen generada por IA (con explicación de qué herramienta usaron)
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 4: El poster/infografía final diseñado en Canva
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 5: Reproducir el audio publicitario
-                                <br>&nbsp;&nbsp;&nbsp;✅ Slide 6: Conclusiones y aprendizajes del equipo
-                                <br>🔹 <strong>Entregable:</strong> Enlace de Gamma listo para presentar.
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- EJERCICIO 2: EXCEL -->
+    <section id="ejercicio2">
+      <div class="ejercicio-box">
+        <div class="ejercicio-titulo">📊 Ejercicio 2 · Agente Excel · Finanzas · Análisis de desviaciones de gastos Q1 2025</div>
 
-            <!-- Plantilla de Prompt para Imagen -->
-            <div class="card">
-                <h3>📝 Plantilla Base: Prompt para Imagen Publicitaria</h3>
-                <p>Usen esta base en ChatGPT/Gemini, refínenla y luego llévenla a Gemini para generar la imagen:</p>
-                <div class="highlight">
-                    "Crea una imagen publicitaria para el <strong style="color: var(--primary-soft);">Día de las Madres</strong> de <strong style="color: var(--primary-soft);">Proquident</strong>, empresa colombiana de insumos odontológicos.<br><br>
-                    <strong style="color: var(--primary-soft);">Producto:</strong> [ESCRIBAN SU PRODUCTO AQUÍ]<br>
-                    <strong style="color: var(--primary-soft);">Estilo:</strong> Cálido, emotivo, iluminación suave, fotografía profesional.<br>
-                    <strong style="color: var(--primary-soft);">Colores:</strong> Rosas suaves, dorados, blanco (paleta maternal elegante).<br>
-                    <strong style="color: var(--primary-soft);">Elementos:</strong> Flores, sonrisa materna, el producto dental visible, texto 'Feliz Día de las Madres'.<br>
-                    <strong style="color: var(--primary-soft);">Formato:</strong> Poster vertical 1080x1350 px."
-                </div>
-                <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
-                    onclick="copyPrompt(this, 'prompt-madres')">
-                    <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Plantilla de Imagen</span>
-                </button>
-                <div id="prompt-madres" style="display:none;">Crea una imagen publicitaria para el Día de las Madres de Proquident, empresa colombiana de insumos odontológicos. Producto: [ESCRIBAN SU PRODUCTO AQUÍ]. Estilo: Cálido, emotivo, iluminación suave, fotografía profesional. Colores: Rosas suaves, dorados, blanco (paleta maternal elegante). Elementos: Flores, sonrisa materna, el producto dental visible, texto 'Feliz Día de las Madres'. Formato: Poster vertical 1080x1350 px.</div>
-            </div>
+        <div style="border-left:4px solid var(--success);padding:.7rem 1rem;background:#f0fdf4;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+          <p style="font-size:.85rem;margin:0;">Con Copilot en Excel, el análisis de desviaciones se obtiene en minutos con un solo prompt.</p>
+        </div>
 
-            <!-- Plantilla de Guión de Audio -->
-            <div class="card">
-                <h3>🎙️ Plantilla para Guión de Audio Publicitario</h3>
-                <p>Usen esta estructura en ChatGPT/Gemini para crear el guión, luego generen el audio en Gemini:</p>
-                <div class="highlight">
-                    <strong style="color: var(--primary-soft);">Duración:</strong> 30 segundos<br><br>
-                    <strong style="color: var(--primary-soft);">Estructura:</strong><br>
-                    [0-5 seg] - Música suave + "Este Día de las Madres..."<br>
-                    [5-15 seg] - Presentación del producto y beneficio emocional<br>
-                    [15-25 seg] - "Porque mamá merece la mejor sonrisa..."<br>
-                    [25-30 seg] - CTA + "Proquident, excelencia en salud dental. Visítanos en proquident.com.co"<br><br>
-                    <strong style="color: var(--primary-soft);">Tono:</strong> Voz femenina cálida, emotiva, profesional.<br>
-                    <strong style="color: var(--primary-soft);">Música de fondo:</strong> Suave, inspiradora, sin copyright.
-                </div>
-            </div>
+        <div class="btn-row">
+          <a class="btn-copy" style="background:var(--success);display:inline-block;" href="#" id="downloadExcelBtn">⬇️ Descargar Excel Ejercicio 2 (Gastos Q1 2025)</a>
+        </div>
 
-            <!-- Plantilla para Contenido de Canva -->
-            <div class="card">
-                <h3>🎨 Plantilla para Pedir Contenido a ChatGPT/Gemini (para Canva)</h3>
-                <div class="highlight">
-                    "Actúa como <strong style="color: var(--primary-soft);">diseñador gráfico y copywriter</strong>. Voy a crear un poster en Canva para el Día de las Madres promocionando <strong style="color: var(--primary-soft);">[producto]</strong> de Proquident.<br><br>
-                    <strong style="color: var(--primary-soft);">Dame:</strong><br>
-                    1. Tres opciones de título (máx. 8 palabras c/u)<br>
-                    2. Descripción del producto (30 palabras)<br>
-                    3. Paleta de 4 colores HEX (profesional + maternal)<br>
-                    4. Llamada a la acción persuasiva<br>
-                    5. Sugerencia de fuentes de Canva"
-                </div>
-                <button class="tab-btn" style="background: var(--primary); color: white; margin-top: 10px;"
-                    onclick="copyPrompt(this, 'prompt-canva-contenido')">
-                    <i class="fa-regular fa-copy"></i> <span class="prompt-copy-hint">Copiar Prompt para Contenido</span>
-                </button>
-                <div id="prompt-canva-contenido" style="display:none;">Actúa como diseñador gráfico y copywriter. Voy a crear un poster en Canva para el Día de las Madres promocionando [producto] de Proquident. Dame: 1. Tres opciones de título (máx. 8 palabras c/u) 2. Descripción del producto (30 palabras) 3. Paleta de 4 colores HEX (profesional + maternal) 4. Llamada a la acción persuasiva 5. Sugerencia de fuentes de Canva</div>
-            </div>
+        <div class="prompt-profesional">
+          <div class="prompt-header">
+            <span>📋 Prompt profesional · Agente Excel</span>
+            <button class="btn-outline-primary btn-copy" data-copy="promptExcel">📋 Copiar prompt</button>
+          </div>
+          <div class="prompt-text" id="promptExcel">Actúa como Analista de Control de Gestión del área Financiera de Proquident.
+
+Contexto: La gerencia financiera solicitó un análisis detallado de los gastos operacionales del primer trimestre de 2025.
+
+Tarea: Con los datos del archivo Excel, realiza:
+1. Calcula la variación porcentual entre Monto real y Presupuesto.
+2. Identifica los 5 conceptos con mayor desviación negativa.
+3. Indica Área, Concepto, Proveedor, % de sobrecosto y causa probable.
+4. Agrupa por Área y dime cuál fue el área con mayor eficiencia.
+
+Formato: Tabla con 7 columnas + párrafo final de análisis.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EJERCICIO 3: POWERPOINT (antes ejercicio4) -->
+    <section id="ejercicio3">
+      <div class="ejercicio-box">
+        <div class="ejercicio-titulo">📽️ Ejercicio 3 · Agente PowerPoint · Gerencia · Presentación de resultados</div>
+
+        <div style="border-left:4px solid var(--success);padding:.7rem 1rem;background:#f0fdf4;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+          <p style="font-size:.85rem;margin:0;">Con Copilot en PowerPoint puedes transformar datos en una narrativa visual convincente en minutos.</p>
+        </div>
+
+        <div class="code-block" id="datosPPT">Indicadores Q1 2025:
+- Cirugías realizadas: 342 (meta 300) → cumplimiento 114%
+- Inversión total: $24.500.000
+- Costo promedio por cirugía: $71.637
+- Ahorro vs presupuesto: $3.500.000 (12.5%)
+- Alianzas con fundaciones: 5 comunas
+- Percepción positiva: 89%
+Próximos pasos: ampliar a 3 comunas nuevas, presupuesto adicional $15M.</div>
+        
+        <div class="btn-row"><button class="btn-copy" data-copy="datosPPT">📋 Copiar datos</button></div>
+
+        <div class="prompt-profesional">
+          <div class="prompt-header">
+            <span>📋 Prompt profesional · Agente PowerPoint</span>
+            <button class="btn-outline-primary btn-copy" data-copy="promptPPT">📋 Copiar prompt</button>
+          </div>
+          <div class="prompt-text" id="promptPPT">Actúa como Jefe de Proyecto de la Línea Veterinaria de Proquident.
+
+Contexto: Debo presentar al comité directivo los resultados del Programa de Esterilización Canina del Q1 2025.
+
+Tarea: Genera el guion para una presentación ejecutiva de 6 diapositivas:
+Diapositiva 1: Título + frase de impacto
+Diapositiva 2: Resumen ejecutivo (3 KPIs clave)
+Diapositiva 3: Cumplimiento de meta operacional
+Diapositiva 4: Análisis financiero
+Diapositiva 5: Impacto social y percepción
+Diapositiva 6: Próximos pasos
+
+Restricciones: Lenguaje ejecutivo, datos concretos con cifras.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN PROMPTBOOK POR ÁREA -->
+    <section id="promptbook">
+      <h2>📚 Promptbook por área</h2>
+      <p>Aquí encontrarás prompts específicos organizados por área funcional de Proquident:</p>
+      <ul>
+        <li><strong>RR.HH.:</strong> Comunicados internos, políticas de beneficios, evaluaciones de desempeño.</li>
+        <li><strong>Finanzas:</strong> Análisis de desviaciones, reportes de gestión, proyecciones presupuestarias.</li>
+        <li><strong>Veterinaria:</strong> Informes técnicos, procedimientos clínicos, protocolos.</li>
+        <li><strong>Gerencia:</strong> Presentaciones ejecutivas, informes de gestión, análisis estratégico.</li>
+      </ul>
+    </section>
 
 
+  </main>
 
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>✦</div>
+    <div>Módulo 3 · Curso IA · <strong>Luz Eliana Martinez Ramos</strong></div>
+  </footer>
 
-            <div class="nav-footer">
-                <button class="primary-nav" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-                    <i class="fa-solid fa-arrow-up"></i> Volver arriba
-                </button>
-            </div>
-        </section>
-    </main>
+  <div class="toast" id="toast"></div>
 
-    <!-- FOOTER -->
-    <footer class="site-footer">
-        © 2025 <strong>Luz Eliana</strong> · Curso complementario de IA &nbsp;—&nbsp; Desarrollado con ♥ para el equipo
-    </footer>
+  <!-- SCRIPTS -->
+  <script>
+    // Toast notification
+    const toast = document.getElementById('toast');
+    function showToast(msg) {
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2500);
+    }
 
-    <script>
-              function showSection(sectionId) {
-            const sections = ['inicio-sec', 'prompt-sec', 'imagenes-sec', 'apps-sec', 'actividad-sec'];
-            sections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.classList.remove('active');
-            });
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) targetSection.classList.add('active');
+    // Copy function
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch { return false; }
+    }
 
-            const buttons = document.querySelectorAll('.tab-btn');
-            const index = sections.indexOf(sectionId);
-            buttons.forEach((btn, i) => {
-                if (i === index) btn.classList.add('active');
-                else btn.classList.remove('active');
-            });
+    document.querySelectorAll('.btn-copy').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const targetId = btn.getAttribute('data-copy');
+        const el = document.getElementById(targetId);
+        if (!el) { showToast('Error: no se encontró el contenido'); return; }
+        const text = el.innerText;
+        const ok = await copyText(text);
+        showToast(ok ? '✅ Copiado. Pégalo en el Agente correspondiente.' : '❌ Error al copiar.');
+      });
+    });
 
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            updateProgress();
-        }
+    // Scroll suave
+    function scrollToSection(sectionId) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
 
-        function updateProgress() {
-            const sections = ['inicio-sec', 'prompt-sec', 'imagenes-sec', 'apps-sec', 'actividad-sec'];
-            const active = sections.findIndex(id => {
-                const el = document.getElementById(id);
-                return el && el.classList.contains('active');
-            });
-            const pct = (active / (sections.length - 1)) * 100;
-            document.getElementById('progress-bar').style.width = pct + '%';
-        }
-    </script>
+    // Dropdown
+    function toggleDropdown(dropdownId) {
+      const dropdown = document.getElementById(dropdownId);
+      document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        if (menu.id !== dropdownId) menu.classList.remove('show');
+      });
+      dropdown.classList.toggle('show');
+    }
+
+    document.addEventListener("click", function(event) {
+      if (!event.target.closest(".nav-dropdown")) {
+        document.querySelectorAll(".dropdown-menu").forEach(d => d.classList.remove("show"));
+      }
+    });
+
+    // Prompt Builder
+    const pbFields = ['rol', 'contexto', 'tarea', 'datos', 'formato', 'restricciones'];
+    const pbLabels = { rol: 'ROL', contexto: 'CONTEXTO', tarea: 'TAREA', datos: 'DATOS', formato: 'FORMATO', restricciones: 'RESTRICCIONES' };
+
+    function pbUpdate() {
+      let filled = 0;
+      pbFields.forEach(k => { if (document.getElementById('pb-' + k).value.trim()) filled++; });
+      const pct = Math.round(filled / pbFields.length * 100);
+      const fillEl = document.getElementById('pb-fill');
+      fillEl.style.width = pct + '%';
+      fillEl.className = 'pb-fill' + (pct === 100 ? ' complete' : '');
+      document.getElementById('pb-prog').textContent = filled + ' / ' + pbFields.length + ' campos';
+      
+      const out = document.getElementById('pb-output');
+      if (filled === 0) {
+        out.textContent = 'Completa los campos para generar tu prompt...';
+        return;
+      }
+      let txt = '═'.repeat(55) + '\n';
+      pbFields.forEach(k => {
+        const v = document.getElementById('pb-' + k).value.trim();
+        txt += '📌 ' + pbLabels[k] + ': ' + (v || '—') + '\n';
+      });
+      txt += '═'.repeat(55);
+      out.textContent = txt;
+    }
+
+    function pbCopy() {
+      const text = document.getElementById('pb-output').textContent;
+      if (!text || text.startsWith('Completa')) return;
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('pb-copy-btn');
+        const originalText = btn.textContent;
+        btn.textContent = '✅ Copiado';
+        setTimeout(() => { btn.textContent = originalText; }, 2200);
+      });
+    }
+
+    function pbClear() {
+      pbFields.forEach(k => { document.getElementById('pb-' + k).value = ''; });
+      pbUpdate();
+    }
+
+    pbUpdate();
+
+    // Descarga del Excel (archivo simulado base64)
+    document.getElementById('downloadExcelBtn').addEventListener('click', function(e) {
+      e.preventDefault();
+      // Datos CSV simulados para crear un Excel funcional
+      const csvData = `Fecha,Mes,Área,Concepto,Monto (CLP),Presupuesto (CLP)
+2025-01-01,Enero,Veterinaria,Insumos clínicos,3542251,3450000
+2025-01-01,Enero,Veterinaria,Material quirúrgico,1007727,980000
+2025-01-02,Enero,Ventas,Eventos,420187,405000
+2025-02-17,Febrero,Veterinaria,Insumos clínicos,3796342,3519000
+2025-03-02,Marzo,Veterinaria,Insumos clínicos,2528739,2011350`;
+      
+      const blob = new Blob([csvData], { type: 'text/csv' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Proquident_Ejercicio2_Gastos_Q1_2025.csv';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      showToast('📊 Archivo CSV descargado. Ábrelo en Excel.');
+    });
+  </script>
 </body>
-
 </html>

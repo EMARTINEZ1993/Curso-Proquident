@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Clase práctica: Agentes nativos de Microsoft Copilot (Word, Excel, PowerPoint, Teams, Outlook) para Proquident. Incluye archivo Excel real para el Ejercicio 2." />
+    <title> Proquident | Agentes de Word, Excel, PowerPoint, Teams, Outlook
+    </title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="Modulo3.css">
+    <style>
+      .section { display: none; }
+      .section.active { display: block; }
+      #hero-sec { display: none; }
+      #hero-sec.active { display: block; }
+    </style>
+    <style>
+@keyframes moverPatron {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 60px 60px;
+  }
+}
+</style>
+
+
+  </head>
+  <body>
+    <nav class="sidebar-nav" aria-label="Navegación del curso">
+      <a href="#hero-sec" class="nav-item a active" type="button" onclick="showSection('hero-sec')">
+        <i class="fa-solid fa-house"></i> Inicio
+      </a>
+        <a class="nav-item " type="button" onclick="showSection('inicio-sec')" href="#inicio-sec">
+            <i class="fa-solid fa-house"></i> Copilot
+        </a>
+        <a class="nav-item" type="button" onclick="showSection('agentes-sec')" href="#agentes-sec">
+            <i class="fa-solid fa-file-code"></i> Agentes Nativos
+        </a>
+        <a class="nav-item" type="button" onclick="showSection('estructura-sec')" href="#estructura-sec">
+            <i class="fa-solid fa-terminal"></i> Prompts
+        </a>
+
+        <a href="#ejercicio1" class="nav-item" type="button" onclick="showSection('ejercicio1')">
+            <i class="fa-solid fa-terminal"></i> Ejercicios 1
+        </a>
+        <a href="#ejercicio2" class="nav-item" type="button" onclick="showSection('ejercicio2')">
+            <i class="fa-solid fa-terminal"></i> Ejercicios 2
+        </a>
+        <a href="#ejercicio4" class="nav-item" type="button" onclick="showSection('ejercicio4')">
+            <i class="fa-solid fa-terminal"></i> Ejercicios 4
+        </a>
+    </nav>
+
+<section id="hero-sec">
+
+  <!-- HERO HEADER -->
+<style>
+@keyframes moverPatron {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 0 0, 200px 200px;
+  }
+}
+</style>
+
+<div style="
+background-color:#0a0e27;
+background-image:
+linear-gradient(160deg, rgba(10,14,39,0.9) 0%, rgba(30,58,110,0.85) 60%, rgba(30,109,242,0.8) 100%),
+url('patron-fondo.png');
+background-size:cover, 80px 80px;
+background-repeat:no-repeat, repeat;
+background-position:0 0, 0 0;
+animation:moverPatron 8s linear infinite;
+padding:3.5rem 2rem 0;
+text-align:center;
+position:relative;
+overflow:hidden;
+width: 100%;
+">
+    <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:40px;padding:5px 14px;font-size:.75rem;color:rgba(255,255,255,0.85);margin-bottom:1.25rem;">
+      <span style="width:6px;height:6px;border-radius:50%;background:#60efb0;display:inline-block;"></span>
+      Módulo 3 · Microsoft Copilot
+    </div>
+
+    <h1 style="font-size:clamp(1.75rem,5vw,3rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:1rem;letter-spacing:-0.02em;background:none;-webkit-background-clip:unset;background-clip:unset;">
+      Tu productividad,<br>
+      <span style="color:#93c5fd;">impulsada por IA</span>
+    </h1>
+
+    <p style="font-size:.95rem;color:rgba(255,255,255,0.7);max-width:520px;margin:0 auto 1.75rem;line-height:1.65;">
+      El asistente inteligente integrado en Word, Excel, PowerPoint, Teams y Outlook — aprende con el contexto de tu trabajo y multiplica tu capacidad de crear.
+    </p>
+
+    <!-- Stats strip -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);border-top:1px solid rgba(255,255,255,0.1);margin-top:2rem;">
+      <div style="background:rgba(255,255,255,0.05);padding:1rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;color:#fff;line-height:1;">5</div>
+        <div style="font-size:.7rem;color:rgba(255,255,255,0.55);margin-top:4px;">Agentes nativos</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);padding:1rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;color:#fff;line-height:1;">3</div>
+        <div style="font-size:.7rem;color:rgba(255,255,255,0.55);margin-top:4px;">Ejercicios prácticos</div>
+      </div>
+      <div style="background:rgba(255,255,255,0.05);padding:1rem;text-align:center;">
+        <div style="font-size:1.5rem;font-weight:700;color:#fff;line-height:1;">~60'</div>
+        <div style="font-size:.7rem;color:rgba(255,255,255,0.55);margin-top:4px;">Duración estimada</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <div style="background:var(--bg-gray);padding:2rem;display:flex;flex-direction:column;align-items:center;gap:1.1rem;border-bottom:1px solid var(--border-light);">
+    <div style="font-size:.75rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">
+      <span style="width:8px;height:8px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+      Video introductorio · Microsoft Copilot
+    </div>
+    <div style="width:100%; height: 300px;aspect-ratio:16/9;border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border-light);">
+      <iframe style="width:100%;height:100%;border:none;" src="https://www.youtube.com/embed/QP00cpMAcfg?si=6kEg9RpLXilDSK42" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- QUÉ CUBRE ESTE MÓDULO -->
+  <div style="padding:2rem 2rem 1.5rem;">
+    <p style="font-size:.7rem;font-weight:700;color:var(--text-light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:1rem;">¿Qué cubre este módulo?</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.75rem;">
+
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.1rem;">
+        <div style="font-size:1rem;margin-bottom:.5rem;">📘</div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem;">Agentes nativos</div>
+        <div style="font-size:.78rem;color:var(--text-muted);line-height:1.55;">Qué son y cómo funcionan los agentes integrados en cada app de Microsoft 365.</div>
+      </div>
+
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.1rem;">
+        <div style="font-size:1rem;margin-bottom:.5rem;">✍️</div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem;">Prompt profesional</div>
+        <div style="font-size:.78rem;color:var(--text-muted);line-height:1.55;">Estructura de 6 campos para construir prompts efectivos adaptados a Proquident.</div>
+      </div>
+
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.1rem;">
+        <div style="font-size:1rem;margin-bottom:.5rem;">📄</div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem;">Ejercicio Word</div>
+        <div style="font-size:.78rem;color:var(--text-muted);line-height:1.55;">Redactar un comunicado interno de RR.HH. con Copilot en tiempo real.</div>
+      </div>
+
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);padding:1rem 1.1rem;">
+        <div style="font-size:1rem;margin-bottom:.5rem;">📊</div>
+        <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:.3rem;">Ejercicio Excel</div>
+        <div style="font-size:.78rem;color:var(--text-muted);line-height:1.55;">Analizar desviaciones de gastos Q1 2025 con datos reales de Proquident.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- OBJETIVOS -->
+  <div style="padding:0 2rem 1.75rem;">
+    <p style="font-size:.7rem;font-weight:700;color:var(--text-light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.85rem;">Objetivos de aprendizaje</p>
+    <div style="display:flex;flex-direction:column;gap:.5rem;">
+      <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text-muted);line-height:1.55;"><span style="width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.45rem;display:inline-block;"></span>Identificar qué agente de Copilot usar según la tarea y la aplicación.</div>
+      <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text-muted);line-height:1.55;"><span style="width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.45rem;display:inline-block;"></span>Construir prompts profesionales usando la estructura ROL / CONTEXTO / TAREA / DATOS / FORMATO / RESTRICCIONES.</div>
+      <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text-muted);line-height:1.55;"><span style="width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.45rem;display:inline-block;"></span>Aplicar Copilot en Word para redactar comunicados internos con el tono y formato de Proquident.</div>
+      <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text-muted);line-height:1.55;"><span style="width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.45rem;display:inline-block;"></span>Usar Copilot en Excel para analizar datos reales e identificar desviaciones presupuestarias.</div>
+      <div style="display:flex;align-items:flex-start;gap:.6rem;font-size:.82rem;color:var(--text-muted);line-height:1.55;"><span style="width:5px;height:5px;border-radius:50%;background:var(--primary);flex-shrink:0;margin-top:.45rem;display:inline-block;"></span>Encadenar prompts de ajuste para refinar resultados sin empezar de cero.</div>
+    </div>
+  </div>
+
+  <!-- INFO BAR -->
+  <div style="margin:0 2rem 2rem;background:var(--bg-gray);border-radius:var(--radius-lg);padding:1rem 1.25rem;display:flex;gap:1.5rem;flex-wrap:wrap;border:1px solid var(--border-light);">
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:100px;">
+      <div style="font-size:.65rem;color:var(--text-light);font-weight:700;letter-spacing:.04em;">FACILITADORA</div>
+      <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);">Luz Eliana Martínez</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:100px;">
+      <div style="font-size:.65rem;color:var(--text-light);font-weight:700;letter-spacing:.04em;">CURSO</div>
+      <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);">IA Aplicada · Proquident</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:100px;">
+      <div style="font-size:.65rem;color:var(--text-light);font-weight:700;letter-spacing:.04em;">MÓDULO</div>
+      <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);">3 de 4</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:2px;flex:1;min-width:100px;">
+      <div style="font-size:.65rem;color:var(--text-light);font-weight:700;letter-spacing:.04em;">NIVEL</div>
+      <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);">Intermedio</div>
+    </div>
+  </div>
+
+</section>
+
+    <!-- Historia Copilot -->
+
+    <section id="inicio-sec"  class="section">
+      <h2> Historia de Copilot
+      </h2>
+      <p> Microsoft Copilot nació como respuesta a una transformación profunda en la manera en que las personas trabajan con software. Su historia no comienza con un anuncio, sino con años de investigación en inteligencia artificial, grandes modelos de lenguaje y la integración progresiva de esas capacidades en las herramientas de productividad más usadas del mundo.
+      </p>
+      <div style="display:flex;flex-direction:column;gap:0;margin-top:1.5rem;">
+        <!-- 2021 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> 2021
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> GitHub Copilot — el primer paso
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Microsoft y OpenAI lanzan GitHub Copilot, un asistente de escritura de código entrenado sobre millones de repositorios públicos. Fue la primera demostración a gran escala de que un modelo de lenguaje podía integrarse de forma útil en el flujo de trabajo diario de un profesional. Más de un millón de desarrolladores lo adoptaron en menos de un año.
+            </p>
+          </div>
+        </div>
+        <!-- Feb 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> Febrero 2023
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> Bing Chat y Edge — la IA llega al navegador
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Microsoft integra GPT-4 en Bing y Edge, presentándolo como el primer "copiloto de navegación". La idea de un asistente que acompaña al usuario —en lugar de reemplazarlo— quedó instalada como filosofía de producto, y el nombre
+              <strong> Copilot
+              </strong> comenzó a usarse de forma consistente.
+            </p>
+          </div>
+        </div>
+        <!-- Mar 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> Marzo 2023
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> Microsoft 365 Copilot — el salto empresarial
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Microsoft anuncia la integración de IA directamente en Word, Excel, PowerPoint, Outlook y Teams. Por primera vez, los trabajadores podían pedirle a una IA que redactara documentos, resumiera correos o analizara hojas de cálculo sin salir de las aplicaciones que ya usaban.
+            </p>
+          </div>
+        </div>
+        <!-- Nov 2023 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> Noviembre 2023
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> Disponibilidad general para empresas
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Microsoft 365 Copilot se liberó para clientes empresariales. Las organizaciones comenzaron a desplegar el asistente a escala en salud, retail, educación y finanzas. También se presentó
+              <strong> Copilot Studio
+              </strong> , herramienta para construir agentes personalizados sin necesidad de código.
+            </p>
+          </div>
+        </div>
+        <!-- 2024 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;background:#1e6df2;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:#e2e8f0;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> 2024
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> Copilot en Windows y ecosistema de agentes
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Copilot se integró directamente en Windows 11. Se presentaron los
+              <em> Copilot agents
+              </em> —asistentes especializados por dominio— con cobertura ampliada a SharePoint, OneDrive y Loop. La visión evolucionó de un asistente general a un ecosistema de agentes que colaboran entre sí.
+            </p>
+          </div>
+        </div>
+        <!-- 2025 -->
+        <div style="display:flex;gap:0;align-items:stretch;">
+          <div style="display:flex;flex-direction:column;align-items:center;width:40px;flex-shrink:0;">
+            <div style="width:12px;height:12px;border-radius:50%;border:2px solid #1e6df2;background:white;margin-top:4px;flex-shrink:0;z-index:1;">
+            </div>
+            <div style="flex:1;width:2px;background:transparent;margin:2px 0;">
+            </div>
+          </div>
+          <div style="padding:0 0 1.5rem 1rem;flex:1;">
+            <div style="font-size:.75rem;font-weight:600;color:#1e6df2;margin-bottom:3px;"> 2025 en adelante
+            </div>
+            <div style="font-weight:700;margin-bottom:5px;"> Agentes autónomos y razonamiento avanzado
+            </div>
+            <p style="color:var(--text-muted);font-size:.875rem;line-height:1.65;"> Con modelos de razonamiento más potentes, Copilot comenzó a operar con mayor autonomía: completar flujos de trabajo de varios pasos, interactuar con sistemas externos y tomar decisiones contextuales. La frontera entre "asistente" y "agente" se volvió central en la estrategia de Microsoft.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- TABLA CARACTERISTICAS  TIPO DE DOCUMENTO QUE GENERA -->
+    <main class="content">
+      <!-- INTRO -->
+      <!-- INTRO AGENTES NATIVOS -->
+      <section id="agentes-sec"  class="section">
+      <h2 id="intro"> 📘 1. ¿Qué son los Agentes nativos de Copilot?
+      </h2>
+      <p> Microsoft Copilot no es una sola herramienta, sino un conjunto de
+        <strong> agentes inteligentes integrados directamente
+        </strong> en las aplicaciones que ya usas a diario. No necesitas instalar nada adicional ni crear agentes personalizados: cada agente vive
+        <strong> dentro de su propia aplicación
+        </strong> , accesible desde la cinta superior o el panel lateral con el ícono de Copilot.
+      </p>
+      <p style="margin-top:.75rem"> Cada agente conoce el contexto de su aplicación: el de Word entiende el documento abierto; el de Excel, tu hoja de datos; el de Teams, la reunión que acaba de terminar. Esa integración contextual es lo que los hace potentes.
+      </p>
+      <!-- Flujo de uso -->
+      <div style="display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;margin:1.25rem 0 1.5rem;">
+        <span style="font-size:.8rem;color:var(--text-muted);background:var(--bg-gray);border:1px solid var(--border-light);border-radius:6px;padding:.3rem .75rem;"> Abre la aplicación
+        </span>
+        <span style="color:var(--text-light);font-size:.85rem;"> →
+        </span>
+        <span style="font-size:.8rem;color:var(--text-muted);background:var(--bg-gray);border:1px solid var(--border-light);border-radius:6px;padding:.3rem .75rem;"> Busca el ícono Copilot ✨
+        </span>
+        <span style="color:var(--text-light);font-size:.85rem;"> →
+        </span>
+        <span style="font-size:.8rem;color:var(--text-muted);background:var(--bg-gray);border:1px solid var(--border-light);border-radius:6px;padding:.3rem .75rem;"> Escribe tu prompt
+        </span>
+        <span style="color:var(--text-light);font-size:.85rem;"> →
+        </span>
+        <span style="font-size:.8rem;color:var(--text-muted);background:var(--bg-gray);border:1px solid var(--border-light);border-radius:6px;padding:.3rem .75rem;"> Obtén el resultado
+        </span>
+      </div>
+      <!-- Cards de agentes -->
+    
+        <div class="agent-grid" id="agentes">
+          <div class="agent-card">
+            <h4> 📄 Word
+            </h4>
+            <p> Redacta, resume, reescribe y mejora documentos completos. Ideal para comunicados, políticas y reportes.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;">
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Redacción
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Resumen
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Reescritura
+              </span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <h4> 📊 Excel
+            </h4>
+            <p> Analiza datos, detecta tendencias, genera insights y sugiere visualizaciones a partir de tu hoja de cálculo.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;">
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Análisis
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Gráficos
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Tendencias
+              </span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <h4> 📽️ PowerPoint
+            </h4>
+            <p> Crea presentaciones completas a partir de un documento Word, un resumen o instrucciones de texto libre.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;">
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Diapositivas
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Diseño
+              </span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <h4> 🎙️ Teams
+            </h4>
+            <p> Genera notas de reunión automáticas, extrae tareas con responsables y produce resúmenes ejecutivos al terminar cada llamada.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;">
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Minutas
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Tareas
+              </span>
+            </div>
+          </div>
+          <div class="agent-card">
+            <h4> 📧 Outlook
+            </h4>
+            <p> Redacta borradores, resume hilos largos y sugiere respuestas con el tono adecuado según el contexto del correo.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.3rem;margin-top:.75rem;">
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Borradores
+              </span>
+              <span style="font-size:.7rem;font-weight:600;background:var(--primary-light);color:var(--primary);border-radius:4px;padding:2px 7px;"> Resumen
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- Callout mejorado -->
+        <div class="callout" style="display:flex;gap:.75rem;align-items:flex-start;">
+          <span style="font-size:1.1rem;flex-shrink:0;line-height:1.5;"> 🎯
+          </span>
+          <span>
+            <strong> Cómo empezar ahora mismo:
+            </strong> Abre Word, busca el ícono de Copilot en la cinta superior o el panel lateral, y escribe tu primer prompt. No necesitas configuración previa. Cada ejercicio de este módulo indica en qué aplicación trabajar y qué prompt usar.
+          </span>
+        </div>
+    
+      </section>
+      <!-- ESTRUCTURA DEL PROMPT PROFESIONAL -->
+      <section id="estructura-sec"  class="section">
+        <h2 id="estructura"> ✍️ 2. La estructura del prompt profesional en Proquident
+        </h2>
+        <p> Un prompt bien estructurado es la clave para obtener resultados útiles. Completa cada campo y genera tu prompt listo para copiar directamente en el agente correspondiente.
+        </p>
+        <style> .prompt-builder *{box-sizing:border-box}
+.prompt-builder{margin:1.5rem 0}
+.pb-examples{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1rem;align-items:center}
+.pb-ex-label{font-size:.75rem;color:var(--text-muted)}
+.pb-ex-btn{font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:6px;padding:.25rem .7rem;cursor:pointer;color:var(--text-muted);transition:background .12s,color .12s,border-color .12s}
+.pb-ex-btn:hover{background:var(--primary-light);color:var(--primary);border-color:var(--primary-light)}
+.pb-fields{display:flex;flex-direction:column;gap:.6rem;margin-bottom:1rem}
+.pb-row{display:grid;grid-template-columns:130px 1fr;align-items:stretch;border:1px solid var(--border-medium);border-radius:var(--radius-md);overflow:hidden;transition:border-color .15s}
+.pb-row:focus-within{border-color:var(--primary)}
+.pb-label{display:flex;flex-direction:column;justify-content:center;padding:.6rem .85rem;background:var(--bg-gray);border-right:1px solid var(--border-light);gap:2px}
+.pb-key{font-size:.7rem;font-weight:700;color:var(--primary);letter-spacing:.04em}
+.pb-hint{font-size:.65rem;color:var(--text-light);line-height:1.35}
+.pb-input{border:none;outline:none;background:white;padding:.6rem .9rem;font-size:.8rem;color:var(--text-dark);font-family:inherit;width:100%;resize:none;line-height:1.5}
+.pb-input::placeholder{color:var(--text-light)}
+.pb-completeness{display:flex;align-items:center;gap:.75rem;margin-bottom:.85rem}
+.pb-track{flex:1;height:4px;background:var(--border-light);border-radius:2px;overflow:hidden}
+.pb-fill{height:100%;background:var(--primary);border-radius:2px;transition:width .3s,background .3s}
+.pb-fill.complete{background:var(--success)}
+.pb-prog-label{font-size:.7rem;color:var(--text-light);white-space:nowrap;min-width:52px;text-align:right}
+.pb-output{border:1px solid var(--border-medium);border-radius:var(--radius-lg);overflow:hidden}
+.pb-out-header{display:flex;justify-content:space-between;align-items:center;padding:.65rem 1.1rem;background:white;border-bottom:1px solid var(--border-light)}
+.pb-out-title{font-size:.75rem;font-weight:600;color:var(--text-muted)}
+.pb-actions{display:flex;gap:.5rem}
+.pb-btn-clear{font-size:.72rem;color:var(--text-light);background:none;border:none;cursor:pointer;padding:.2rem .4rem;border-radius:4px}
+.pb-btn-clear:hover{color:var(--text-muted);background:var(--bg-gray)}
+.pb-btn-copy{font-size:.72rem;font-weight:600;background:white;border:1px solid var(--border-medium);border-radius:40px;padding:.3rem .85rem;cursor:pointer;color:var(--text-muted);transition:all .15s}
+.pb-btn-copy:hover{background:var(--primary);border-color:var(--primary);color:white}
+.pb-btn-copy.copied{background:var(--success);border-color:var(--success);color:white}
+.pb-out-text{padding:1.1rem;font-size:.78rem;line-height:1.85;font-family:'SF Mono','Fira Code',monospace;color:var(--text-dark);white-space:pre-wrap;background:var(--bg-gray);min-height:100px}
+        </style>
+        <div class="prompt-builder">
+          <div class="pb-examples">
+            <span class="pb-ex-label"> Cargar ejemplo:
+            </span>
+            <button class="pb-ex-btn" onclick="pbLoadExample('rrhh')"> RR.HH. — comunicado
+            </button>
+            <button class="pb-ex-btn" onclick="pbLoadExample('finanzas')"> Finanzas — análisis
+            </button>
+            <button class="pb-ex-btn" onclick="pbLoadExample('veterinaria')"> Veterinaria — minuta
+            </button>
+            <button class="pb-ex-btn" onclick="pbLoadExample('gerencia')"> Gerencia — presentación
+            </button>
+          </div>
+          <div class="pb-fields">
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> ROL
+                </span>
+                <span class="pb-hint"> Cargo y área en Proquident
+                </span>
+              </div>
+              <input class="pb-input" id="pb-rol" type="text" placeholder="ej. Analista de Bienestar del área de RR.HH." oninput="pbUpdate()">
+            </div>
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> CONTEXTO
+                </span>
+                <span class="pb-hint"> Situación actual real
+                </span>
+              </div>
+              <input class="pb-input" id="pb-contexto" type="text" placeholder="ej. Estamos lanzando un nuevo beneficio para empleados" oninput="pbUpdate()">
+            </div>
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> TAREA
+                </span>
+                <span class="pb-hint"> Acción concreta a realizar
+                </span>
+              </div>
+              <input class="pb-input" id="pb-tarea" type="text" placeholder="ej. Redacta un memorando interno dirigido a todo el personal" oninput="pbUpdate()">
+            </div>
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> DATOS
+                </span>
+                <span class="pb-hint"> Info o archivo adjunto
+                </span>
+              </div>
+              <textarea class="pb-input" id="pb-datos" rows="2" placeholder="ej. [ver datos adjuntos] o pega aquí la información clave" oninput="pbUpdate()">
+              </textarea>
+            </div>
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> FORMATO
+                </span>
+                <span class="pb-hint"> Cómo presentar la respuesta
+                </span>
+              </div>
+              <input class="pb-input" id="pb-formato" type="text" placeholder="ej. Tabla con 4 columnas + párrafo de cierre" oninput="pbUpdate()">
+            </div>
+            <div class="pb-row">
+              <div class="pb-label">
+                <span class="pb-key"> RESTRICCIONES
+                </span>
+                <span class="pb-hint"> Extensión, tono, idioma
+                </span>
+              </div>
+              <input class="pb-input" id="pb-restricciones" type="text" placeholder="ej. Máx. 300 palabras, tono profesional pero cercano" oninput="pbUpdate()">
+            </div>
+          </div>
+          <div class="pb-completeness">
+            <div class="pb-track">
+              <div class="pb-fill" id="pb-fill" style="width:0%">
+              </div>
+            </div>
+            <span class="pb-prog-label" id="pb-prog"> 0 / 6 campos
+            </span>
+          </div>
+          <div class="pb-output">
+            <div class="pb-out-header">
+              <span class="pb-out-title"> 📋 Prompt generado — listo para copiar en Copilot
+              </span>
+              <div class="pb-actions">
+                <button class="pb-btn-clear" onclick="pbClear()"> Limpiar
+                </button>
+                <button class="pb-btn-copy" id="pb-copy-btn" onclick="pbCopy()"> 📋 Copiar
+                </button>
+              </div>
+            </div>
+            <div class="pb-out-text" id="pb-output"> Completa los campos para generar tu prompt...
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EJERCICIO 1: WORD / RR.HH. -->
+      <section id="ejercicio1"  class="section">
+        <div class="ejercicio-box">
+          <div class="ejercicio-titulo"> 📄 Ejercicio 1 · Agente Word · RR.HH. · Comunicado de nuevo beneficio
+          </div>
+          <!-- POR QUÉ ESTE EJERCICIO -->
+          <div style="border-left:4px solid var(--primary);padding:.7rem 1rem;background:var(--primary-light);border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+            <p style="font-size:.85rem;color:var(--primary-dark);line-height:1.6;margin:0;"> En Proquident, la comunicación interna clara es clave para que los beneficios lleguen a todos los colaboradores. Este ejercicio simula una situación real: RR.HH. necesita informar un nuevo beneficio y Copilot en Word puede redactar el comunicado completo en segundos, manteniendo el tono y formato oficial de la empresa.
+            </p>
+          </div>
+          <!-- METADATOS -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-bottom:1.25rem;">
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> ROL
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Analista de Bienestar · RR.HH.
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> AGENTE
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Copilot en Word
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> RESULTADO ESPERADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Memorando interno oficial
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> TIEMPO ESTIMADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> 10 – 15 minutos
+              </div>
+            </div>
+          </div>
+          <!-- SITUACIÓN / CONTEXTO NARRATIVO -->
+          <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1rem 1.1rem;margin-bottom:1.25rem;font-size:.875rem;line-height:1.65;color:var(--text-muted);">
+            <p style="margin-bottom:.6rem;">
+              <strong style="color:var(--text-dark);"> 🏢 Situación:
+              </strong> La gerencia de Proquident acaba de aprobar el programa
+              <strong> "Cuidado de tu Compañero"
+              </strong> , un beneficio de reembolso veterinario de hasta $150.000 anuales para empleados con mascotas.
+            </p>
+            <p style="margin:0;"> Tu tarea como Analista de Bienestar es redactar el comunicado interno que llegará a todos los colaboradores. Tienes los datos del programa, pero redactar un memorando formal bien estructurado toma tiempo. Aquí es donde Copilot en Word entra en acción: con un prompt profesional, el agente redacta el documento completo respetando el tono y formato de Proquident.
+            </p>
+          </div>
+          <!-- INSTRUCCIONES PASO A PASO -->
+          <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.9rem;letter-spacing:.01em;"> 🧭 Cómo llegar al Agente Word de Copilot — paso a paso
+          </p>
+          <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem;">
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 1
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Abre Microsoft Word
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Desde el escritorio, el menú de Microsoft 365 o en
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> word.microsoft.com
+                  </code> . Crea un documento en blanco.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 2
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Busca el ícono de Copilot
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> En la versión de escritorio aparece en la
+                  <strong> cinta superior (ribbon)
+                  </strong> , pestaña "Inicio" o "Referencias". En la versión web, está en la barra superior. El ícono es el logo de Copilot (estrella con destellos).
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 3
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Abre el panel de Copilot
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Haz clic en el ícono. Se abrirá un panel lateral o ventana flotante con un campo de texto donde puedes escribir instrucciones en lenguaje natural.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 4
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Copia los datos del programa
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Usa el botón
+                  <strong> "Copiar datos"
+                  </strong> que aparece más abajo. Los necesitarás para pegarlos dentro del prompt en el lugar indicado.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 5
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Pega y envía el prompt profesional
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Copia el prompt del ejercicio, reemplaza
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> [pegar aquí los datos]
+                  </code> con los datos copiados y presiona
+                  <strong> Enter
+                  </strong> . Copilot redactará el memorando completo.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 6
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Revisa y ajusta con nuevas instrucciones
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Lee el resultado. Si quieres cambios, escríbelos directamente en el panel:
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Hazlo más breve
+                  </code> ,
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Cambia el tono a más formal
+                  </code> o
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Agrega una sección de preguntas frecuentes
+                  </code> .
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- TIP -->
+          <div class="callout" style="display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1.25rem;">
+            <span style="font-size:1rem;flex-shrink:0;line-height:1.5;"> 💡
+            </span>
+            <span>
+              <strong> ¿No ves el ícono de Copilot?
+              </strong> Tu organización puede tener Copilot disponible solo en ciertos planes de Microsoft 365. Consulta con tu administrador de TI o accede a
+              <strong> copilot.microsoft.com
+              </strong> y selecciona Word desde allí.
+            </span>
+          </div>
+          <!-- SEPARADOR -->
+          <hr style="border:none;border-top:1px solid var(--border-light);margin:1.25rem 0;">
+          <!-- DATOS ORIGINALES -->
+          <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;"> 📄 Datos del programa (para pegar en el prompt)
+          </p>
+          <div class="code-block" id="datosWord"> PROQUIDENT - PROGRAMA "CUIDADO DE TU COMPAÑERO"
+Vigencia: Abril 2025 - Diciembre 2025
+Beneficio: Reembolso hasta $150.000 anual (consulta, vacunación, antiparasitarios)
+Requisitos: Contrato indefinido + 3 meses antigüedad + registrar mascota
+Procedimiento: Enviar boleta y formulario a RR.HH. antes del día 30 de cada mes
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary btn-copy" data-copy="datosWord"> 📋 Copiar datos
+            </button>
+          </div>
+          <!-- EJERCICIO 1: WORD / COMUNICADO con DATOS -->
+          <div class="prompt-profesional">
+            <div class="prompt-header">
+              <span> 📋 Prompt profesional · Agente Word
+              </span>
+              <button type="button" class="btn btn-outline-primary btn-copy" data-copy="promptWord"> 📋 Copiar prompt
+              </button>
+            </div>
+            <div class="prompt-text" id="promptWord"> Actúa como Analista de Bienestar del departamento de Recursos Humanos de Proquident, empresa del rubro veterinario con más de 200 colaboradores.
+
+    Contexto: La gerencia acaba de aprobar un nuevo beneficio para empleados con mascotas, llamado "Programa Cuidado de tu Compañero". Necesito redactar un comunicado interno oficial.
+
+    Tarea: Con los datos adjuntos, redacta un memorando dirigido a "Todo el personal de Proquident" que incluya:
+    1. Encabezado con fecha actual y asunto llamativo.
+    2. Explicación del beneficio (qué cubre, monto máximo).
+    3. Requisitos y procedimiento para solicitarlo (pasos claros).
+    4. Fecha de inicio y vigencia.
+    5. Un párrafo de cierre con tono motivador y agradecimiento.
+
+    Restricciones:
+    - Extensión máxima: una página (aproximadamente 400 palabras).
+    - Usar viñetas para requisitos y procedimiento.
+    - Tono profesional pero cercano, que refleje la cultura de Proquident.
+
+    Datos:
+    [pegar aquí los datos del programa]
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="ejercicio2"  class="section">
+        <!-- EJERCICIO 2: EXCEL / FINANZAS con ARCHIVO REAL -->
+        <!-- EJERCICIO 2: EXCEL / FINANZAS con ARCHIVO REAL -->
+        <div class="ejercicio-box">
+          <div class="ejercicio-titulo"> 📊 Ejercicio 2 · Agente Excel · Finanzas · Análisis de desviaciones de gastos Q1 2025
+          </div>
+          <!-- POR QUÉ ESTE EJERCICIO -->
+          <div style="border-left:4px solid var(--success);padding:.7rem 1rem;background:#f0fdf4;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+            <p style="font-size:.85rem;color:#166534;line-height:1.6;margin:0;"> El control financiero depende de detectar a tiempo dónde el gasto real se aleja del presupuesto. Hacer ese análisis manualmente sobre 70+ registros toma horas. Con Copilot en Excel, el mismo análisis —incluyendo identificación de las mayores desviaciones, causas probables y ranking por área— se obtiene en minutos con un solo prompt.
+            </p>
+          </div>
+          <!-- METADATOS -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-bottom:1.25rem;">
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> ROL
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Analista de Control de Gestión
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> AGENTE
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Copilot en Excel
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> RESULTADO ESPERADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Tabla de desviaciones + análisis por área
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> TIEMPO ESTIMADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> 15 – 20 minutos
+              </div>
+            </div>
+          </div>
+          <!-- SITUACIÓN / CONTEXTO NARRATIVO -->
+          <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1rem 1.1rem;margin-bottom:1.25rem;font-size:.875rem;line-height:1.65;color:var(--text-muted);">
+            <p style="margin-bottom:.6rem;">
+              <strong style="color:var(--text-dark);"> 🏢 Situación:
+              </strong> La gerencia financiera de Proquident solicitó un análisis de los gastos operacionales del
+              <strong> primer trimestre 2025
+              </strong> (enero, febrero, marzo) para identificar desviaciones respecto al presupuesto y detectar oportunidades de ahorro.
+            </p>
+            <p style="margin-bottom:.6rem;"> Como Analista de Control de Gestión, tienes el archivo Excel con más de 70 registros distribuidos en áreas como Veterinaria, Ventas, RR.HH. y Administración. Revisarlos uno a uno sería ineficiente. Copilot en Excel puede calcular las variaciones, identificar los 5 mayores sobrecostos y agruparte los resultados por área — todo desde el panel de chat, sin escribir una sola fórmula manualmente.
+            </p>
+            <p style="margin:0;">
+              <strong style="color:var(--text-dark);"> Dato clave:
+              </strong> El archivo ya incluye una hoja de Resumen con fórmulas y una hoja de Instrucciones. Copilot puede leer toda esa información y trabajar sobre ella.
+            </p>
+          </div>
+          <!-- INSTRUCCIONES PASO A PASO -->
+          <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.9rem;letter-spacing:.01em;"> 🧭 Cómo llegar al Agente Excel de Copilot — paso a paso
+          </p>
+          <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem;">
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 1
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Descarga el archivo Excel del ejercicio
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Usa el botón
+                  <strong> "Descargar Excel Ejercicio 2"
+                  </strong> que aparece más abajo. Guárdalo preferiblemente en tu
+                  <strong> OneDrive
+                  </strong> para que Copilot tenga acceso completo a los datos.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 2
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Abre el archivo en Microsoft Excel
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Haz doble clic sobre el archivo. Si usas la versión web, ve a
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> excel.microsoft.com
+                  </code> , sube el archivo y ábrelo. Asegúrate de estar en la hoja
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Gastos_Q1_2025
+                  </code> .
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 3
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Convierte los datos en una Tabla de Excel
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Copilot funciona mejor con datos en formato tabla. Haz clic dentro del rango → pestaña
+                  <strong> Insertar
+                  </strong> →
+                  <strong> Tabla
+                  </strong> → confirma que tiene encabezados → Aceptar. Los datos quedarán con bandas de color.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 4
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Abre el panel de Copilot en Excel
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> En la cinta superior, pestaña
+                  <strong> Inicio
+                  </strong> , busca el botón
+                  <strong> Copilot
+                  </strong> (ícono con destellos) y haz clic. Se abrirá el panel lateral derecho. En algunos planes aparece como una pestaña independiente llamada "Copilot".
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 5
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Pega y envía el prompt profesional
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Copia el prompt con el botón
+                  <strong> "Copiar prompt"
+                  </strong> de abajo, pégalo en el campo de chat de Copilot y presiona
+                  <strong> Enter
+                  </strong> . Copilot leerá la tabla completa y comenzará el análisis.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 6
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Solicita el gráfico como segundo prompt
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Una vez que Copilot entregue la tabla de análisis, escribe directamente:
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Ahora genera un gráfico de barras con los top 5 conceptos con mayor desviación
+                  </code> . Copilot insertará el gráfico automáticamente.
+                </div>
+              </div>
+            </div>
+            <div style="display:flex;gap:.9rem;align-items:flex-start;">
+              <div style="flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--success);color:white;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;margin-top:1px;"> 7
+              </div>
+              <div>
+                <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;"> Explora y sigue preguntando
+                </div>
+                <div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;"> Continúa la conversación:
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> ¿Qué área tuvo mejor desempeño?
+                  </code> ·
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Resume esto en 3 puntos para gerencia
+                  </code> ·
+                  <code style="font-size:.75rem;background:var(--bg-gray);border:1px solid var(--border-light);border-radius:4px;padding:1px 5px;"> Agrega una columna semáforo de alerta
+                  </code> .
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- TIP CRÍTICO ONEDRIVE -->
+          <div class="callout" style="display:flex;gap:.75rem;align-items:flex-start;margin-bottom:1.25rem;">
+            <span style="font-size:1rem;flex-shrink:0;line-height:1.5;"> 💡
+            </span>
+            <span>
+              <strong> Importante — OneDrive:
+              </strong> Copilot en Excel requiere que el archivo esté guardado en
+              <strong> OneDrive o SharePoint
+              </strong> para funcionar correctamente. Si lo abres solo desde tu disco local, el botón de Copilot puede aparecer deshabilitado. Sube el archivo a OneDrive antes de empezar.
+            </span>
+          </div>
+          <hr style="border:none;border-top:1px solid var(--border-light);margin:1.25rem 0;">
+          <!-- ARCHIVO DE DESCARGA + VISTA PREVIA (ORIGINALES) -->
+          <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.75rem;"> 📎 Archivo del ejercicio
+          </p>
+          <div class="btn-row">
+            <a class="btn-download" href="data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,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" download="Proquident_Ejercicio2_Gastos_Q1_2025.xlsx"> ⬇️ Descargar Excel Ejercicio 2 (Gastos Q1 2025)
+            </a>
+          </div>
+          <div class="file-preview" style="margin-top:.75rem;">
+            <p>
+              <strong> 📋 Vista previa de los datos (primeras filas):
+              </strong>
+            </p>
+            <table class="table table-bordered table-hover align-middle" style="font-size: 0.7rem;">
+              <thead>
+                <tr>
+                  <th> Fecha
+                  </th>
+                  <th> Mes
+                  </th>
+                  <th> Área
+                  </th>
+                  <th> Concepto
+                  </th>
+                  <th> Monto (CLP)
+                  </th>
+                  <th> Presupuesto (CLP)
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> 2025-01-01
+                  </td>
+                  <td> Enero
+                  </td>
+                  <td> Veterinaria
+                  </td>
+                  <td> Insumos clínicos
+                  </td>
+                  <td> 3.542.251
+                  </td>
+                  <td> 3.450.000
+                  </td>
+                </tr>
+                <tr>
+                  <td> 2025-01-01
+                  </td>
+                  <td> Enero
+                  </td>
+                  <td> Veterinaria
+                  </td>
+                  <td> Material quirúrgico
+                  </td>
+                  <td> 1.007.727
+                  </td>
+                  <td> 980.000
+                  </td>
+                </tr>
+                <tr>
+                  <td> 2025-01-02
+                  </td>
+                  <td> Enero
+                  </td>
+                  <td> Ventas
+                  </td>
+                  <td> Eventos
+                  </td>
+                  <td> 420.187
+                  </td>
+                  <td> 405.000
+                  </td>
+                </tr>
+                <tr>
+                  <td> 2025-02-17
+                  </td>
+                  <td> Febrero
+                  </td>
+                  <td> Veterinaria
+                  </td>
+                  <td> Insumos clínicos
+                  </td>
+                  <td> 3.796.342
+                  </td>
+                  <td> 3.519.000
+                  </td>
+                </tr>
+                <tr>
+                  <td> 2025-03-02
+                  </td>
+                  <td> Marzo
+                  </td>
+                  <td> Veterinaria
+                  </td>
+                  <td> Insumos clínicos
+                  </td>
+                  <td> 2.528.739
+                  </td>
+                  <td> 2.011.350
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="color:var(--text-muted);font-size:.75rem;margin-top:.4rem;"> El archivo completo incluye 70+ registros, hojas de Resumen (con fórmulas), Catálogos e Instrucciones.
+            </p>
+          </div>
+          <!-- PROMPT -->
+          <div class="prompt-profesional" style="margin-top:1.25rem;">
+            <div class="prompt-header">
+              <span> 📋 Prompt profesional · Agente Excel
+              </span>
+              <button type="button" class="btn btn-outline-primary btn-copy" data-copy="promptExcel"> 📋 Copiar prompt
+              </button>
+            </div>
+            <div class="prompt-text" id="promptExcel"> Actúa como Analista de Control de Gestión del área Financiera de Proquident.
+
+Contexto: La gerencia financiera solicitó un análisis detallado de los gastos operacionales del primer trimestre de 2025 (enero, febrero, marzo), para identificar posibles desviaciones y oportunidades de ahorro. Tengo un archivo Excel con una tabla que incluye columnas: Fecha, Mes, Área, Centro de costo, Concepto, Proveedor, Monto (CLP), Presupuesto (CLP) y Observaciones.
+
+Tarea: Con los datos del archivo "Proquident_Ejercicio2_Gastos_Q1_2025.xlsx" (hoja "Gastos_Q1_2025"), realiza lo siguiente paso a paso:
+
+1. Calcula la variación porcentual entre Monto real y Presupuesto para cada registro.
+2. Identifica los 5 conceptos con la mayor desviación negativa (donde el gasto real supera al presupuesto en mayor porcentaje).
+3. Para cada uno de esos 5 conceptos, indica: Área, Concepto, Proveedor, % de sobrecosto, y sugiere una posible causa.
+4. Finalmente, agrupa por Área y dime cuál fue el área con mayor eficiencia (menor sobrecosto total en pesos).
+
+Formato de respuesta:
+- Una tabla con 7 columnas: Área, Concepto, Proveedor, Monto real, Presupuesto, % desviación, Causa probable.
+- Un párrafo final con el análisis por área.
+
+Restricciones: Usa lenguaje claro, sin tecnicismos excesivos, ya que el reporte será revisado por gerencia no financiera.
+            </div>
+          </div>
+          <div class="callout" style="margin-top:.75rem;display:flex;gap:.75rem;align-items:flex-start;">
+            <span style="font-size:1rem;flex-shrink:0;line-height:1.5;"> ✅
+            </span>
+            <span>
+              <strong> Resultado esperado:
+              </strong> Análisis automático con los mayores sobrecostos identificados. Luego pide a Copilot como segundo prompt:
+              <em> "Ahora genera un gráfico de barras con los top 5 conceptos con mayor desviación"
+              </em> .
+            </span>
+          </div>
+        </div>
+      </section>
+      <section id="ejercicio4"  class="section">
+        <!-- EJERCICIO 4: POWERPOINT / GERENCIA -->
+        <!-- EJERCICIO 4: POWERPOINT / GERENCIA con EXPERIENCIA COMPLETA -->
+        <div class="ejercicio-box">
+          <div class="ejercicio-titulo"> 📽️ Ejercicio 4 · Agente PowerPoint · Gerencia · Presentación de resultados
+          </div>
+          <!-- POR QUÉ ESTE EJERCICIO -->
+          <div style="border-left:4px solid var(--success);padding:.7rem 1rem;background:#f0fdf4;border-radius:0 var(--radius-md) var(--radius-md) 0;margin-bottom:1.25rem;">
+            <p style="font-size:.85rem;color:#166534;line-height:1.6;margin:0;"> En entornos gerenciales, no basta con tener buenos resultados: hay que saber comunicarlos con claridad, impacto y enfoque estratégico. Crear una presentación ejecutiva desde cero puede tomar horas. Con Copilot en PowerPoint, puedes transformar datos en una narrativa visual convincente en minutos, incluyendo estructura, storytelling y diseño sugerido.
+            </p>
+          </div>
+          <!-- METADATOS -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.6rem;margin-bottom:1.25rem;">
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> ROL
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Jefe de Proyecto
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> AGENTE
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Copilot en PowerPoint
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> RESULTADO ESPERADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> Guion + estructura de presentación ejecutiva
+              </div>
+            </div>
+            <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.65rem .9rem;">
+              <div style="font-size:.65rem;font-weight:700;color:var(--text-light);letter-spacing:.05em;margin-bottom:3px;"> TIEMPO ESTIMADO
+              </div>
+              <div style="font-size:.85rem;font-weight:600;color:var(--text-dark);"> 10 – 15 minutos
+              </div>
+            </div>
+          </div>
+          <!-- CONTEXTO -->
+          <div style="background:var(--bg-gray);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:1rem 1.1rem;margin-bottom:1.25rem;font-size:.875rem;line-height:1.65;color:var(--text-muted);">
+            <p style="margin-bottom:.6rem;">
+              <strong style="color:var(--text-dark);"> 🏢 Situación:
+              </strong> Debes presentar los resultados del programa de esterilización canina del Q1 2025 ante el comité directivo de Proquident.
+            </p>
+            <p style="margin-bottom:.6rem;"> La audiencia incluye gerencia general, finanzas y recursos humanos, por lo que necesitas un mensaje claro, ejecutivo y orientado a decisiones.
+            </p>
+            <p style="margin:0;">
+              <strong style="color:var(--text-dark);"> Desafío:
+              </strong> Convertir datos operativos y financieros en una historia estratégica que resalte impacto, eficiencia y próximos pasos.
+            </p>
+          </div>
+          <!-- DATOS -->
+          <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;"> 📊 Datos del ejercicio
+          </p>
+          <div class="code-block" id="datosPPT"> Indicadores Q1 2025:
+- Cirugías realizadas: 342 (meta 300) → cumplimiento 114%
+- Inversión total: $24.500.000
+- Costo promedio por cirugía: $71.637
+- Ahorro vs presupuesto: $3.500.000 (12.5%)
+- Alianzas con fundaciones: 5 comunas
+- Percepción positiva (encuesta): 89%
+Próximos pasos: ampliar a 3 comunas nuevas, presupuesto adicional $15M.
+          </div>
+          <div class="btn-row">
+            <button type="button" class="btn btn-primary btn-copy" data-copy="datosPPT"> 📋 Copiar datos
+            </button>
+          </div>
+          <!-- PROMPT -->
+          <div class="prompt-profesional" style="margin-top:1.25rem;">
+            <div class="prompt-header">
+              <span> 📋 Prompt profesional · Agente PowerPoint
+              </span>
+              <button type="button" class="btn btn-outline-primary btn-copy" data-copy="promptPPT"> 📋 Copiar prompt
+              </button>
+            </div>
+            <div class="prompt-text" id="promptPPT"> Construye tu prompt para la presentación ejecutiva:
+        Diapositiva 1: Título + frase de impacto.
+        Diapositiva 2: Resumen ejecutivo (3 KPIs clave).
+        Diapositiva 3: Cumplimiento de meta operacional (incluye sugerencia de gráfico).
+        Diapositiva 4: Análisis financiero: inversión, ahorro, eficiencia.
+        Diapositiva 5: Impacto social y percepción.
+        Diapositiva 6: Próximos pasos, riesgos y requerimientos.
+            </div>
+            <!-- RESULTADO -->
+            <div class="callout" style="margin-top:.75rem;display:flex;gap:.75rem;">
+              <span> ✅
+              </span>
+              <span>
+                <strong> Resultado esperado:
+                </strong> Presentación estructurada, clara y lista para exponer. Luego puedes pedir:
+                <code> Ahora crea las diapositivas visuales
+                </code> o
+                <code> Agrega diseño profesional con iconos
+                </code> .
+              </span>
+            </div>
+          </div>
+          <hr />
+        </section>
+      </main>
+    </div>
+    <div class="toast" id="toast">
+    </div>
+    <!-- FOOTER PROQUIDENT -->
+    <footer class="footer" style="background: linear-gradient(135deg, #0a0e27, #0f172a); border-top:none; padding:2.5rem 1rem;">
+      <div style="text-align:center;">
+        <!-- ICONO SUTIL -->
+        <div style="margin-bottom:0.8rem;">
+          <span style="
+        display:inline-flex;
+        width:38px;
+        height:38px;
+        border-radius:50%;
+        align-items:center;
+        justify-content:center;
+        background:rgba(30,109,242,0.15);
+        color:var(--primary);
+        font-size:1.2rem;
+      "> ✦
+          </span>
+        </div>
+        <!-- TEXTO -->
+        <div style="
+      font-size:0.85rem;
+      color:rgba(255,255,255,0.75);
+      letter-spacing:0.02em;
+    "> Módulo 3 · Curso IA ·
+          <b style="color:var(--primary);" style="text-decoration:none;"> Luz Eliana Martinez Ramos
+          </b>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+        // Todos los IDs de sección del HTML
+        const allSections = [
+            'hero-sec', 'inicio-sec', 'agentes-sec',
+            'estructura-sec', 'ejercicio1', 'ejercicio2', 'ejercicio4'
+        ];
+
+        function showSection(sectionId) {
+            // Ocultar todo
+            allSections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.classList.remove('active');
+            });
+
+            // Mostrar solo la sección pedida
+            const target = document.getElementById(sectionId);
+            if (target) target.classList.add('active');
+
+            // Marcar nav activo
+            document.querySelectorAll('.nav-item').forEach(btn => btn.classList.remove('active'));
+            const activeLink = document.querySelector('.nav-item[onclick*="' + sectionId + '"]');
+            if (activeLink) activeLink.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostrar hero-sec (Inicio) por defecto al cargar
+        document.addEventListener('DOMContentLoaded', function () {
+            showSection('hero-sec');
+        });
+
+        function copyPrompt(promptId) {
+            const source = document.getElementById(promptId);
+            if (!source) return;
+
+            const text = source.innerText.trim();
+            const showSuccess = () => showToast('Prompt copiado');
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(showSuccess).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.top = '-999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('Prompt copiado');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+            if (!toast) return;
+
+            if (toastText) toastText.textContent = message;
+            toast.classList.add('show');
+            window.clearTimeout(showToast.timer);
+            showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1800);
+        }
+
+        updateProgress();
+    </script>
+  </body>
+</html>

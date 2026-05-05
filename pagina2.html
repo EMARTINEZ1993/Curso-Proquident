@@ -675,78 +675,7 @@
     <!-- ============================================ -->
     <!-- SCRIPTS                                      -->
     <!-- ============================================ -->
-    <script>
-        const courseSections = ['inicio-sec', 'modulo1-sec', 'modulo2-sec', 'modulo3-sec', 'actividad-sec'];
 
-        function showSection(sectionId) {
-            courseSections.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.classList.remove('active');
-            });
-
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) targetSection.classList.add('active');
-
-            const navButtons = document.querySelectorAll('.tab-nav .tab-btn');
-            const index = courseSections.indexOf(sectionId);
-            navButtons.forEach((btn, i) => {
-                btn.classList.toggle('active', i === index);
-            });
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            updateProgress();
-        }
-
-        function updateProgress() {
-            const active = courseSections.findIndex(id => {
-                const el = document.getElementById(id);
-                return el && el.classList.contains('active');
-            });
-            const pct = active <= 0 ? 0 : (active / (courseSections.length - 1)) * 100;
-            const progressBar = document.getElementById('progress-bar');
-            if (progressBar) progressBar.style.width = pct + '%';
-        }
-
-        function copyPrompt(promptId) {
-            const source = document.getElementById(promptId);
-            if (!source) return;
-
-            const text = source.innerText.trim();
-            const showSuccess = () => showToast('Prompt copiado');
-
-            if (navigator.clipboard && window.isSecureContext) {
-                navigator.clipboard.writeText(text).then(showSuccess).catch(() => fallbackCopy(text));
-            } else {
-                fallbackCopy(text);
-            }
-        }
-
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.setAttribute('readonly', '');
-            textarea.style.position = 'fixed';
-            textarea.style.top = '-999px';
-            document.body.appendChild(textarea);
-            textarea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textarea);
-            showToast('Prompt copiado');
-        }
-
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            const toastText = document.getElementById('toast-text');
-            if (!toast) return;
-
-            if (toastText) toastText.textContent = message;
-            toast.classList.add('show');
-            window.clearTimeout(showToast.timer);
-            showToast.timer = window.setTimeout(() => toast.classList.remove('show'), 1800);
-        }
-
-        updateProgress();
-    </script>
 </body>
 
 </html>
