@@ -1,0 +1,496 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Módulo 4: Creación de Agentes Personalizados en Microsoft Copilot Studio para Proquident. Aprende a crear agentes inteligentes para consultar productos, gestionar RRHH, contabilidad y línea veterinaria." />
+  <title>Proquident | Módulo 4 · Creación de Agentes con Copilot Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="CSS/Modulo4.css">
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar-nav" aria-label="Navegación del curso">
+
+  <a class="nav-item" onclick="showSection('que-es-sec')"><i class="fa-solid fa-robot"></i> Inicio</a>
+  <a class="nav-item" onclick="showSection('crear-agente-sec')"><i class="fa-solid fa-gear"></i> crear un agente</a>
+  <a class="nav-item" onclick="showSection('ejercicio1-sec')"><i class="fa-solid fa-store"></i> Eje. 1 · Productos</a>
+  <a class="nav-item" onclick="showSection('ejercicio2-sec')"><i class="fa-solid fa-users"></i> Eje. 2 · RRHH</a>
+  <a class="nav-item" onclick="showSection('ejercicio3-sec')"><i class="fa-solid fa-folder-open"></i> Eje. 3 · Documental</a>
+  <a class="nav-item" onclick="showSection('reto-sec')"><i class="fa-solid fa-trophy"></i> Reto Final</a>
+</nav>
+
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+
+
+<!-- ═══════════════════════════════════════════════════
+     ¿QUÉ ES UN AGENTE?
+════════════════════════════════════════════════════ -->
+<section id="que-es-sec" class="section">
+  <h2>🤖 1. ¿Qué es un agente personalizado en Copilot?</h2>
+  <div class="sec-wrap">
+    <p>En los módulos anteriores usaste los agentes <strong>nativos</strong> de Copilot: los que ya vienen integrados en Word, Excel, PowerPoint, Teams y Outlook. Ahora vas a dar el siguiente paso: <strong>crear tu propio agente desde cero</strong>, entrenado con información específica de Proquident.</p>
+
+    <div class="callout" style="margin-top:1.25rem;">
+      💡 <strong>Definición:</strong> Un agente personalizado es un asistente de IA que tú configuras con un nombre, un objetivo, instrucciones de comportamiento y fuentes de conocimiento propias. Responde preguntas, guía procesos y automatiza tareas — solo sobre los temas que tú le enseñas.
+    </div>
+
+    <!-- TABLA COMPARATIVA -->
+    <h3 style="margin-top:1.5rem;">Agente nativo vs. Agente personalizado</h3>
+    <table class="tabla-comparativa">
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Agente Nativo (Word, Excel…)</th>
+          <th>Agente Personalizado (Copilot Studio)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>¿Quién lo crea?</strong></td><td>Microsoft</td><td>Tú, en minutos</td></tr>
+        <tr><td><strong>Conocimiento</strong></td><td>General + tu documento abierto</td><td>Solo lo que tú definas (URL, archivos, documentos internos)</td></tr>
+        <tr><td><strong>Nombre y personalidad</strong></td><td>Siempre "Copilot"</td><td>El nombre que tú elijas (ej. "Asesor Proquident")</td></tr>
+        <tr><td><strong>Canal de uso</strong></td><td>Dentro de la app de Office</td><td>Teams, web, Outlook, WhatsApp y más</td></tr>
+        <tr><td><strong>Restricciones</strong></td><td>Responde sobre cualquier tema</td><td>Responde solo sobre lo que tú configures</td></tr>
+        <tr><td><strong>Requiere código</strong></td><td>No</td><td>No (con Copilot Studio)</td></tr>
+      </tbody>
+    </table>
+
+    <!-- CUÁNDO CREAR UN AGENTE PROPIO -->
+    <h3 style="margin-top:1.5rem;">¿Cuándo conviene crear un agente propio?</h3>
+    <div class="card-grid" style="margin-top:.75rem;">
+      <div class="info-card"><div class="icon">🔁</div><div class="title">Preguntas repetitivas</div><div class="desc">Cuando tu área recibe siempre las mismas consultas: "¿Cuál es el precio del producto X?" o "¿Cómo solicito vacaciones?"</div></div>
+      <div class="info-card"><div class="icon">📚</div><div class="title">Documentos extensos</div><div class="desc">Cuando tienes manuales, catálogos o políticas que nadie lee completos pero todos necesitan consultar.</div></div>
+      <div class="info-card"><div class="icon">⏱️</div><div class="title">Atención 24/7</div><div class="desc">El agente responde aunque tú no estés disponible, a cualquier hora y sin esperar turno.</div></div>
+      <div class="info-card"><div class="icon">🎯</div><div class="title">Respuestas precisas</div><div class="desc">El agente responde solo con información verificada de Proquident, sin inventar ni confundir.</div></div>
+    </div>
+
+    <!-- CASOS REALES -->
+    <h3 style="margin-top:1.75rem;">Casos de uso reales en Proquident</h3>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.75rem;">
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.85rem 1rem;display:flex;gap:.9rem;align-items:flex-start;">
+        <span style="font-size:1.2rem;">🛒</span>
+        <div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;">Asesor de Catálogo · Área Comercial</div><div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;">Un vendedor en terreno puede preguntarle al agente: "¿Qué productos tenemos para control de pulgas en perros mayores?" y recibir una respuesta inmediata con referencias y precios del catálogo.</div></div>
+      </div>
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.85rem 1rem;display:flex;gap:.9rem;align-items:flex-start;">
+        <span style="font-size:1.2rem;">👥</span>
+        <div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;">Asistente de RRHH · Autoservicio</div><div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;">Un colaborador pregunta: "¿Cuántos días de vacaciones acumulé este año?" o "¿Qué cubre el seguro médico?" — el agente responde con la política vigente de Proquident.</div></div>
+      </div>
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.85rem 1rem;display:flex;gap:.9rem;align-items:flex-start;">
+        <span style="font-size:1.2rem;">📒</span>
+        <div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;">Consultor de Facturación · Contabilidad</div><div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;">Un proveedor o área interna pregunta: "¿Cuál es la fecha límite para enviar facturas del mes?" — sin necesitar llamar a contabilidad directamente.</div></div>
+      </div>
+      <div style="background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-md);padding:.85rem 1rem;display:flex;gap:.9rem;align-items:flex-start;">
+        <span style="font-size:1.2rem;">🐾</span>
+        <div><div style="font-size:.85rem;font-weight:600;color:var(--text-dark);margin-bottom:3px;">Experto Veterinario · Línea Técnica</div><div style="font-size:.8rem;color:var(--text-muted);line-height:1.55;">Un veterinario cliente consulta: "¿Qué concentración tiene el Ivermectín de Proquident?" — el agente responde desde la ficha técnica oficial del producto.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══════════════════════════════════════════════════
+     CÓMO CREAR UN AGENTE (GUÍA PASO A PASO)
+════════════════════════════════════════════════════ -->
+<section id="crear-agente-sec" class="section">
+  <h2>⚙️ 3. Cómo crear un agente en Copilot Studio — Paso a paso</h2>
+  <div class="sec-wrap">
+    <p>Esta guía aplica para todos los ejercicios del módulo. Sigue estos pasos cada vez que vayas a crear un nuevo agente. El proceso completo toma entre 15 y 25 minutos.</p>
+
+    <div class="callout" style="margin-top:1rem;">
+      🌐 Antes de empezar: abre <strong><a href="https://copilotstudio.microsoft.com" target="_blank" style="color:var(--primary);">copilotstudio.microsoft.com</a></strong> e inicia sesión con tu cuenta de Microsoft 365 de Proquident.
+    </div>
+
+    <div class="step-list" style="margin-top:1.5rem;">
+
+      <div class="step-item">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Crear un nuevo agente</div>
+          <div class="step-desc">En el panel izquierdo de Copilot Studio, haz clic en <code>+ Crear</code> o en <code>Nuevo agente</code>. Se abrirá un asistente de configuración. Puedes elegir entre "Describe tu agente" (modo conversacional) o "Configurar manualmente" — para estos ejercicios usaremos la configuración manual para tener más control.</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">Definir el nombre y descripción</div>
+          <div class="step-desc">En el campo <strong>Nombre</strong> escribe el nombre de tu agente (ej. <code>Asesor de Productos Proquident</code>). En <strong>Descripción</strong> escribe en una frase para qué sirve. Este texto ayuda al modelo a entender su propósito. El <strong>Idioma</strong> selecciónalo en <code>Español (Latinoamérica)</code>.</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Escribir las instrucciones del agente</div>
+          <div class="step-desc">Este es el campo más importante. Aquí describes cómo debe comportarse el agente: su rol, qué puede y qué no puede responder, el tono que debe usar y cómo debe reaccionar ante preguntas fuera de su alcance. Cada ejercicio incluye un texto de instrucciones listo para copiar y pegar en este campo.</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">4</div>
+        <div>
+          <div class="step-title">Agregar fuentes de conocimiento</div>
+          <div class="step-desc">Ve a la pestaña <strong>Conocimiento</strong> → clic en <code>+ Agregar conocimiento</code>. Tienes tres opciones principales:
+            <br>• <code>URL de sitio web</code> — pega la dirección de una página web que el agente debe leer
+            <br>• <code>Cargar archivos</code> — sube un PDF, Word o Excel con información del área
+            <br>• <code>SharePoint</code> — conecta una biblioteca de documentos de SharePoint de Proquident
+            <br>Para los ejercicios de este módulo usaremos principalmente URL de sitio web y carga de archivos.
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">5</div>
+        <div>
+          <div class="step-title">Probar el agente en el panel de prueba</div>
+          <div class="step-desc">En el lado derecho de la pantalla encontrarás el <strong>Panel de prueba</strong>. Escribe preguntas reales que haría un colaborador de Proquident. Verifica que las respuestas sean correctas y coherentes. Si el agente responde mal, ajusta las instrucciones o agrega más conocimiento y vuelve a probar.</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-num">6</div>
+        <div>
+          <div class="step-title">Publicar el agente en Microsoft Teams</div>
+          <div class="step-desc">Cuando estés satisfecho con las respuestas, haz clic en <code>Publicar</code> (botón superior derecho). Luego ve a <strong>Canales</strong> → selecciona <code>Microsoft Teams</code> → haz clic en <code>Agregar a Teams</code>. Tu agente quedará disponible como un bot dentro de Teams para toda la organización o solo para ti, según permisos.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- DIAGRAMA VISUAL DEL FLUJO -->
+    <h3 style="margin-top:2rem;">Flujo de creación de un agente</h3>
+    <div style="display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;margin-top:.75rem;padding:1.25rem;background:var(--bg-white);border:1px solid var(--border-light);border-radius:var(--radius-lg);">
+      <div style="text-align:center;flex:1;min-width:80px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto .4rem;">🏷️</div>
+        <div style="font-size:.72rem;font-weight:600;color:var(--text-dark);">Nombre</div>
+        <div style="font-size:.68rem;color:var(--text-light);">Identidad</div>
+      </div>
+      <div style="color:var(--border-medium);font-size:1.2rem;">→</div>
+      <div style="text-align:center;flex:1;min-width:80px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto .4rem;">📋</div>
+        <div style="font-size:.72rem;font-weight:600;color:var(--text-dark);">Instrucciones</div>
+        <div style="font-size:.68rem;color:var(--text-light);">Comportamiento</div>
+      </div>
+      <div style="color:var(--border-medium);font-size:1.2rem;">→</div>
+      <div style="text-align:center;flex:1;min-width:80px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:var(--primary);color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto .4rem;">📚</div>
+        <div style="font-size:.72rem;font-weight:600;color:var(--text-dark);">Conocimiento</div>
+        <div style="font-size:.68rem;color:var(--text-light);">Fuentes</div>
+      </div>
+      <div style="color:var(--border-medium);font-size:1.2rem;">→</div>
+      <div style="text-align:center;flex:1;min-width:80px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:#16a34a;color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto .4rem;">🧪</div>
+        <div style="font-size:.72rem;font-weight:600;color:var(--text-dark);">Prueba</div>
+        <div style="font-size:.68rem;color:var(--text-light);">Verificar</div>
+      </div>
+      <div style="color:var(--border-medium);font-size:1.2rem;">→</div>
+      <div style="text-align:center;flex:1;min-width:80px;">
+        <div style="width:44px;height:44px;border-radius:50%;background:#16a34a;color:white;display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin:0 auto .4rem;">🚀</div>
+        <div style="font-size:.72rem;font-weight:600;color:var(--text-dark);">Publicar</div>
+        <div style="font-size:.68rem;color:var(--text-light);">En Teams</div>
+      </div>
+    </div>
+
+    <!-- TIPS CLAVE -->
+    <h3 style="margin-top:1.75rem;">Tips clave antes de empezar</h3>
+    <div style="display:flex;flex-direction:column;gap:.6rem;margin-top:.75rem;">
+      <div class="callout">💡 <strong>Instrucciones claras = mejores respuestas.</strong> Dedica tiempo a describir bien el comportamiento del agente. Un agente con buenas instrucciones no inventa información.</div>
+      <div class="callout callout-success">✅ <strong>Menos es más en el conocimiento.</strong> Agrega solo las fuentes relevantes para el área. Demasiadas fuentes pueden confundir al agente.</div>
+      <div class="callout callout-warning">⚠️ <strong>Prueba con preguntas reales.</strong> Antes de publicar, pídele a un compañero que haga 5 preguntas como si no supiera nada del tema. Eso revela los puntos ciegos del agente.</div>
+    </div>
+  </div>
+</section>
+
+<!-- EJERCICIOS ACTUALIZADOS -->
+<section id="ejercicio1-sec" class="section">
+  <h2>Ejercicio 1 &middot; Comercial &middot; Buscador Inteligente Proquident</h2>
+  <div class="sec-wrap">
+    <div class="ejercicio-box">
+      <div class="ejercicio-titulo">Ejercicio 1 &middot; Agente "Buscador Inteligente Proquident" &middot; Nivel Avanzado (***) &middot; 55 minutos</div>
+      <div class="meta-grid"><div class="meta-item"><div class="meta-label">AREA</div><div class="meta-val">Comercial / Ventas</div></div><div class="meta-item"><div class="meta-label">HERRAMIENTA</div><div class="meta-val">Copilot agente + sitio web</div></div><div class="meta-item"><div class="meta-label">ARCHIVO</div><div class="meta-val">catalogo_productos.csv</div></div><div class="meta-item"><div class="meta-label">TIEMPO</div><div class="meta-val">55 minutos</div></div></div>
+      <div class="situacion-box"><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Situacion:</strong> El equipo comercial necesita consultar productos por categoria, principio activo, presentacion, vencimiento, stock y uso principal sin revisar manualmente el catalogo.</p><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Objetivo:</strong> Crear un agente avanzado que use el sitio web oficial de Proquident y, si la licencia lo permite, el archivo CSV como apoyo para filtrar productos, proponer alternativas y entregar respuestas estructuradas para ventas.</p><p style="margin:0;"><strong style="color:var(--text-dark);">Fuente sugerida:</strong> <a href="https://proquident.com.co/" target="_blank" rel="noopener noreferrer">https://proquident.com.co/</a></p></div>
+
+      <div class="callout" style="margin-top:.9rem;"><strong>Como diligenciar este ejercicio:</strong> completa cada campo del agente con la informacion exacta que aparece abajo. Lo que dice <strong>Campo Nombre</strong>, <strong>Campo Descripción</strong> o <strong>Conocimiento</strong> se configura en esas secciones del agente. El bloque de <strong>Indicaciones sugeridas para el agente</strong> se copia unicamente en las instrucciones del agente.</div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Que va en cada campo del agente</p>
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+        <div class="config-row"><div class="config-label"><span class="config-key">NOMBRE</span><span class="config-hint">Campo Nombre</span></div><div class="config-input">Buscador Inteligente Proquident</div></div>
+        <div class="config-row"><div class="config-label"><span class="config-key">DESCRIPCION</span><span class="config-hint">Campo Descripción</span></div><div class="config-input">Agente comercial que ayuda a consultar productos Proquident por categoria, principio activo, especie, presentacion, uso principal, estado, stock y fecha de caducidad. Entrega respuestas estructuradas y sugiere alternativas cuando no encuentra coincidencias exactas.</div></div>
+        <div class="config-row"><div class="config-label"><span class="config-key">CONOCIMIENTO</span><span class="config-hint">Seccion Conocimiento</span></div><div class="config-input"><strong>Agregar sitios web especificos:</strong> si. Agrega <strong>https://proquident.com.co/</strong>. <strong>Buscar en todos los sitios web:</strong> no, para evitar respuestas demasiado abiertas. <strong>Usar solo fuentes especificadas:</strong> si, para que el agente responda solo con la web oficial y las fuentes que tu definas. Si tu licencia permite archivos, tambien puedes cargar <strong>catalogo_productos.csv</strong> como apoyo adicional.</div></div>
+        <div class="config-row"><div class="config-label"><span class="config-key">CAPACIDADES</span><span class="config-hint">Seccion Capacidades</span></div><div class="config-input"><strong>Crear documentos, graficos y codigo:</strong> no habilitar. <strong>Crear imagenes:</strong> no habilitar. En este ejercicio el enfoque es consultar conocimiento de productos, no generar archivos ni imagenes.</div></div>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">Material de apoyo: sitio web y CSV</p>
+      <div class="callout"><strong>Fuente principal recomendada:</strong> usa el sitio oficial <a href="https://proquident.com.co/" target="_blank" rel="noopener noreferrer">https://proquident.com.co/</a> en la seccion de conocimiento. <strong>Apoyo adicional:</strong> si la licencia permite archivos, carga <strong>catalogo_productos.csv</strong>. Si no permite archivos, usa el CSV solo como referencia para complementar o ajustar las indicaciones del agente.</div>
+      <div class="callout callout-success" style="display:flex;justify-content:space-between;align-items:center;gap:.75rem;flex-wrap:wrap;">
+        <span>Descarga el archivo <strong>catalogo_productos.csv</strong> para cargarlo como apoyo en el agente o revisarlo fuera de la pagina.</span>
+        <a class="btn-copy" href="catalogo_productos.csv" download="catalogo_productos.csv" style="display:inline-block;text-decoration:none;">Descargar CSV</a>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Texto para pegar en las instrucciones del agente</p>
+      <div class="callout">Copia este bloque completo en el campo de instrucciones del agente. No va en Nombre, Descripcion, Conocimiento ni Capacidades.</div>
+      <div class="prompt-box"><div class="prompt-header"><span>Indicaciones sugeridas para el agente</span><button class="btn-copy" onclick="copiarTexto('instrE1','Indicaciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE1">Eres "Buscador Inteligente Proquident", un super buscador de productos orientado a ventas, consulta de catalogo y apoyo comercial. Tu funcion es encontrar productos de Proquident de manera rapida, precisa y util, usando como fuente principal el sitio web oficial https://proquident.com.co/ y, si esta disponible, el archivo catalogo_productos.csv como apoyo adicional.
+
+Debes responder solo con informacion encontrada en la web oficial de Proquident, en el archivo catalogo_productos.csv o en otras fuentes oficiales agregadas al conocimiento. Tu prioridad es entender la intencion de busqueda del usuario y convertirla en resultados claros, comparables y accionables.
+
+PUEDES BUSCAR, FILTRAR Y COMPARAR POR:
+- nombre del producto
+- categoria
+- principio_activo
+- presentacion
+- uso_principal
+- especie
+- via_administracion
+- stock
+- estado
+- fecha_caducidad
+- observaciones
+
+COMPORTAMIENTO:
+- Si el usuario pide un producto especifico, entrega una ficha clara con: nombre, categoria, principio activo, presentacion, uso principal, estado, stock, fecha de caducidad y observaciones relevantes.
+- Si el usuario pide una necesidad general, busca y muestra hasta 3 opciones ordenadas por pertinencia.
+- Si el usuario pide comparar, organiza la respuesta en formato facil de revisar y destaca diferencias clave entre productos.
+- Si no hay coincidencia exacta, ofrece alternativas cercanas dentro del catalogo y explica por que pueden servir.
+- Si la consulta es ambigua, haz una sola pregunta de aclaracion para afinar la busqueda.
+- Si el usuario menciona varios criterios al tiempo, combinalos para entregar un resultado mas preciso.
+- Prioriza productos disponibles y advierte cuando haya stock bajo, estado de revision o vencimiento cercano.
+- Si el usuario pide informacion comercial rapida, responde de forma breve, ordenada y util para tomar decision.
+
+FORMATO DE RESPUESTA RECOMENDADO:
+- Resultado recomendado
+- Otras opciones o alternativas
+- Datos clave del producto
+- Advertencias
+- Fuente consultada
+
+LIMITES:
+- No inventes precios, dosis, indicaciones ni disponibilidad.
+- No hagas diagnosticos ni recomendaciones clinicas.
+- Para vencimientos menores a 90 dias, advierte que debe validarse inventario.
+- Si la informacion no aparece en la web oficial o en las fuentes cargadas, indicalo claramente.
+- Si no existe suficiente informacion para responder con seguridad, dilo y sugiere revisar otra fuente oficial.</div></div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Preguntas sugeridas para probar el agente</p>
+      <div class="code-block" id="pregE1">
+1. Que productos de la categoria Antiparasitarios estan disponibles?
+2. Buscame un producto con principio activo Fipronil y dime su presentacion.
+3. Que productos tienen stock bajo o requieren validacion de inventario?
+4. Dame opciones de productos de dermatologia y su presentacion.
+5. Que productos vencen antes de diciembre de 2026?
+6. Si no encuentras un producto exacto, que alternativa del catalogo puedes sugerir?</div><button class="btn-copy" onclick="copiarTexto('pregE1','Preguntas copiadas')">Copiar preguntas</button>
+    </div>
+  </div>
+</section>
+
+<section id="ejercicio2-sec" class="section"><h2>Ejercicio 2 &middot; RRHH &middot; Asistente de Vacaciones Proquident</h2><div class="sec-wrap"><div class="ejercicio-box">
+    <div class="ejercicio-titulo">Ejercicio 2 &middot; Agente "Asistente de Vacaciones Proquident" &middot; Nivel Experto (****) &middot; 55 minutos</div>
+  <div class="meta-grid"><div class="meta-item"><div class="meta-label">AREA</div><div class="meta-val">Recursos Humanos</div></div><div class="meta-item"><div class="meta-label">HERRAMIENTA</div><div class="meta-val">Copilot agente + correo o flujo</div></div><div class="meta-item"><div class="meta-label">VARIABLES</div><div class="meta-val">dias_solicitados, fecha_inicio, fecha_fin_estimada, id_solicitud, confirmacion_usuario, correo_jefe</div></div><div class="meta-item"><div class="meta-label">TIEMPO</div><div class="meta-val">50-60 minutos</div></div></div>
+  <div class="situacion-box"><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Situacion:</strong> Los colaboradores de Proquident consultan con frecuencia como solicitar vacaciones, cuantas pueden pedir y que reglas deben cumplir. RRHH pierde tiempo resolviendo preguntas repetitivas y muchas solicitudes llegan incompletas.</p><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Objetivo:</strong> Crear un agente conversacional inteligente que guie paso a paso la solicitud de vacaciones, valide la informacion ingresada, detecte errores o excepciones, muestre un resumen claro, genere un ID de solicitud y envie el caso al jefe del area despues de la confirmacion del usuario.</p><p style="margin:0;"><strong style="color:var(--text-dark);">Reglas clave:</strong> minimo 1 dia habil, maximo 15 dias habiles por solicitud, minimo 15 dias de anticipacion, sin inicio en diciembre, confirmacion obligatoria y envio al jefe del area solo cuando la solicitud ya este validada.</p></div>
+
+  <div class="callout" style="margin-top:.9rem;"><strong>Como diligenciar este ejercicio:</strong> completa cada campo del agente con la informacion exacta que aparece abajo. Lo que dice <strong>Campo Nombre</strong>, <strong>Campo Descripción</strong>, <strong>Conocimiento</strong> o <strong>Capacidades</strong> se configura en esas secciones del agente. El bloque de <strong>Instrucciones del agente</strong> se copia unicamente en las instrucciones del agente.</div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Que va en cada campo del agente</p>
+  <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+    <div class="config-row"><div class="config-label"><span class="config-key">NOMBRE</span><span class="config-hint">Campo Nombre</span></div><div class="config-input">Asistente de Vacaciones Proquident</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">DESCRIPCION</span><span class="config-hint">Campo Descripción</span></div><div class="config-input">Agente de RRHH que orienta a los colaboradores sobre la politica general de vacaciones de Proquident, guia la solicitud paso a paso, valida reglas internas, maneja excepciones, muestra un resumen antes de confirmar, genera un ID de solicitud y envia el caso al jefe del area o al flujo definido.</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">CONOCIMIENTO</span><span class="config-hint">Seccion Conocimiento</span></div><div class="config-input"><strong>Agregar sitios web especificos:</strong> no es obligatorio para este ejercicio. <strong>Buscar en todos los sitios web:</strong> no, para evitar respuestas fuera de la politica interna. <strong>Usar solo fuentes especificadas:</strong> si. Si RRHH tiene una politica interna en PDF, Word, SharePoint o una URL corporativa, agregala como fuente especifica. Si existe una lista de jefes o correos por area, tambien puede usarse como apoyo para el envio.</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">CAPACIDADES</span><span class="config-hint">Seccion Capacidades</span></div><div class="config-input"><strong>Crear documentos, graficos y codigo:</strong> no habilitar. <strong>Crear imagenes:</strong> no habilitar. En este ejercicio el objetivo es guiar y validar una solicitud de vacaciones, no generar archivos ni imagenes.</div></div>
+  </div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">Material de apoyo: politica de vacaciones</p>
+  <div class="callout"><strong>Recomendado:</strong> si RRHH cuenta con una politica formal de vacaciones, cargala como fuente especifica del agente. <strong>Si no la tienes cargada:</strong> usa este ejercicio con las reglas indicadas aqui y deja claro que el agente solo orienta segun la politica general, sin consultar datos personales reales del colaborador. <strong>Para el envio:</strong> define el correo del jefe del area o un flujo automatico que reciba la solicitud validada. Tambien puedes copiar a <strong>rrhh@proquident.com</strong>.</div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Texto para pegar en las instrucciones del agente</p>
+  <div class="callout">Copia este bloque completo en el campo de instrucciones del agente. No va en Nombre, Descripcion, Conocimiento ni Capacidades.</div>
+  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE2','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE2">Eres "Asistente de Vacaciones Proquident", un agente de RRHH que guia a los colaboradores en el proceso de solicitud de vacaciones de forma clara, segura, profesional y estructurada.
+
+Tu funcion es orientar, validar la informacion suministrada y mostrar un resumen antes de registrar una solicitud. No prometes aprobacion; solo indicas que la solicitud queda registrada y, cuando el usuario confirme, debe enviarse al jefe del area para revision.
+
+Durante la conversacion debes conservar estos datos cuando el usuario los entregue:
+- dias_solicitados
+- fecha_inicio
+- fecha_fin_estimada
+- id_solicitud
+- confirmacion_usuario
+- correo_jefe
+
+REGLAS OBLIGATORIAS:
+- La solicitud debe ser entre 1 y 15 dias habiles.
+- La fecha de inicio debe tener minimo 15 dias de anticipacion.
+- No se deben iniciar vacaciones en diciembre.
+- No registres nada sin confirmacion explicita del usuario.
+- Si el usuario pregunta por su saldo de vacaciones, responde solo con la politica general y aclara que no puedes consultar datos personales exactos desde el chat.
+- Si la fecha esta en el pasado, rechaza la solicitud y pide una nueva fecha.
+- Si la fecha ingresada cae en fin de semana o es ambigua, pide precision antes de continuar.
+- El envio al jefe del area solo ocurre cuando la informacion este completa y el usuario confirme.
+
+COMPORTAMIENTO:
+- Saluda y explica brevemente la politica general de vacaciones.
+- Pregunta cuantos dias habiles desea solicitar.
+- Si la cantidad es menor a 1 o mayor a 15, explica la regla y pide corregir el dato.
+- Pregunta la fecha de inicio deseada.
+- Si la fecha cae en diciembre o no cumple la anticipacion minima, explica la restriccion y pide una nueva fecha.
+- Si el usuario usa expresiones ambiguas como "la otra semana", "despues", "a fin de mes" o "cuando pueda", pide una fecha exacta.
+- Si el caso no cumple la politica o requiere revision especial, indicalo y sugiere escalar a RRHH.
+- Cuando tengas la informacion valida, calcula una fecha_fin_estimada y muestra un resumen con dias solicitados, fecha de inicio, fecha fin estimada y estado de revision.
+- Pide confirmacion explicita antes de continuar.
+- Si el usuario confirma, genera un id_solicitud con formato VAC-XXXX y comunica que la solicitud sera enviada al jefe del area.
+- Si existe integracion de correo o flujo, usa el resumen validado para enviarlo al correo del jefe del area y opcionalmente copia a RRHH.
+- Si no existe integracion real, deja claro que el flujo debe conectarse para que el envio ocurra de manera automatica.
+- Si el usuario no confirma, no registres la solicitud y ofrece corregir los datos.
+- Si el usuario cambia un dato a mitad del proceso, actualiza el resumen y vuelve a validar antes de continuar.
+
+FORMATO DE RESPUESTA RECOMENDADO:
+- Resumen de la solicitud
+- Validaciones aplicadas
+- Estado actual
+- Destino del envio
+- Siguiente paso
+
+CASOS ESPECIALES:
+- Si el usuario pregunta solo por la politica, responde de forma informativa sin iniciar el registro.
+- Si pregunta por saldo exacto, responde que debe consultarlo por los canales oficiales o con RRHH.
+- Si solicita excepciones a la politica, indica que el caso requiere revision manual del area de RRHH.
+- Si no conoces el correo del jefe del area, indica que se debe definir en el flujo o en la configuracion del proceso antes de automatizar el envio.
+
+LIMITES:
+- No inventes saldo de vacaciones ni datos personales del colaborador.
+- No confirmes aprobaciones automaticas.
+- No omitas validaciones.
+- No inventes correos de jefes ni direcciones de envio.
+- Si falta un dato clave, pide solo la informacion necesaria para continuar.</div></div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Preguntas sugeridas para probar el agente</p>
+  <div class="code-block" id="pregE2">1. Quiero pedir 8 dias habiles de vacaciones desde el 20 de enero.
+2. Necesito vacaciones desde el 10 de diciembre por 6 dias.
+3. Puedo pedir 20 dias de vacaciones?
+4. Quiero salir manana a vacaciones.
+5. Cuantas vacaciones tengo acumuladas?
+6. Registra mi solicitud desde el 5 de febrero por 5 dias.
+7. Quiero vacaciones la otra semana.
+8. Si cambio la fecha al 15 de marzo, que pasa?
+9. Necesito una excepcion porque quiero iniciar vacaciones en diciembre.
+10. Cuando confirme, esto se le envia a mi jefe?
+11. Mi jefe es carlos.gomez@proquident.com, envia la solicitud cuando termine.</div><button class="btn-copy" onclick="copiarTexto('pregE2','Preguntas copiadas')">Copiar preguntas</button>
+</div></div></section>
+
+
+<section id="ejercicio3-sec" class="section"><h2>Ejercicio 3 &middot; Gestión Documental &middot; Buscador Corporativo</h2><div class="sec-wrap"><div class="ejercicio-box">
+  <div class="ejercicio-titulo">Ejercicio 3 &middot; Agente "Gestor Documental Proquident" &middot; Nivel Experto (****) &middot; 55 minutos</div>
+  <div class="meta-grid"><div class="meta-item"><div class="meta-label">AREA</div><div class="meta-val">Transversal / Corporativo</div></div><div class="meta-item"><div class="meta-label">HERRAMIENTA</div><div class="meta-val">Copilot agente + conocimiento documental</div></div><div class="meta-item"><div class="meta-label">BUSCA</div><div class="meta-val">Contratos, politicas, procedimientos, manuales, formatos y beneficios</div></div><div class="meta-item"><div class="meta-label">TIEMPO</div><div class="meta-val">50-60 minutos</div></div></div>
+  <div class="situacion-box"><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Situacion:</strong> En muchas areas de Proquident se pierde tiempo buscando archivos dispersos en carpetas, correos o bibliotecas documentales. Los colaboradores no siempre saben donde esta un contrato, una politica, un procedimiento, un manual, un formato o la informacion sobre un beneficio.</p><p style="margin-bottom:.6rem;"><strong style="color:var(--text-dark);">Objetivo:</strong> Crear un agente de gestion documental que funcione como un buscador inteligente corporativo, capaz de ubicar documentos, orientar al usuario sobre el contenido disponible y reducir el tiempo invertido en la busqueda manual.</p><p style="margin:0;"><strong style="color:var(--text-dark);">Valor esperado:</strong> evitar perder tiempo buscando archivos y facilitar el acceso rapido a la documentacion oficial.</p></div>
+
+  <div class="callout" style="margin-top:.9rem;"><strong>Como diligenciar este ejercicio:</strong> completa cada campo del agente con la informacion exacta que aparece abajo. Lo que dice <strong>Campo Nombre</strong>, <strong>Campo Descripción</strong>, <strong>Conocimiento</strong> o <strong>Capacidades</strong> se configura en esas secciones del agente. El bloque de <strong>Instrucciones del agente</strong> se copia unicamente en las instrucciones del agente.</div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Que va en cada campo del agente</p>
+  <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+    <div class="config-row"><div class="config-label"><span class="config-key">NOMBRE</span><span class="config-hint">Campo Nombre</span></div><div class="config-input">Gestor Documental Proquident</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">DESCRIPCION</span><span class="config-hint">Campo Descripción</span></div><div class="config-input">Agente corporativo que ayuda a buscar y ubicar documentos oficiales de Proquident, como contratos, politicas, procedimientos, manuales, formatos y beneficios, para ahorrar tiempo y facilitar la consulta interna.</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">CONOCIMIENTO</span><span class="config-hint">Seccion Conocimiento</span></div><div class="config-input"><strong>Agregar sitios web especificos:</strong> si, si existen bibliotecas documentales, SharePoint o portales internos con archivos oficiales. <strong>Buscar en todos los sitios web:</strong> no, para evitar resultados fuera del entorno corporativo. <strong>Usar solo fuentes especificadas:</strong> si, para que el agente responda solo con documentos oficiales y actualizados.</div></div>
+    <div class="config-row"><div class="config-label"><span class="config-key">CAPACIDADES</span><span class="config-hint">Seccion Capacidades</span></div><div class="config-input"><strong>Crear documentos, graficos y codigo:</strong> no habilitar. <strong>Crear imagenes:</strong> no habilitar. En este ejercicio el foco es buscar y localizar documentos corporativos, no generar archivos nuevos.</div></div>
+  </div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">Material de apoyo: repositorio documental</p>
+  <div class="callout"><strong>Recomendado:</strong> conecta una biblioteca de documentos, SharePoint, intranet o carpeta documental oficial donde esten almacenados contratos, politicas, procedimientos, manuales, formatos y beneficios. El agente debe usar solo fuentes oficiales para evitar confusiones o versiones desactualizadas.</div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Texto para pegar en las instrucciones del agente</p>
+  <div class="callout">Copia este bloque completo en el campo de instrucciones del agente. No va en Nombre, Descripcion, Conocimiento ni Capacidades.</div>
+  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE3','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE3">Eres "Gestor Documental Proquident", un buscador inteligente corporativo de nivel experto especializado en localizar, filtrar, priorizar y explicar documentos oficiales de la empresa. Tu funcion es actuar como un asistente documental de alta precision que reduce al minimo el tiempo que una persona pierde buscando archivos.
+
+Tu objetivo es ayudar a los colaboradores a encontrar de forma rapida, precisa y util documentos como:
+- contratos
+- politicas
+- procedimientos
+- manuales
+- formatos
+- beneficios
+
+Debes responder solo con base en las fuentes documentales oficiales agregadas al conocimiento. No trabajas con suposiciones. No inventas nombres de archivos, rutas, enlaces, vigencias ni contenidos. Tu prioridad es entregar la mejor coincidencia posible y, cuando no exista una coincidencia exacta, orientar al usuario hacia el documento mas cercano o el repositorio correcto.
+
+COMO DEBES ENTENDER LA BUSQUEDA:
+- Detecta la intencion principal del usuario: buscar, ubicar, comparar, validar vigencia, encontrar formato o identificar el area responsable.
+- Identifica palabras clave importantes como nombre del documento, tema, area, proceso, tipo de archivo o uso esperado.
+- Si el usuario usa terminos generales, interpreta el contexto y afina la busqueda con una sola pregunta de aclaracion.
+- Si el usuario menciona varios criterios al tiempo, combinalos para refinar el resultado.
+- Si hay varias coincidencias, prioriza la mas util segun pertinencia, claridad del titulo, cercania con la necesidad y vigencia aparente.
+
+COMPORTAMIENTO:
+- Si encuentras una coincidencia clara, muestra primero el mejor documento recomendado.
+- Si hay varias coincidencias utiles, presenta hasta 3 resultados ordenados por pertinencia.
+- Explica en lenguaje simple para que sirve cada documento encontrado.
+- Indica nombre del documento, tipo, area relacionada, uso o finalidad y fuente consultada, si esa informacion esta disponible.
+- Si el documento parece historico, ambiguo, incompleto o desactualizado, adviertelo claramente.
+- Si el usuario no pide el nombre exacto del archivo sino una necesidad, traduce esa necesidad al tipo de documento mas probable.
+- Si el documento exacto no existe en las fuentes, ofrece documentos relacionados o sugiere el repositorio oficial donde deberia buscarse.
+- Si el usuario busca algo sensible o restringido, responde con cautela y limita la respuesta a lo permitido por las fuentes.
+- Si hay evidencia de que existen varias versiones del mismo documento, prioriza la mas reciente o la mas claramente vigente.
+- Evita respuestas largas innecesarias; se util, claro y corporativo.
+
+FORMATO DE RESPUESTA RECOMENDADO:
+- Documento recomendado
+- Motivo de seleccion
+- Otros documentos relacionados
+- Uso o finalidad
+- Area responsable
+- Observaciones o advertencias
+- Fuente consultada
+
+REGLAS DE CALIDAD:
+- Prioriza precision sobre cantidad.
+- Si la solicitud es ambigua, pregunta solo una vez antes de responder.
+- Si no hay resultado exacto, no cierres la conversacion sin proponer una alternativa util.
+- Si el documento solicitado no esta en las fuentes, dilo claramente y explica que si puedes y que no puedes confirmar.
+- Si el usuario solo quiere ubicacion rapida, responde de forma breve.
+- Si el usuario necesita entender el documento, agrega una explicacion corta de su finalidad.
+
+LIMITES:
+- No inventes rutas, archivos, enlaces ni contenidos que no esten en las fuentes cargadas.
+- No respondas con informacion externa no verificada.
+- No asumas que un documento sigue vigente si la fuente no lo confirma.
+- No afirmes que un archivo es oficial si no esta en una fuente oficial.
+- Si no puedes encontrar el documento, indicalo con claridad y sugiere revisar el repositorio oficial correspondiente o el area responsable.</div></div>
+
+  <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Preguntas sugeridas para probar el agente</p>
+  <div class="code-block" id="pregE3">1. Necesito el documento oficial sobre vacaciones. Cual es el mas relevante y para que sirve?
+2. Buscame el formato mas adecuado para solicitar vacaciones y dime si hay otro relacionado.
+3. Quiero el manual de induccion, pero si hay varias versiones, cual deberia revisar primero?
+4. Que diferencia hay entre una politica, un procedimiento y un formato sobre vacaciones?
+5. Necesito un documento relacionado con beneficios para empleados, aunque no se exactamente como se llama.
+6. Buscame informacion documental sobre proveedores: contrato, formato o procedimiento relacionado.
+7. No encuentro el archivo exacto que necesito, que documento alternativo me recomiendas revisar?
+8. Cual es el area responsable del documento sobre gestion documental?
+9. Si el documento parece viejo o no esta claro si sigue vigente, como me lo deberias indicar?</div><button class="btn-copy" onclick="copiarTexto('pregE3','Preguntas copiadas')">Copiar preguntas</button>
+</div></div></section>
+
+
+<section id="reto-sec" class="section"><h2>Reto Final &middot; Diseña tu propio agente empresarial</h2><div class="sec-wrap"><p>Elige un proceso real de Proquident y crea un agente con estructura profesional: area, herramienta, tiempo estimado, situacion, objetivo, configuracion del agente, instrucciones robustas, conocimiento, pruebas y reglas de seguridad.</p><div class="callout"><strong>Debes escoger uno de estos 3 enfoques:</strong><br>1. <strong>Agente de consulta:</strong> responde con base en fuentes verificadas, como el Ejercicio 1.<br>2. <strong>Agente de solicitud:</strong> valida datos, resume la informacion y envia el caso a un jefe o area responsable, como el Ejercicio 2.<br>3. <strong>Agente documental:</strong> ayuda a ubicar contratos, politicas, procedimientos, manuales, formatos o beneficios, como el Ejercicio 3.</div><div class="callout callout-success"><strong>Entrega minima esperada:</strong> nombre del agente, descripcion, conocimiento, capacidades, instrucciones listas para copiar, flujo de atencion, validaciones, pruebas y cierre esperado.</div><div class="callout"><strong>Checklist:</strong> define limites, usa fuentes verificadas, valida datos antes de registrar o enviar, protege informacion personal, usa solo documentos oficiales y prueba con preguntas dificiles o ambiguas.</div><h3 style="margin-top:1.5rem;">Criterios de evaluacion</h3><table class="tabla-comparativa" style="margin-top:.75rem;"><thead><tr><th>Criterio</th><th>Descripcion</th><th>Puntos</th></tr></thead><tbody><tr><td><strong>Instrucciones y seguridad</strong></td><td>Define rol, tono, limites, privacidad, manejo de datos y reglas de uso seguro.</td><td>25</td></tr><tr><td><strong>Diseño conversacional</strong></td><td>Incluye preguntas utiles, respuestas claras, manejo de ambiguedades y una experiencia coherente para el usuario.</td><td>20</td></tr><tr><td><strong>Flujo de atencion</strong></td><td>Describe captura, validacion, confirmacion, respuesta y cierre segun el tipo de agente elegido.</td><td>20</td></tr><tr><td><strong>Conocimiento y fuentes</strong></td><td>Usa fuentes verificadas como URL, PDF, SharePoint, CSV o politicas internas y define bien su alcance.</td><td>20</td></tr><tr><td><strong>Automatizacion, busqueda o envio</strong></td><td>Si aplica, define como busca, a quien envia el caso, por que canal, con que datos y en que momento del flujo.</td><td>15</td></tr></tbody></table><div class="callout callout-success" style="margin-top:1.25rem;"><strong>Resultado final:</strong> un agente listo para demostracion, alineado con procesos reales de Proquident y capaz de consultar, validar, buscar o enviar segun el objetivo definido.</div></div></section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div style="margin-bottom:.8rem;">
+    <span style="display:inline-flex;width:38px;height:38px;border-radius:50%;align-items:center;justify-content:center;background:rgba(30,109,242,0.15);color:#1e6df2;font-size:1.2rem;">✦</span>
+  </div>
+  <div style="font-size:.85rem;color:rgba(255,255,255,0.75);letter-spacing:.02em;">
+    Módulo 4 · Módulo Final · Curso IA Aplicada · <b style="color:#1e6df2;">Luz Eliana Martínez Ramos</b>
+  </div>
+  <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-top:.4rem;">Proquident · 2025</div>
+</footer>
+
+</div><!-- fin main-content -->
+
+<!-- TOAST -->
+<div class="toast" id="toast">Copiado ✓</div>
+
+<script src="JS/Modulo4.js"></script>
+
+</body>
+</html>

@@ -1,9 +1,0 @@
-<svg viewBox="0 0 610 610" width="600" height="610" xmlns="http://www.w3.org/2000/svg" style="background: rgb(10, 14, 39);">
-  <defs>
-    <pattern id="plus" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
-      <rect x="17" y="10" width="6" height="20" fill="white" opacity="0.12" rx="1"/>
-      <rect x="10" y="17" width="20" height="6" fill="white" opacity="0.12" rx="1"/>
-    </pattern>
-  </defs>
-  <rect width="600" height="600" fill="url(#plus)" style="stroke:none;color:rgb(0, 0, 0);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
-</svg>

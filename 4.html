@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <link rel="stylesheet" href="CSS/Modulo4.css">
+
+</head>
+<body>
+    <h2>Ejercicio 1 · Comercial · Buscador Inteligente Proquident</h2>
+<section>
+  <div class="sec-wrap">
+    <div class="ejercicio-box">
+
+      <div class="ejercicio-titulo">
+        Ejercicio 1 · Agente "Buscador Inteligente Proquident" · Nivel Avanzado (***) · 55 minutos
+      </div>
+
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">AREA</div>
+          <div class="meta-val">Comercial / Ventas</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">HERRAMIENTA</div>
+          <div class="meta-val">Copilot Studio + CSV</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">ARCHIVO</div>
+          <div class="meta-val">catalogo_productos.csv</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">TIEMPO</div>
+          <div class="meta-val">55 minutos</div>
+        </div>
+      </div>
+
+      <div class="situacion-box">
+        <p style="margin-bottom:.6rem;">
+          <strong style="color:var(--text-dark);">Situación:</strong>
+          El equipo comercial necesita consultar, filtrar y comparar productos veterinarios por categoría,
+          principio activo, especie, uso, stock y fecha de caducidad sin revisar manualmente el catálogo.
+        </p>
+        <p style="margin:0;">
+          <strong style="color:var(--text-dark);">Objetivo:</strong>
+          Configurar un agente avanzado en Copilot Studio que utilice un archivo CSV como conocimiento,
+          responda consultas comerciales reales, sugiera alternativas funcionales y emita advertencias de
+          inventario con respuestas estructuradas.
+        </p>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">
+        Configuración del agente
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:.5rem;margin-bottom:1rem;">
+        <div class="config-row">
+          <div class="config-label">
+            <span class="config-key">NOMBRE</span>
+            <span class="config-hint">Copilot Studio</span>
+          </div>
+          <div class="config-input">Buscador Inteligente Proquident</div>
+        </div>
+
+        <div class="config-row">
+          <div class="config-label">
+            <span class="config-key">DESCRIPCIÓN</span>
+            <span class="config-hint">Propósito</span>
+          </div>
+          <div class="config-input">
+            Agente comercial que consulta el catálogo de productos Proquident desde un archivo CSV
+            y responde con filtros, alternativas funcionales y advertencias de inventario.
+          </div>
+        </div>
+
+        <div class="config-row">
+          <div class="config-label">
+            <span class="config-key">CONOCIMIENTO</span>
+            <span class="config-hint">Fuente</span>
+          </div>
+          <div class="config-input">
+            Archivo <strong>catalogo_productos.csv</strong> cargado como conocimiento principal del agente.
+          </div>
+        </div>
+
+        <div class="config-row">
+          <div class="config-label">
+            <span class="config-key">CAPACIDADES</span>
+            <span class="config-hint">Qué debe hacer</span>
+          </div>
+          <div class="config-input">
+            Consultar el CSV como conocimiento semántico, filtrar por categoría, principio activo,
+            especie, uso principal, vía de administración, estado, stock y fecha de caducidad.
+            Proponer hasta 3 alternativas cuando no exista coincidencia exacta y advertir
+            sobre stock bajo o vencimiento cercano.
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin-bottom:.5rem;">
+        Paso 1: Usar el CSV de productos
+      </p>
+
+      <div class="callout">
+        El archivo <strong>catalogo_productos.csv</strong> ya está disponible. 
+        Este archivo será utilizado como única fuente de conocimiento del agente.
+      </div>
+
+      <!-- CSV SE MANTIENE IGUAL -->
+      <!-- (Se omite aquí por brevedad, puedes dejarlo exactamente igual que el original) -->
+
+      <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">
+        Paso 2: Subir el archivo como conocimiento
+      </p>
+
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Abrir el agente</div>
+            <div class="step-desc">
+              En Copilot Studio, crea o abre el agente “Buscador Inteligente Proquident”.
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Agregar conocimiento</div>
+            <div class="step-desc">
+              Accede a la sección <code>Conocimiento</code> y agrega el archivo CSV.
+            </div>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div>
+            <div class="step-title">Validar fuente</div>
+            <div class="step-desc">
+              Confirma que el archivo esté activo y disponible para respuestas generativas.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="prompt-box">
+        <div class="prompt-header">
+          <span>Indicaciones del agente (System Instructions)</span>
+          <button class="btn-copy" onclick="copiarTexto('instrE1','Indicaciones copiadas')">Copiar</button>
+        </div>
+
+        <div class="prompt-text" id="instrE1">
+Rol:
+Eres “Buscador Inteligente Proquident”, un agente comercial que consulta exclusivamente
+el archivo catalogo_productos.csv.
+
+Comportamiento:
+- Productos concretos: devuelve ficha resumida con datos del catálogo.
+- Necesidades generales: muestra hasta 3 opciones relevantes.
+- Sin coincidencia exacta: sugiere alternativas funcionales explicadas.
+- Faltan datos: realiza una sola pregunta aclaratoria.
+
+Advertencias:
+- Fecha de caducidad menor a 90 días: advertir validación de inventario.
+- Stock menor a 30 unidades: advertir disponibilidad limitada.
+
+Restricciones:
+- No inventes precios, dosis, indicaciones clínicas ni diagnósticos.
+- Usa siempre formato estructurado.
+
+Formato:
+Resultado recomendado
+Alternativas
+Advertencias
+Fuente: catalogo_productos.csv
+        </div>
+      </div>
+
+      <div class="code-block" id="topicE1">
+Topic: Búsqueda avanzada de productos
+
+Frases desencadenantes:
+- buscar producto
+- necesito un producto
+- alternativa a
+- productos de categoría
+- productos con principio activo
+
+Flujo correcto en Copilot Studio:
+1. Evaluar intención del usuario.
+2. Si falta un dato clave, solicitar solo uno.
+3. Usar respuesta generativa con conocimiento (CSV).
+4. Forzar formato estructurado de salida.
+      </div>
+
+    </div>
+  </div>
+</section>
+</body>
+</html>

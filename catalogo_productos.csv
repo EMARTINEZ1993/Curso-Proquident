@@ -1,0 +1,11 @@
+codigo,nombre,categoria,principio_activo,presentacion,uso_principal,especie,edad_minima,via_administracion,fecha_caducidad,stock,estado,observaciones
+PROQ-001,Antiparasitario Interno Proquident,Antiparasitarios,Fenbendazol,Tabletas x 10,Parasitos gastrointestinales,Caninos y felinos,8 semanas,Oral,2027-04-30,185,Disponible,Consultar peso antes de recomendar
+PROQ-002,Shampoo Medicado Dermapro,Dermatologia,Clorhexidina 2%,Frasco 250 ml,Limpieza antiseptica de piel,Caninos,12 semanas,Topica,2027-01-15,94,Disponible,Uso externo
+PROQ-003,Solucion Otica OtoClean,Higiene veterinaria,Acido lactico,Gotero 60 ml,Limpieza de oidos,Caninos y felinos,8 semanas,Topica,2026-11-20,51,Disponible,No usar con sospecha de perforacion timpanica
+PROQ-004,Antipulgas ProGuard,Antiparasitarios,Fipronil,Pipeta 1 ml,Control de pulgas y garrapatas,Caninos,10 semanas,Topica,2028-02-10,220,Disponible,Validar peso y edad
+PROQ-005,Vitamina Pet Forte,Suplementos,Complejo B + aminoacidos,Frasco 120 ml,Soporte nutricional,Multiespecie,6 semanas,Oral,2027-08-05,67,Disponible,No reemplaza dieta balanceada
+PROQ-006,Desinfectante Clinic Clean,Bioseguridad,Amonios cuaternarios,Galon 3800 ml,Desinfeccion de superficies,Clinicas veterinarias,No aplica,Ambiental,2027-12-18,130,Disponible,Diluir segun protocolo interno
+PROQ-007,Calcio Pro Lactancia,Suplementos,Calcio + vitamina D3,Frasco 500 ml,Soporte nutricional en lactancia,Hembras caninas y felinas adultas,Adulto,Oral,2026-09-30,28,Revision,Validar inventario por caducidad cercana
+PROQ-008,Cicatrizante Dermacare,Dermatologia,Oxido de zinc + alantoina,Tubo 60 g,Cuidado de piel irritada,Caninos y felinos,8 semanas,Topica,2027-06-22,76,Disponible,Uso externo
+PROQ-009,Antiseptico Oral Dentivet,Higiene oral,Clorhexidina 0.12%,Spray 100 ml,Higiene bucal,Caninos y felinos,12 semanas,Topica oral,2028-03-14,88,Disponible,Evitar contacto con ojos
+PROQ-010,Repelente Ambiental VetSafe,Bioseguridad,Citronela,Atomizador 500 ml,Control ambiental de insectos,Ambientes veterinarios,No aplica,Ambiental,2027-02-11,42,Disponible,No aplicar directamente sobre animales
