@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Modulo 5 del curso de IA para Proquident. Aprende Claude, su historia, configuracion, conectores y por que destaca en programacion.">
+    <title>Curso IA para Proquident | Modulo 5 · Claude y Productividad</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/curso.css">
+</head>
+
+<body class="page-modulo5">
+
+    <div id="progress-bar"></div>
+
+    <div id="toast">
+        <i class="fa-solid fa-check"></i>
+        <span id="toast-text">Contenido copiado</span>
+    </div>
+
+    <header class="hero" id="inicio">
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Modulo 5 · Claude aplicado al trabajo</div>
+            <h1>Claude para <span>Productividad</span> y Programacion</h1>
+            <p>
+                Conoce la historia de Claude, sus fortalezas, configuraciones, conectores y por que es una de las
+                herramientas mas valoradas para escribir, analizar y construir soluciones tecnicas.
+            </p>
+        </div>
+    </header>
+
+    <nav class="tab-nav" aria-label="Navegacion del modulo">
+        <button class="tab-btn active" type="button" onclick="showSection('inicio-sec', this)">
+            <i class="fa-solid fa-house"></i> Inicio
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('historia-sec', this)">
+            <i class="fa-solid fa-timeline"></i> Historia
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('config-sec', this)">
+            <i class="fa-solid fa-sliders"></i> Configuracion
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('conectores-sec', this)">
+            <i class="fa-solid fa-plug"></i> Conectores
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('programacion-sec', this)">
+            <i class="fa-solid fa-code"></i> Programacion
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('actividad-sec', this)">
+            <i class="fa-solid fa-flask"></i> Actividad Final
+        </button>
+    </nav>
+
+    <main>
+        <section id="inicio-sec" class="section active">
+            <div class="section-header">
+                <p class="section-label">Panorama</p>
+                <h2 class="section-title">¿Que veremos en este modulo?</h2>
+                <p class="section-desc">
+                    Este modulo introduce a Claude como herramienta de trabajo para analisis, redaccion, investigacion,
+                    conectividad con servicios externos y apoyo fuerte a tareas de desarrollo de software.
+                </p>
+            </div>
+
+            <div class="module-grid">
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-bullseye"></i> Objetivos</span>
+                    <h3>Resultados esperados</h3>
+                    <ul class="module-list">
+                        <li>Comprender el origen y la evolucion de Claude en una linea de tiempo simple.</li>
+                        <li>Identificar su especialidad en redaccion, analisis y programacion.</li>
+                        <li>Configurar estilo, habilidades y conectores con criterio practico.</li>
+                        <li>Aplicar Claude a una tarea real de Proquident usando Gmail, Calendar y Drive.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-briefcase"></i> Aplicacion</span>
+                    <h3>Escenarios empresariales</h3>
+                    <ul class="module-list">
+                        <li>Preparar correos ejecutivos con mejor tono y estructura.</li>
+                        <li>Revisar documentos largos y resumir puntos clave.</li>
+                        <li>Conectar agenda, archivos y correo para organizar tareas.</li>
+                        <li>Construir una pagina web interna o comercial para Proquident.</li>
+                    </ul>
+                </div>
+
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-lightbulb"></i> Idea clave</span>
+                    <h3>Por que Claude destaca</h3>
+                    <p>
+                        Claude suele ser valorado por su capacidad de seguir instrucciones largas, mantener coherencia
+                        en textos extensos, analizar contexto y apoyar tareas de programacion con respuestas bien
+                        organizadas.
+                    </p>
+                    <div>
+                        <span class="time-pill"><i class="fa-regular fa-clock"></i> Modulo de 60 a 75 min</span>
+                        <span class="time-pill"><i class="fa-solid fa-user-group"></i> Uso individual o grupal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="highlight" style="margin-top:24px;">
+                <strong>Objetivo del modulo:</strong> aprender a usar Claude no solo como chatbot, sino como
+                asistente de trabajo conectado a herramientas reales y como apoyo para crear soluciones digitales.
+            </div>
+        </section>
+
+        <section id="historia-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 1</p>
+                <h2 class="section-title">Breve historia de Claude</h2>
+                <p class="section-desc">
+                    Claude es la familia de modelos de IA creada por Anthropic, empresa fundada por exintegrantes de
+                    OpenAI. Su propuesta se ha enfocado en seguridad, claridad de respuesta, razonamiento y utilidad
+                    empresarial.
+                </p>
+            </div>
+
+            <div class="grid-2" style="margin-bottom:24px; align-items:start;">
+                <div class="timeline">
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2021</div>
+                        <div class="tl-text">Nace Anthropic con foco en IA mas segura, controlable y alineada.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2023</div>
+                        <div class="tl-text">Claude gana visibilidad por su capacidad para trabajar con contexto largo
+                            y redaccion robusta.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">2024</div>
+                        <div class="tl-text">La familia Claude 3 amplia su presencia en tareas de analisis, negocio y
+                            programacion.</div>
+                    </div>
+                    <div class="tl-item">
+                        <div class="tl-dot"></div>
+                        <div class="tl-year">Actualidad</div>
+                        <div class="tl-text">Claude se usa en redaccion avanzada, lectura de documentos, agentes y
+                            construccion de software.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3><i class="fa-solid fa-star"></i> ¿Cual es la especialidad de Claude?</h3>
+                    <ul class="module-list">
+                        <li>Trabajar muy bien instrucciones largas y detalladas.</li>
+                        <li>Redactar con tono profesional y buena coherencia.</li>
+                        <li>Analizar documentos, resaltar riesgos y resumir informacion.</li>
+                        <li>Ayudar a programar, depurar codigo y estructurar proyectos web.</li>
+                    </ul>
+                    <p class="tip-text">
+                        <strong>Idea practica:</strong> Claude suele ser fuerte cuando la tarea exige contexto, orden,
+                        seguimiento de reglas y respuestas bien estructuradas.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Comparacion rapida frente a otras IA</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>Claude</th>
+                                <th>Valor para Proquident</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Textos largos</strong></td>
+                                <td>Muy fuerte en lectura, resumen y reorganizacion</td>
+                                <td>Politicas, procedimientos, propuestas y documentos internos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tono profesional</strong></td>
+                                <td>Respuestas sobrias, claras y bien estructuradas</td>
+                                <td>Correos, reportes y comunicacion ejecutiva</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Programacion</strong></td>
+                                <td>Muy valorado para explicar, depurar y construir</td>
+                                <td>Landing pages, prototipos, scripts y automatizaciones</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Conectividad</strong></td>
+                                <td>Util con herramientas y flujos conectados</td>
+                                <td>Correo, archivos, agenda y seguimiento de tareas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="config-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 2</p>
+                <h2 class="section-title">Configuracion de Claude</h2>
+                <p class="section-desc">
+                    Configurar bien Claude permite que responda con el tono, profundidad y comportamiento adecuados
+                    para el trabajo diario. No es solo una preferencia visual: cambia la forma en que colabora contigo.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3><i class="fa-solid fa-gear"></i> Elementos de configuracion recomendados</h3>
+                <ul class="step-list">
+                    <li>
+                        <div class="step-num">1</div>
+                        <div class="step-text"><strong>Estilo</strong>
+                            <p>Define como quieres que responda: mas ejecutivo, tecnico, explicativo, breve o
+                                conversacional. Sirve para adaptar la salida al publico objetivo.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">2</div>
+                        <div class="step-text"><strong>Habilidades</strong>
+                            <p>Son capacidades o modos de trabajo que ayudan a Claude a enfocarse en tareas concretas
+                                como escribir, analizar, investigar, programar o planear. Sirven para orientar mejor el
+                                tipo de ayuda que esperas.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">3</div>
+                        <div class="step-text"><strong>Archivos</strong>
+                            <p>Claude puede trabajar con contenido textual, tablas, documentos y codigo. En salidas
+                                practicas suele generar borradores, tablas, resúmenes, estructuras HTML, CSS, JS,
+                                markdown, CSV y contenido reutilizable.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="step-num">4</div>
+                        <div class="step-text"><strong>Conectores</strong>
+                            <p>Conectan Claude con servicios reales como correo, calendario o almacenamiento, para
+                                consultar contexto y apoyar flujos de trabajo mas completos.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="module-grid">
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-palette"></i> Estilo</span>
+                    <h3>Como configurarlo</h3>
+                    <p>Define si quieres respuestas cortas, detalladas, estrategicas, tecnicas o orientadas a
+                        negocio. Esto mejora consistencia y reduce reprocesos.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-brain"></i> Habilidades</span>
+                    <h3>Para que sirven</h3>
+                    <p>Permiten orientar la colaboracion de Claude hacia tareas concretas: escribir mejor, analizar
+                        informacion, programar, resumir o proponer planes de accion.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-file-lines"></i> Tipos de archivos</span>
+                    <h3>Salidas frecuentes</h3>
+                    <ul class="module-list">
+                        <li>Documentos y borradores en texto</li>
+                        <li>Tablas, esquemas y checklists</li>
+                        <li>HTML, CSS, JavaScript y markdown</li>
+                        <li>CSV o estructuras listas para copiar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>Plantilla de configuracion recomendada</h3>
+                <div class="template-box" id="config-claude-template">
+                    Rol: Asistente corporativo para Proquident.
+                    <br>Estilo: claro, profesional, estructurado y orientado a accion.
+                    <br>Habilidades prioritarias: analisis, redaccion, organizacion y programacion.
+                    <br>Formato de salida: tablas, listas y pasos accionables cuando aplique.
+                    <br>Regla clave: no inventar datos ni asumir informacion no confirmada.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('config-claude-template')">
+                    <i class="fa-regular fa-copy"></i> Copiar plantilla
+                </button>
+            </div>
+        </section>
+
+        <section id="conectores-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 3</p>
+                <h2 class="section-title">Conectores: Gmail, Google Calendar y Drive</h2>
+                <p class="section-desc">
+                    Los conectores permiten que Claude trabaje con informacion operativa. Bien usados, ayudan a
+                    preparar correos, ubicar archivos, revisar compromisos y construir flujos de apoyo para el trabajo
+                    diario.
+                </p>
+            </div>
+
+            <div class="module-grid">
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-envelope"></i> Gmail</span>
+                    <h3>Para que sirve</h3>
+                    <p>Ayuda a redactar, resumir y responder correos, detectar compromisos y preparar mensajes mas
+                        claros para clientes o equipos internos.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-calendar-days"></i> Calendar</span>
+                    <h3>Para que sirve</h3>
+                    <p>Permite revisar agenda, proponer espacios, identificar reuniones pendientes y organizar
+                        compromisos de forma mas clara.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-folder-open"></i> Drive</span>
+                    <h3>Para que sirve</h3>
+                    <p>Facilita encontrar archivos, resumir documentos y relacionar el contenido de Drive con una tarea
+                        concreta del trabajo.</p>
+                </div>
+            </div>
+
+            <div class="mini-activity" style="margin-top:24px;">
+                <h3><i class="fa-solid fa-plug-circle-check"></i> Actividad practica con conectores</h3>
+                <p><strong>Objetivo:</strong> usar Claude como asistente de coordinacion para una reunion de seguimiento
+                    comercial en Proquident.</p>
+                <ol class="module-list">
+                    <li>Conecta Gmail, Google Calendar y Google Drive en Claude.</li>
+                    <li>Pidele que busque el ultimo correo relacionado con una reunion comercial o de seguimiento.</li>
+                    <li>Solicita que identifique fecha propuesta, asistentes y tareas pendientes.</li>
+                    <li>Pide que revise en Drive si existe un documento de apoyo o presentacion relacionada.</li>
+                    <li>Solicita un borrador de correo de confirmacion y una agenda breve para la reunion.</li>
+                </ol>
+
+                <div class="highlight highlight-template" id="prompt-conectores">
+                    Actua como asistente de coordinacion para Proquident. Usa Gmail, Google Calendar y Google Drive
+                    para ayudarme a preparar una reunion de seguimiento comercial. Identifica el correo mas reciente
+                    relacionado con la reunion, resume los puntos clave, revisa si existe un archivo de apoyo en Drive
+                    y propon una agenda clara con proximo paso. Finalmente redacta un correo breve de confirmacion para
+                    los asistentes.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-conectores')">
+                    <i class="fa-regular fa-copy"></i> Copiar prompt de conectores
+                </button>
+            </div>
+        </section>
+
+        <section id="programacion-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 4</p>
+                <h2 class="section-title">Claude y programacion</h2>
+                <p class="section-desc">
+                    Claude es muy usado en programacion porque suele mantener mejor el contexto de proyectos largos,
+                    explicar cambios con claridad y producir codigo entendible, especialmente en tareas de HTML, CSS,
+                    JavaScript, Python y documentacion tecnica.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>¿Por que lo usan tanto para programar?</h3>
+                <ul class="module-list">
+                    <li>Explica mejor el razonamiento detras del codigo.</li>
+                    <li>Responde bien a instrucciones largas y criterios de calidad.</li>
+                    <li>Ayuda a depurar errores y reorganizar componentes.</li>
+                    <li>Genera estructuras limpias para paginas, scripts y prototipos.</li>
+                    <li>Es util para traducir necesidades del negocio en requerimientos tecnicos.</li>
+                </ul>
+            </div>
+
+            <div class="example-card" style="margin-top:24px;">
+                <h3><i class="fa-solid fa-laptop-code"></i> Ejercicio guiado: crear una pagina web para Proquident</h3>
+                <p>
+                    La idea es usar Claude para diseñar una pagina web sencilla para Proquident. Puede ser una landing
+                    page institucional, una pagina de producto o una pagina interna de presentacion de servicios.
+                </p>
+                <div class="info-box">
+                    <h4>Brief sugerido</h4>
+                    <p>
+                        Crea una pagina web para Proquident con secciones de bienvenida, quienes somos, productos o
+                        servicios, beneficios, contacto y llamado a la accion. Debe verse profesional, limpia y
+                        confiable.
+                    </p>
+                </div>
+                <div class="template-box" id="prompt-programacion">
+                    Actua como desarrollador front-end senior. Necesito crear una pagina web moderna para Proquident.
+                    Genera una propuesta en HTML, CSS y JavaScript con enfoque corporativo. La pagina debe incluir:
+                    hero principal, seccion quienes somos, bloque de productos o servicios, beneficios, formulario de
+                    contacto y footer. Usa una apariencia profesional, clara y adaptada a escritorio y movil. Explica
+                    brevemente la estructura del proyecto y entrega el codigo listo para copiar.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-programacion')">
+                    <i class="fa-regular fa-copy"></i> Copiar prompt de programacion
+                </button>
+            </div>
+        </section>
+
+        <section id="actividad-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Cierre</p>
+                <h2 class="section-title">Actividad final del modulo</h2>
+                <p class="section-desc">
+                    En esta actividad integras el uso empresarial de Claude con conectores reales y una tarea de
+                    desarrollo aplicada a Proquident.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check"></i> Proyecto integrador</h3>
+
+                <div class="practice-step">
+                    <div class="practice-num">1</div>
+                    <div>
+                        <strong>Fase 1: Contexto y conectores</strong>
+                        <span>
+                            <br>Conecta Gmail, Calendar y Drive.
+                            <br>Usa Claude para identificar una reunion o tarea real.
+                            <br>Resume la informacion clave y define una necesidad concreta.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="practice-step">
+                    <div class="practice-num">2</div>
+                    <div>
+                        <strong>Fase 2: Planeacion</strong>
+                        <span>
+                            <br>Define el objetivo de la pagina web para Proquident.
+                            <br>Decide el publico: clientes, fuerza comercial o uso interno.
+                            <br>Redacta con Claude la estructura del sitio y el contenido base.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="practice-step">
+                    <div class="practice-num">3</div>
+                    <div>
+                        <strong>Fase 3: Construccion</strong>
+                        <span>
+                            <br>Pidele a Claude el codigo HTML, CSS y JavaScript.
+                            <br>Prueba la pagina, ajusta textos, colores y jerarquia visual.
+                            <br>Documenta que cambios hiciste y por que.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="practice-step">
+                    <div class="practice-num">4</div>
+                    <div>
+                        <strong>Fase 4: Presentacion</strong>
+                        <span>
+                            <br>Explica que conectores usaste.
+                            <br>Muestra el prompt principal.
+                            <br>Presenta la pagina final y el valor que aportaria a Proquident.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="info-box info-box-deliverable" style="margin-top:20px;">
+                    <h4>Entregables</h4>
+                    <p>
+                        1. Resumen de uso de conectores.
+                        <br>2. Prompt principal utilizado en Claude.
+                        <br>3. Pagina web funcional para Proquident.
+                        <br>4. Breve explicacion del valor de negocio de la solucion.
+                    </p>
+                </div>
+            </div>
+
+            <div class="nav-footer">
+                <button class="primary-nav" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <i class="fa-solid fa-arrow-up"></i> Volver arriba
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        © 2025 <strong>Luz Eliana</strong> · Curso complementario de IA para Proquident
+    </footer>
+
+    <script>
+        function showSection(sectionId, triggerBtn) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const clickedBtn = triggerBtn || Array.from(buttons).find(btn =>
+                (btn.getAttribute('onclick') || '').includes("'" + sectionId + "'")
+            );
+
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function copyPrompt(elementId) {
+            const source = document.getElementById(elementId);
+            if (!source) return;
+
+            const text = source.innerText.trim();
+            const showSuccess = () => showToast('Contenido copiado');
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(showSuccess).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.top = '-999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('Contenido copiado');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+
+            toastText.innerText = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('inicio-sec', document.querySelector('.tab-btn'));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -13,12 +13,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Hojas de estilo -->
-    <link rel="stylesheet" href="CSS/style.css">
-    <link rel="stylesheet" href="CSS/style1.css">
-    <link rel="stylesheet" href="CSS/style2.css">
+    <link rel="stylesheet" href="CSS/curso.css">
 </head>
 
-<body>
+<body class="page-modulo2">
 
     <!-- Barra de progreso -->
     <div id="progress-bar"></div>
@@ -270,14 +268,16 @@
                     <li>Pruébalo en ChatGPT o Gemini.</li>
                     <li>Guarda el resultado y marca qué parte del prompt tuvo más impacto.</li>
                 </ol>
-                <div class="highlight highlight-template">
-                    Actúa como [rol]. Necesito explicar [tarea o proceso] a [público]. El contexto es [situación real en Proquident]. Entrega la respuesta en [formato]. Usa un nivel [básico/intermedio/avanzado] y respeta estas restricciones: [tono, extensión, idioma, datos que no debe inventar].
-                </div>
-                <button class="copy-action" type="button" onclick="copyPrompt('prompt-modulo1-actividad')">
-                    <i class="fa-regular fa-copy"></i> Copiar plantilla
-                </button>
-                <div id="prompt-modulo1-actividad" class="hidden-prompt">
-                    Actúa como [rol]. Necesito explicar [tarea o proceso] a [público]. El contexto es [situación real en Proquident]. Entrega la respuesta en [formato]. Usa un nivel [básico/intermedio/avanzado] y respeta estas restricciones: [tono, extensión, idioma, datos que no debe inventar].
+                <div class="prompt-box">
+                    <div class="prompt-header">
+                        <span>Instrucciones del agente</span>
+                        <button class="copy-action" type="button" onclick="copyPrompt('prompt-modulo1-actividad')">
+                            <i class="fa-regular fa-copy"></i> Copiar
+                        </button>
+                    </div>
+                    <div id="prompt-modulo1-actividad" class="prompt-text">
+                        Construye tus indicaciones. Recuerda incluir: rol, fuente y tono.
+                    </div>
                 </div>
             </div>
             <br><br>
@@ -679,7 +679,7 @@
 // ============================================
 // NAVEGACIÓN ENTRE SECCIONES (MENÚ)
 // ============================================
-function showSection(sectionId) {
+function showSection(sectionId, triggerBtn) {
 
     // Ocultar todas las secciones
     const sections = document.querySelectorAll('.section');
@@ -700,7 +700,9 @@ function showSection(sectionId) {
     });
 
     // Activar el botón clickeado
-    const clickedBtn = event.currentTarget;
+    const clickedBtn = triggerBtn || Array.from(buttons).find(btn =>
+        (btn.getAttribute('onclick') || '').includes(`'${sectionId}'`)
+    );
     if (clickedBtn) {
         clickedBtn.classList.add('active');
     }
@@ -757,7 +759,7 @@ window.addEventListener('scroll', () => {
 // OPCIONAL: ACTIVAR PRIMER BOTÓN AL CARGAR
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
-    showSection('inicio-sec');
+    showSection('inicio-sec', document.querySelector('.tab-btn'));
 });
 </script>
 

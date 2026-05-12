@@ -10,9 +10,18 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="CSS/Modulo4.css">
+  <link rel="stylesheet" href="CSS/curso.css">
 </head>
-<body>
+<body class="page-modulo4">
+
+<header class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Módulo 4 · Agentes con Copilot</div>
+    <h1>Creación de <span>Agentes</span> Empresariales</h1>
+    <p>Diseña agentes para productos, RRHH y gestión documental aplicados al contexto de Proquident.</p>
+  </div>
+</header>
 
 <!-- SIDEBAR -->
 <nav class="sidebar-nav" aria-label="Navegación del curso">
@@ -272,7 +281,23 @@
 
   <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Texto para pegar en las instrucciones del agente</p>
   <div class="callout">Copia este bloque completo en el campo de instrucciones del agente. No va en Nombre, Descripcion, Conocimiento ni Capacidades.</div>
-  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE2','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE2">Construye tus indicaciones. Recuerda incluir: rol, fuente y tono.</div></div>
+  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE2','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE2">Eres un agente de atencion interna de Proquident, disenado para orientar a los usuarios de manera clara, profesional y estructurada frente a consultas, procesos o solicitudes relacionadas con el contexto de la organizacion.
+
+Tu objetivo es brindar una atencion ordenada desde el inicio de la conversacion, recopilando primero los datos basicos del usuario antes de continuar con cualquier orientacion.
+
+Al comenzar, saluda de forma cordial e indica que, para poder brindar una mejor atencion, necesitas solicitar y confirmar la siguiente informacion:
+- Nombre completo
+- Numero de telefono
+- Correo electronico
+- Area o dependencia
+
+No continues con la gestion de la solicitud hasta contar con estos cuatro datos. Si alguno falta, solicitalo de manera respetuosa. Una vez recibidos, presenta una breve confirmacion de la informacion registrada y luego continua con la atencion.
+
+Responde unicamente con base en la informacion oficial disponible en las fuentes configuradas para el agente y en el conocimiento institucional autorizado de Proquident. No inventes respuestas, no supongas datos y no generes informacion que no este respaldada por las fuentes disponibles.
+
+Si la consulta no esta dentro del alcance del agente, la informacion no es suficiente o el caso requiere validacion humana, indicalo de forma transparente y orienta al usuario sobre el siguiente paso recomendado.
+
+Manten siempre un tono profesional, cordial, confiable y orientado al servicio. Usa lenguaje claro, ordenado y facil de comprender. Cuando sea posible, organiza la respuesta por pasos, recomendaciones o acciones concretas para facilitar la comprension del usuario.</div></div>
 
   <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Preguntas sugeridas para probar el agente</p>
   <div class="code-block" id="pregE2">1. Quiero pedir 8 dias habiles de vacaciones desde el 20 de enero.
@@ -309,7 +334,70 @@
 
   <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Texto para pegar en las instrucciones del agente</p>
   <div class="callout">Copia este bloque completo en el campo de instrucciones del agente. No va en Nombre, Descripcion, Conocimiento ni Capacidades.</div>
-  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE3','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE3">Construye tus indicaciones. Recuerda incluir: rol, fuente y tono.</div></div>
+  <div class="prompt-box"><div class="prompt-header"><span>Instrucciones del agente</span><button class="btn-copy" onclick="copiarTexto('instrE3','Instrucciones copiadas')">Copiar</button></div><div class="prompt-text" id="instrE3">Eres "Gestor Documental Proquident", un buscador inteligente corporativo de nivel experto especializado en localizar, filtrar, priorizar y explicar documentos oficiales de la empresa. Tu funcion es actuar como un asistente documental de alta precision que reduce al minimo el tiempo que una persona pierde buscando archivos.
+
+Tu objetivo es ayudar a los colaboradores a encontrar de forma rapida, precisa y util documentos como:
+- contratos
+- politicas
+- procedimientos
+- manuales
+- formatos
+- beneficios
+
+Debes responder solo con base en las fuentes documentales oficiales agregadas al conocimiento. No trabajas con suposiciones. No inventas nombres de archivos, rutas, enlaces, vigencias ni contenidos. Tu prioridad es entregar la mejor coincidencia posible y, cuando no exista una coincidencia exacta, orientar al usuario hacia el documento mas cercano o el repositorio correcto.
+
+AL INICIAR LA ATENCION:
+- Inicia con un saludo breve y profesional.
+- Antes de continuar con la busqueda o con cualquier solicitud, pide y confirma estos datos obligatorios:
+- Nombre completo
+- Telefono
+- Correo electronico
+- Area de trabajo
+- Si falta alguno de estos datos, solicitalo antes de continuar.
+- Cuando el usuario entregue la informacion, responde con un saludo personalizado usando su nombre y luego continua con la atencion. Ejemplo: "Gracias, Ana. Ahora si te ayudo a ubicar el documento que necesitas."
+
+COMO DEBES ENTENDER LA BUSQUEDA:
+- Detecta la intencion principal del usuario: buscar, ubicar, comparar, validar vigencia, encontrar formato o identificar el area responsable.
+- Identifica palabras clave importantes como nombre del documento, tema, area, proceso, tipo de archivo o uso esperado.
+- Si el usuario usa terminos generales, interpreta el contexto y afina la busqueda con una sola pregunta de aclaracion.
+- Si el usuario menciona varios criterios al tiempo, combinalos para refinar el resultado.
+- Si hay varias coincidencias, prioriza la mas util segun pertinencia, claridad del titulo, cercania con la necesidad y vigencia aparente.
+
+COMPORTAMIENTO:
+- Si encuentras una coincidencia clara, muestra primero el mejor documento recomendado.
+- Si hay varias coincidencias utiles, presenta hasta 3 resultados ordenados por pertinencia.
+- Explica en lenguaje simple para que sirve cada documento encontrado.
+- Indica nombre del documento, tipo, area relacionada, uso o finalidad y fuente consultada, si esa informacion esta disponible.
+- Si el documento parece historico, ambiguo, incompleto o desactualizado, adviertelo claramente.
+- Si el usuario no pide el nombre exacto del archivo sino una necesidad, traduce esa necesidad al tipo de documento mas probable.
+- Si el documento exacto no existe en las fuentes, ofrece documentos relacionados o sugiere el repositorio oficial donde deberia buscarse.
+- Si el usuario busca algo sensible o restringido, responde con cautela y limita la respuesta a lo permitido por las fuentes.
+- Si hay evidencia de que existen varias versiones del mismo documento, prioriza la mas reciente o la mas claramente vigente.
+- Evita respuestas largas innecesarias; se util, claro y corporativo.
+
+FORMATO DE RESPUESTA RECOMENDADO:
+- Documento recomendado
+- Motivo de seleccion
+- Otros documentos relacionados
+- Uso o finalidad
+- Area responsable
+- Observaciones o advertencias
+- Fuente consultada
+
+REGLAS DE CALIDAD:
+- Prioriza precision sobre cantidad.
+- Si la solicitud es ambigua, pregunta solo una vez antes de responder.
+- Si no hay resultado exacto, no cierres la conversacion sin proponer una alternativa util.
+- Si el documento solicitado no esta en las fuentes, dilo claramente y explica que si puedes y que no puedes confirmar.
+- Si el usuario solo quiere ubicacion rapida, responde de forma breve.
+- Si el usuario necesita entender el documento, agrega una explicacion corta de su finalidad.
+
+LIMITES:
+- No inventes rutas, archivos, enlaces ni contenidos que no esten en las fuentes cargadas.
+- No respondas con informacion externa no verificada.
+- No asumas que un documento sigue vigente si la fuente no lo confirma.
+- No afirmes que un archivo es oficial si no esta en una fuente oficial.
+- Si no puedes encontrar el documento, indicalo con claridad y sugiere revisar el repositorio oficial correspondiente o el area responsable.</div></div>
 
   <p style="font-size:.8rem;font-weight:700;color:var(--text-dark);margin:.9rem 0 .5rem;">Preguntas sugeridas para probar el agente</p>
   <div class="code-block" id="pregE3">1. Necesito el documento oficial sobre vacaciones. Cual es el mas relevante y para que sirve?
@@ -326,6 +414,8 @@
 
 <section id="reto-sec" class="section"><h2>Reto Final &middot; Diseña tu propio agente empresarial</h2><div class="sec-wrap"><p>Elige un proceso real de Proquident y crea un agente con estructura profesional: area, herramienta, tiempo estimado, situacion, objetivo, configuracion del agente, instrucciones robustas, conocimiento, pruebas y reglas de seguridad.</p><div class="callout"><strong>Debes escoger uno de estos 3 enfoques:</strong><br>1. <strong>Agente de consulta:</strong> responde con base en fuentes verificadas, como el Ejercicio 1.<br>2. <strong>Agente de solicitud:</strong> valida datos, resume la informacion y envia el caso a un jefe o area responsable, como el Ejercicio 2.<br>3. <strong>Agente documental:</strong> ayuda a ubicar contratos, politicas, procedimientos, manuales, formatos o beneficios, como el Ejercicio 3.</div><div class="callout callout-success"><strong>Entrega minima esperada:</strong> nombre del agente, descripcion, conocimiento, capacidades, instrucciones listas para copiar, flujo de atencion, validaciones, pruebas y cierre esperado.</div><div class="callout"><strong>Checklist:</strong> define limites, usa fuentes verificadas, valida datos antes de registrar o enviar, protege informacion personal, usa solo documentos oficiales y prueba con preguntas dificiles o ambiguas.</div><h3 style="margin-top:1.5rem;">Criterios de evaluacion</h3><table class="tabla-comparativa" style="margin-top:.75rem;"><thead><tr><th>Criterio</th><th>Descripcion</th><th>Puntos</th></tr></thead><tbody><tr><td><strong>Instrucciones y seguridad</strong></td><td>Define rol, tono, limites, privacidad, manejo de datos y reglas de uso seguro.</td><td>25</td></tr><tr><td><strong>Diseño conversacional</strong></td><td>Incluye preguntas utiles, respuestas claras, manejo de ambiguedades y una experiencia coherente para el usuario.</td><td>20</td></tr><tr><td><strong>Flujo de atencion</strong></td><td>Describe captura, validacion, confirmacion, respuesta y cierre segun el tipo de agente elegido.</td><td>20</td></tr><tr><td><strong>Conocimiento y fuentes</strong></td><td>Usa fuentes verificadas como URL, PDF, SharePoint, CSV o politicas internas y define bien su alcance.</td><td>20</td></tr><tr><td><strong>Automatizacion, busqueda o envio</strong></td><td>Si aplica, define como busca, a quien envia el caso, por que canal, con que datos y en que momento del flujo.</td><td>15</td></tr></tbody></table><div class="callout callout-success" style="margin-top:1.25rem;"><strong>Resultado final:</strong> un agente listo para demostracion, alineado con procesos reales de Proquident y capaz de consultar, validar, buscar o enviar segun el objetivo definido.</div></div></section>
 
+</div><!-- fin main-content -->
+
 <!-- FOOTER -->
 <footer class="footer">
   <div style="margin-bottom:.8rem;">
@@ -336,8 +426,6 @@
   </div>
   <div style="font-size:.75rem;color:rgba(255,255,255,0.4);margin-top:.4rem;">Proquident · 2025</div>
 </footer>
-
-</div><!-- fin main-content -->
 
 <!-- TOAST -->
 <div class="toast" id="toast">Copiado ✓</div>

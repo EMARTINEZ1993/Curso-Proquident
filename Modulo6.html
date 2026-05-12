@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description"
+        content="Modulo 6 del curso de IA para Proquident. Aprende a crear flujos en Power Automate usando el asistente de Copilot para automatizar tareas reales del negocio.">
+    <title>Curso IA para Proquident | Modulo 6 · Power Automate con Copilot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="CSS/curso.css">
+</head>
+
+<body class="page-modulo6">
+
+    <div id="progress-bar"></div>
+
+    <div id="toast">
+        <i class="fa-solid fa-check"></i>
+        <span id="toast-text">Contenido copiado</span>
+    </div>
+
+    <header class="hero" id="inicio">
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> Modulo 6 · Power Automate con Copilot</div>
+            <h1>Crear Flujos con <span>Copilot</span> en Power Automate</h1>
+            <p>
+                Aprende a convertir instrucciones en lenguaje natural en automatizaciones reales dentro de Power
+                Automate, usando el asistente de Copilot para construir, probar y mejorar tus primeros flujos.
+            </p>
+        </div>
+    </header>
+
+    <nav class="tab-nav" aria-label="Navegacion del modulo">
+        <button class="tab-btn active" type="button" onclick="showSection('inicio-sec', this)">
+            <i class="fa-solid fa-house"></i> Inicio
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('herramientas-sec', this)">
+            <i class="fa-solid fa-toolbox"></i> Herramientas
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('sharepoint-sec', this)">
+            <i class="fa-solid fa-folder-tree"></i> SharePoint
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('flujo-sec', this)">
+            <i class="fa-solid fa-diagram-project"></i> Power Automate
+        </button>
+        
+        <button class="tab-btn" type="button" onclick="showSection('casos-sec', this)">
+            <i class="fa-solid fa-flask"></i> Ejercicio guiado
+        </button>
+
+        <button class="tab-btn" type="button" onclick="showSection('implementacion-sec', this)">
+            <i class="fa-solid fa-sitemap"></i> Publicar y mejorar
+        </button>
+        <button class="tab-btn" type="button" onclick="showSection('actividad-sec', this)">
+            <i class="fa-solid fa-flag-checkered"></i> Proyecto final
+        </button>
+    </nav>
+
+    <main>
+        <section id="inicio-sec" class="section active">
+            <div class="section-header">
+                <p class="section-label">Inicio</p>
+                <h2 class="section-title">¿Que procesos conviene automatizar?</h2>
+                <p class="section-desc">
+                    Antes de abrir Power Automate, debes escoger un proceso sencillo para que Copilot pueda convertirlo
+                    en un flujo claro. El mejor punto de partida es una tarea repetitiva y facil de describir.
+                </p>
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3><i class="fa-solid fa-circle-check"></i> Buen proceso para crear con Copilot</h3>
+                <div class="module-grid">
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-repeat"></i> Repeticion</span>
+                        <p>La tarea ocurre muchas veces por semana y sigue una estructura similar.</p>
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-comments"></i> Facil de explicar</span>
+                        <p>Puedes describirlo en una frase clara: cuando pase esto, haz esto otro.</p>
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-file-lines"></i> Datos disponibles</span>
+                        <p>La informacion de entrada existe en correos, formularios, archivos o tablas.</p>
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-stopwatch"></i> Alto consumo de tiempo</span>
+                        <p>El equipo invierte demasiados minutos en leer, clasificar, resumir o responder.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-triangle-exclamation"></i> Cuando no conviene empezar con Copilot</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Escenario</th>
+                                <th>Riesgo</th>
+                                <th>Recomendacion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Casos muy excepcionales</strong></td>
+                                <td>No compensa el esfuerzo de diseno</td>
+                                <td>Dejarlo manual o semiautomatizado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Decisiones sensibles</strong></td>
+                                <td>Error con impacto legal o humano</td>
+                                <td>Usar IA solo como apoyo, no como aprobador final</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Datos incompletos</strong></td>
+                                <td>Respuestas inconsistentes o inventadas</td>
+                                <td>Ordenar la fuente antes de automatizar</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Proceso mal definido</strong></td>
+                                <td>La IA amplifica el desorden existente</td>
+                                <td>Mapear el proceso primero y luego automatizar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>Plantilla para elegir el proceso</h3>
+                <div class="template-box" id="prompt-deteccion-inicio">
+                    Analiza este proceso de trabajo y dime si es un buen candidato para crear un flujo con Copilot en
+                    Power Automate.
+                    <br>Proceso: [describe la tarea]
+                    <br>Frecuencia: [cuantas veces ocurre]
+                    <br>Entradas: [correos, archivos, formularios, tablas]
+                    <br>Salida esperada: [alerta, registro, respuesta, clasificacion, aprobacion]
+                    <br>Riesgos: [errores posibles o datos sensibles]
+                    <br>Quiero que evalúes: si es lo bastante simple para un primer flujo con Copilot, que disparador
+                    tendria, que accion final haria y que revision humana necesita.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-deteccion-inicio')">
+                    <i class="fa-regular fa-copy"></i> Copiar plantilla
+                </button>
+            </div>
+        </section>
+
+        <section id="sharepoint-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 2</p>
+                <h2 class="section-title">SharePoint para preparar la automatizacion</h2>
+                <p class="section-desc">
+                    Antes de crear el flujo, conviene dejar listo el lugar donde vas a guardar la informacion. En este
+                    modulo usaremos SharePoint como espacio de trabajo para almacenar un archivo Excel que luego podra
+                    ser usado por Power Automate.
+                </p>
+
+                
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3>¿Que es SharePoint?</h3>
+                <p>
+                    SharePoint es la plataforma de Microsoft para guardar, organizar y compartir archivos, listas y
+                    espacios de trabajo en equipo. A diferencia de una carpeta personal, SharePoint esta pensado para
+                    trabajar con un sitio compartido, donde varias personas o procesos pueden acceder a la misma
+                    informacion.
+                </p>
+                <img src="https://licendi.com/media/magefan_blog/2022/07/gestor-documental-para-empresas-1.jpg" alt="Referencia de la tabla Excel en SharePoint"
+                    class="reference-shot"
+                    style="display:block;width:100%;max-width:680px; height:400px; margin:18px auto 0;border-radius:16px;border:1px solid var(--border);box-shadow:0 12px 32px rgba(15,23,42,.08);background:#fff;">
+            </div>
+
+            <div class="card" style="margin-bottom:24px;">
+                <h3>Diferencia entre SharePoint y OneDrive</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Herramienta</th>
+                                <th>Para que sirve</th>
+                                <th>Uso recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>OneDrive</strong></td>
+                                <td>Almacenamiento personal</td>
+                                <td>Archivos propios, borradores y trabajo individual</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SharePoint</strong></td>
+                                <td>Espacios compartidos del equipo</td>
+                                <td>Carpetas, listas y archivos que deben usar varias personas o automatizaciones</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Practica guiada: preparar el archivo base en SharePoint</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Ingresar a SharePoint:</strong> abre Microsoft 365 y entra a
+                                    <code>SharePoint</code> desde el menu de aplicaciones o portal corporativo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Buscar tu espacio de trabajo:</strong> ubica el sitio donde vas a guardar
+                                    documentos del equipo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Crear la carpeta:</strong> en la biblioteca de documentos crea
+                                    <code>Automatizaciones</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Crear el archivo Excel:</strong> dentro de <code>Automatizaciones</code>
+                                    crea <code>Automatizacion email</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td><strong>Crear las columnas:</strong> agrega
+                                    <code>Fecha</code>, <code>Remitente</code>, <code>Asunto</code>,
+                                    <code>Contenido</code>, <code>Archivo_Adjunto</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td><strong>Dar formato de tabla:</strong> selecciona el rango y aplica
+                                    <code>Dar formato como tabla</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>7</strong></td>
+                                <td><strong>Asignar nombre a la tabla:</strong> usa <code>Tabla_email</code>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    
+                </div>
+                <img src="Img/excel.png" alt="Referencia de la tabla Excel en SharePoint"
+                    class="reference-shot"
+                    style="display:block;width:100%;max-width:980px;margin:18px auto 0;border-radius:16px;border:1px solid var(--border);box-shadow:0 12px 32px rgba(15,23,42,.08);background:#fff;">
+            </div>
+
+            <div class="card" style="margin-top:24px;">
+                <h3>Estructura del archivo Excel</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Remitente</th>
+                                <th>Asunto</th>
+                                <th>Contenido</th>
+                                <th>Archivo_Adjunto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2026-05-11</td>
+                                <td>usuario@empresa.com</td>
+                                <td>Correo de prueba</td>
+                                <td>Mensaje de validacion para automatizacion</td>
+                                <td>FALSO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>Checklist final de la practica</h3>
+                <div class="template-box" id="prompt-sharepoint">
+                    1. Entrar al sitio de SharePoint.
+                    <br>2. Buscar el espacio de trabajo correcto.
+                    <br>3. Crear carpeta: Automatizaciones.
+                    <br>4. Crear archivo: Automatizacion email.
+                    <br>5. Agregar columnas: Fecha, Remitente, Asunto, Contenido, Archivo_Adjunto.
+                    <br>6. Convertir el rango en tabla.
+                    <br>7. Nombrar la tabla: Tabla_email.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-sharepoint')">
+                    <i class="fa-regular fa-copy"></i> Copiar checklist
+                </button>
+            </div>
+        </section>
+
+        <section id="flujo-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 3</p>
+                <h2 class="section-title">¿Que es Power Automate?</h2>
+                <p class="section-desc">
+                    Power Automate es la herramienta de Microsoft que permite crear flujos de trabajo automaticos entre
+                    aplicaciones y servicios. Sirve para que una accion dispare otra, por ejemplo: cuando llegue un
+                    correo, guardar datos en Excel, enviar una notificacion o registrar informacion en SharePoint. En
+                    este modulo lo usaras junto con Copilot para crear automatizaciones de forma mas rapida.
+                </p>
+
+                              <iframe
+                    width="560"
+                    height="315"
+                    src="https://www.youtube.com/embed/wXEsDTzqS7c?si=oHMPwgQpZH1LxSzb"
+                    title="Video de referencia de Power Automate"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                    style="display:block;width:100%;max-width:980px;margin:18px auto 0;border-radius:16px;border:1px solid var(--border);box-shadow:0 12px 32px rgba(15,23,42,.08);background:#fff;"></iframe>
+
+            </div>
+
+            <div class="card">
+                <h3>1. Entrar y abrir el asistente</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Abre la plataforma:</strong> entra a <a href="https://make.powerautomate.com"
+                                        target="_blank" style="color:var(--green);font-weight:600;">make.powerautomate.com</a>
+                                    con tu cuenta Microsoft 365.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Inicia sesion:</strong> usa el mismo correo con el que entras a Outlook,
+                                    Teams o Copilot.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Ubica el menu izquierdo:</strong> revisa <code>Inicio</code>,
+                                    <code>Crear</code>, <code>Mis flujos</code> y <code>Plantillas</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Busca la opcion con Copilot:</strong> usa la experiencia para describir el
+                                    flujo con lenguaje natural.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td><strong>Prepara tu instruccion:</strong> define evento, condicion y accion final en
+                                    una sola frase clara.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+  
+            </div>
+
+            <div class="card" style="margin-top:24px;">
+                <h3>2. Como hablarle a Copilot para que entienda el flujo</h3>
+                <div class="module-grid">
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-bolt"></i> Evento</span>
+                        <h3>Que pasa primero</h3>
+                        <p>Ejemplo: cuando llegue un correo nuevo a Outlook.</p>
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-code-branch"></i> Regla</span>
+                        <h3>Que debe revisar</h3>
+                        <p>Ejemplo: solo si el asunto contiene la palabra pedido.</p>
+                    </div>
+                    <div class="module-card">
+                        <span class="module-tag"><i class="fa-solid fa-paper-plane"></i> Resultado</span>
+                        <h3>Que debe hacer</h3>
+                        <p>Ejemplo: enviar una notificacion al responsable comercial.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>3. Texto base para pedirle el flujo a Copilot</h3>
+                <div class="template-box" id="prompt-flujo">
+                    Cuando llegue un correo nuevo a Outlook, revisa si el asunto contiene la palabra "pedido". Si la
+                    contiene, envia un correo de aviso al responsable comercial con el remitente, el asunto y la fecha
+                    del mensaje. Si no la contiene, no hagas nada.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-flujo')">
+                    <i class="fa-regular fa-copy"></i> Copiar instruccion
+                </button>
+            </div>
+
+            <div class="card" style="margin-top:24px;">
+                <h3>4. Que debes revisar despues de que Copilot lo genere</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Revision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Disparador:</strong> confirma que Copilot haya usado Outlook y no otro
+                                    origen incorrecto.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Condicion:</strong> revisa que la palabra clave se este buscando en el
+                                    asunto y no en otro campo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Accion:</strong> valida a quien llega el correo de aviso y que datos
+                                    incluye.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Conexiones:</strong> si Power Automate lo pide, autoriza Outlook o los
+                                    conectores necesarios antes de guardar.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="casos-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 3</p>
+                <h2 class="section-title">Primer ejercicio con Copilot</h2>
+                <p class="section-desc">
+                    En este ejercicio vas a crear una automatizacion que se active cuando llegue un correo de un
+                    remitente especifico. Para hacer la prueba, puedes usar tu propio correo y asi validar todo el flujo
+                    de principio a fin.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Objetivo del ejercicio</h3>
+                <p>
+                    Crear con Copilot un flujo en Power Automate que detecte correos de un remitente especifico y
+                    registre automaticamente en el archivo de Excel de SharePoint la fecha, el remitente, el asunto, el
+                    contenido del mensaje y si tiene archivo adjunto.
+                </p>
+
+                <div class="info-box" style="margin-top:20px;">
+                    <h4>Lo que vas a necesitar</h4>
+                    <p>
+                        1. Cuenta Microsoft 365 con acceso a Outlook, SharePoint y Power Automate.
+                        <br>2. La carpeta <code>Automatizaciones</code> y el archivo <code>Automatizacion email</code>
+                        listos en SharePoint.
+                        <br>3. La tabla <code>Tabla_email</code> creada dentro del Excel.
+                        <br>4. Un correo de prueba enviado desde tu mismo correo para validar el flujo.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:24px;">
+                <h3>Construccion paso a paso con Copilot</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Abre el asistente:</strong> entra a la experiencia de creacion con
+                                    Copilot o al cuadro para describir tu flujo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Pega la instruccion:</strong> pide un flujo que se active cuando llegue un
+                                    correo de un remitente especifico y lo registre en Excel de SharePoint.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Revisa la estructura propuesta:</strong> valida que Copilot use Outlook como
+                                    disparador, una condicion por remitente y una accion para agregar una fila en
+                                    <code>Tabla_email</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Conecta SharePoint y Excel:</strong> selecciona el sitio, la carpeta, el
+                                    archivo <code>Automatizacion email</code> y la tabla <code>Tabla_email</code>.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td><strong>Mapea las columnas:</strong> asigna <code>Fecha</code>,
+                                    <code>Remitente</code>, <code>Asunto</code>, <code>Contenido</code> y
+                                    <code>Archivo_Adjunto</code> con los datos del correo.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td><strong>Guardar y probar:</strong> guarda el flujo y enviate un correo desde tu
+                                    mismo correo para verificar que la informacion se agregue al Excel.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card" style="margin-top:24px;">
+                <h3>Instruccion completa para Copilot</h3>
+                <div class="template-box" id="prompt-caso">
+                    Crea un flujo en Power Automate que se active cuando llegue un correo nuevo a Outlook enviado por un
+                    remitente especifico. Para la prueba usare mi mismo correo como remitente. Cuando llegue ese correo,
+                    agrega una nueva fila en el archivo de Excel "Automatizacion email" guardado en SharePoint, dentro
+                    de la tabla "Tabla_email". Debes registrar estos campos: Fecha, Remitente, Asunto, Contenido y
+                    Archivo_Adjunto. En Archivo_Adjunto debes guardar SI o NO segun el correo tenga o no archivos
+                    adjuntos.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-caso')">
+                    <i class="fa-regular fa-copy"></i> Copiar instruccion para Copilot
+                </button>
+            </div>
+
+            <div class="info-box" style="margin-top:24px;">
+                <h4>Como saber si Copilot lo hizo bien</h4>
+                <p>
+                    Si al enviarte un correo desde tu mismo correo ves una nueva fila en
+                    <code>Tabla_email</code> con la fecha, remitente, asunto, contenido y el valor de
+                    <code>Archivo_Adjunto</code>, entonces el flujo esta funcionando correctamente.
+                </p>
+            </div>
+        </section>
+
+        <section id="herramientas-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 4</p>
+                <h2 class="section-title">Herramientas clave del flujo</h2>
+                <p class="section-desc">
+                    En este modulo la herramienta principal es Power Automate con Copilot. Las demas herramientas solo
+                    aparecen como parte del flujo o como siguiente etapa de madurez.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Que hace cada herramienta aqui</h3>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Herramienta</th>
+                                <th>Fortaleza</th>
+                                <th>Uso recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Copilot en Power Automate</strong></td>
+                                <td>Convierte lenguaje natural en estructura de flujo</td>
+                                <td>Describir automatizaciones y generar la primera version del flujo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Outlook</strong></td>
+                                <td>Fuente de entrada o canal de salida</td>
+                                <td>Detectar correos nuevos y enviar avisos automáticos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Power Automate</strong></td>
+                                <td>Ejecutar disparadores, condiciones y acciones</td>
+                                <td>Guardar, probar y publicar el flujo generado por Copilot</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Claude</strong></td>
+                                <td>Ayudar a mejorar la logica del flujo</td>
+                                <td>Refinar condiciones, detectar escenarios faltantes y proponer mejoras para la automatizacion</td>
+                            </tr>
+                            <tr>
+                                <td><strong>SharePoint</strong></td>
+                                <td>Repositorio y origen de documentos/listas</td>
+                                <td>Disparar flujos por archivos nuevos, actualizar listas y centralizar trazabilidad</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Teams o Excel</strong></td>
+                                <td>Extensiones utiles para una segunda version</td>
+                                <td>Notificaciones adicionales, registro y seguimiento del flujo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="module-grid" style="margin-top:24px;">
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-sparkles"></i> Copilot</span>
+                    <h3>Sirve para arrancar rapido</h3>
+                    <p>Te ayuda a pasar de una idea escrita a una propuesta de flujo lista para revisar.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-eye"></i> Revision</span>
+                    <h3>No aceptes todo sin mirar</h3>
+                    <p>Copilot puede proponer bien la estructura, pero tu debes validar si realmente cumple el objetivo.</p>
+                </div>
+                <div class="module-card">
+                    <span class="module-tag"><i class="fa-solid fa-arrow-up-right-dots"></i> Escalado</span>
+                    <h3>Empieza simple y luego mejora</h3>
+                    <p>Primero crea la alerta basica; luego agrega Teams, Excel, aprobaciones o resumen con IA.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="implementacion-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Bloque 5</p>
+                <h2 class="section-title">Probar, publicar y mejorar lo que Copilot propuso</h2>
+                <p class="section-desc">
+                    Despues de que Copilot genere el flujo, tu trabajo es validar que la automatizacion tenga sentido,
+                    que las conexiones funcionen y que el resultado sea util en la practica.
+                </p>
+            </div>
+
+            <div class="highlight" style="margin-bottom:24px;">
+                <strong>Idea clave:</strong> Copilot acelera el borrador del flujo; la calidad final sale de tu
+                revision, tus pruebas y tus ajustes.
+            </div>
+
+            <div class="card">
+                <h3>Checklist minimo antes de usarlo en serio</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Revision</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Prueba el escenario correcto y el incorrecto:</strong> valida un caso que si
+                                    debe activar el flujo y otro que no.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Revisa el historial de ejecucion:</strong> en <code>Mis flujos</code>
+                                    confirma si corrio correctamente o si fallo alguna accion.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Ajusta lo que Copilot entendio mal:</strong> cambia palabra clave, filtros o
+                                    condiciones si se activa de mas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Documenta la instruccion usada:</strong> guarda el texto que le diste a
+                                    Copilot y los cambios manuales.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td><strong>Mejora en la segunda version:</strong> luego puedes agregar Excel, Teams,
+                                    aprobaciones o IA.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>Como pedir una segunda version a Copilot</h3>
+                <div class="template-box" id="prompt-implementacion">
+                    Mejora este flujo de Power Automate que ya detecta correos con la palabra "pedido". Quiero que,
+                    ademas de enviar el correo de aviso, registre el caso en Excel y envie una notificacion por Teams.
+                    Mantén la condicion actual sobre el asunto y no elimines el correo de alerta.
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-implementacion')">
+                    <i class="fa-regular fa-copy"></i> Copiar solicitud
+                </button>
+            </div>
+        </section>
+
+        <section id="actividad-sec" class="section">
+            <div class="section-header">
+                <p class="section-label">Cierre</p>
+                <h2 class="section-title">Proyecto final del curso</h2>
+                <p class="section-desc">
+                    En esta actividad cierras el curso creando un flujo con Copilot en Power Automate para un proceso
+                    real de Proquident.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-list-check"></i> Reto integrador</h3>
+                <div class="table-responsive" style="margin-top:10px;">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th style="width:86px;">Paso</th>
+                                <th>Actividad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1</strong></td>
+                                <td><strong>Elegir un proceso real:</strong> selecciona una tarea repetitiva de tu
+                                    area como correos, consultas o clasificaciones.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2</strong></td>
+                                <td><strong>Describir el flujo en lenguaje natural:</strong> redacta una instruccion
+                                    clara para Copilot con evento, condicion, accion y resultado esperado.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3</strong></td>
+                                <td><strong>Generar la primera version con Copilot:</strong> deja que el asistente
+                                    proponga el flujo y luego revisa si entendio bien lo que necesitas.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4</strong></td>
+                                <td><strong>Ajustar el flujo:</strong> corrige destinatarios, filtros, condiciones y
+                                    contenido de las acciones antes de guardar.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5</strong></td>
+                                <td><strong>Implementar o prototipar:</strong> prueba la automatizacion con casos reales
+                                    o de simulacion y valida que funcione.</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6</strong></td>
+                                <td><strong>Presentar la propuesta:</strong> muestra la instruccion usada, el flujo
+                                    resultante, la prueba y el valor para el area.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="info-box info-box-deliverable" style="margin-top:20px;">
+                    <h4>Entregables</h4>
+                    <p>
+                        1. Nombre del proceso y problema actual.
+                        <br>2. Instruccion escrita para Copilot.
+                        <br>3. Flujo generado y ajustes realizados.
+                        <br>4. Evidencia de prueba o simulacion.
+                        <br>5. Valor esperado para Proquident.
+                    </p>
+                </div>
+            </div>
+
+            <div class="template-block" style="margin-top:24px;">
+                <h3>Prompt base para el proyecto final</h3>
+                <div class="template-box" id="prompt-proyecto-final">
+                    Crea un flujo en Power Automate para este proceso de Proquident: [describe el proceso]. El flujo
+                    debe activarse cuando ocurra [evento], revisar [condicion] y ejecutar [accion]. Si aplica, agrega
+                    una notificacion adicional o un registro. El objetivo es [resultado esperado].
+                </div>
+                <button class="copy-action" type="button" onclick="copyPrompt('prompt-proyecto-final')">
+                    <i class="fa-regular fa-copy"></i> Copiar prompt final
+                </button>
+            </div>
+
+            <div class="nav-footer">
+                <button class="primary-nav" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+                    <i class="fa-solid fa-arrow-up"></i> Volver arriba
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        © 2025 <strong>Luz Eliana</strong> · Curso complementario de IA para Proquident
+    </footer>
+
+    <script>
+        function showSection(sectionId, triggerBtn) {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const activeSection = document.getElementById(sectionId);
+            if (activeSection) {
+                activeSection.classList.add('active');
+            }
+
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const clickedBtn = triggerBtn || Array.from(buttons).find(btn =>
+                (btn.getAttribute('onclick') || '').includes("'" + sectionId + "'")
+            );
+
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+            }
+
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function copyPrompt(elementId) {
+            const source = document.getElementById(elementId);
+            if (!source) return;
+
+            const text = source.innerText.trim();
+            const showSuccess = () => showToast('Contenido copiado');
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(showSuccess).catch(() => fallbackCopy(text));
+            } else {
+                fallbackCopy(text);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'fixed';
+            textarea.style.top = '-999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            showToast('Contenido copiado');
+        }
+
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toast-text');
+
+            toastText.innerText = message;
+            toast.classList.add('show');
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+            document.getElementById('progress-bar').style.width = progress + '%';
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('inicio-sec', document.querySelector('.tab-btn'));
+        });
+    </script>
+
+</body>
+
+</html>
